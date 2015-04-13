@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
+		9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C32EA201ADB74E40004F011 /* ARFBookCell.xib */; };
+		9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */; };
+		9C8813741ADB613800AFFD15 /* ARFBookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813731ADB613800AFFD15 /* ARFBookParser.m */; };
+		9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */; };
+		9C88137E1ADB738000AFFD15 /* ARFBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88137C1ADB738000AFFD15 /* ARFBooksViewController.m */; };
+		9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C88137D1ADB738000AFFD15 /* ARFBooksViewController.xib */; };
 		9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F208E1ADB2CFB00A0A61E /* main.m */; };
 		9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */; };
-		9C9F20951ADB2CFC00A0A61E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20941ADB2CFC00A0A61E /* ViewController.m */; };
-		9C9F20981ADB2CFC00A0A61E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F20961ADB2CFC00A0A61E /* Main.storyboard */; };
 		9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F20991ADB2CFC00A0A61E /* Images.xcassets */; };
 		9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */; };
 		9C9F20A91ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20A81ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m */; };
@@ -46,14 +51,24 @@
 /* Begin PBXFileReference section */
 		4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		89B19A4F238328E9A6F4951C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookCell.h; sourceTree = "<group>"; };
+		9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookCell.m; sourceTree = "<group>"; };
+		9C32EA201ADB74E40004F011 /* ARFBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookCell.xib; sourceTree = "<group>"; };
+		9C88136E1ADB5F9500AFFD15 /* ARFBookApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookApiClient.h; sourceTree = "<group>"; };
+		9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookApiClient.m; sourceTree = "<group>"; };
+		9C8813721ADB613800AFFD15 /* ARFBookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookParser.h; sourceTree = "<group>"; };
+		9C8813731ADB613800AFFD15 /* ARFBookParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookParser.m; sourceTree = "<group>"; };
+		9C8813751ADB643E00AFFD15 /* ARFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFConstants.h; sourceTree = "<group>"; };
+		9C8813761ADB725600AFFD15 /* ARFBaseFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBaseFetchedResultsController.h; sourceTree = "<group>"; };
+		9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBaseFetchedResultsController.m; sourceTree = "<group>"; };
+		9C88137B1ADB738000AFFD15 /* ARFBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBooksViewController.h; sourceTree = "<group>"; };
+		9C88137C1ADB738000AFFD15 /* ARFBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBooksViewController.m; sourceTree = "<group>"; };
+		9C88137D1ADB738000AFFD15 /* ARFBooksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBooksViewController.xib; sourceTree = "<group>"; };
 		9C9F20891ADB2CFB00A0A61E /* HackerBooksAvanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooksAvanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9F208D1ADB2CFB00A0A61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9F208E1ADB2CFB00A0A61E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C9F20901ADB2CFB00A0A61E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9C9F20931ADB2CFC00A0A61E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9C9F20941ADB2CFC00A0A61E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9C9F20971ADB2CFC00A0A61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C9F20991ADB2CFC00A0A61E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C9F209C1ADB2CFC00A0A61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9C9F20A21ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerBooksAvanzadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +144,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9C32EA231ADB74ED0004F011 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */,
+				9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */,
+				9C32EA201ADB74E40004F011 /* ARFBookCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9C8813711ADB5FA100AFFD15 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9C88136E1ADB5F9500AFFD15 /* ARFBookApiClient.h */,
+				9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		9C8813791ADB731200AFFD15 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9C8813751ADB643E00AFFD15 /* ARFConstants.h */,
+				9C88137A1ADB731E00AFFD15 /* Base Fetched Results Controller */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		9C88137A1ADB731E00AFFD15 /* Base Fetched Results Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C8813761ADB725600AFFD15 /* ARFBaseFetchedResultsController.h */,
+				9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */,
+			);
+			name = "Base Fetched Results Controller";
+			sourceTree = "<group>";
+		};
+		9C8813801ADB738900AFFD15 /* BooksVC */ = {
+			isa = PBXGroup;
+			children = (
+				9C88137B1ADB738000AFFD15 /* ARFBooksViewController.h */,
+				9C88137C1ADB738000AFFD15 /* ARFBooksViewController.m */,
+				9C88137D1ADB738000AFFD15 /* ARFBooksViewController.xib */,
+				9C32EA231ADB74ED0004F011 /* Cell */,
+			);
+			name = BooksVC;
+			sourceTree = "<group>";
+		};
+		9C8813811ADB739500AFFD15 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C8813801ADB738900AFFD15 /* BooksVC */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		9C9F20801ADB2CFB00A0A61E = {
 			isa = PBXGroup;
 			children = (
@@ -152,12 +223,12 @@
 		9C9F208B1ADB2CFB00A0A61E /* HackerBooksAvanzado */ = {
 			isa = PBXGroup;
 			children = (
+				9C8813791ADB731200AFFD15 /* Utils */,
+				9C8813711ADB5FA100AFFD15 /* Network */,
 				9C9F20D51ADB51B900A0A61E /* Core Data */,
+				9C8813811ADB739500AFFD15 /* Controllers */,
 				9C9F20901ADB2CFB00A0A61E /* AppDelegate.h */,
 				9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */,
-				9C9F20931ADB2CFC00A0A61E /* ViewController.h */,
-				9C9F20941ADB2CFC00A0A61E /* ViewController.m */,
-				9C9F20961ADB2CFC00A0A61E /* Main.storyboard */,
 				9C9F20991ADB2CFC00A0A61E /* Images.xcassets */,
 				9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */,
 				9C9F208C1ADB2CFB00A0A61E /* Supporting Files */,
@@ -219,6 +290,8 @@
 				9C9F20EC1ADB51F300A0A61E /* Human Files */,
 				9C9F20D41ADB51A500A0A61E /* Machine Files */,
 				9C9F20BC1ADB4C0500A0A61E /* Model.xcdatamodeld */,
+				9C8813721ADB613800AFFD15 /* ARFBookParser.h */,
+				9C8813731ADB613800AFFD15 /* ARFBookParser.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -335,9 +408,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C9F20981ADB2CFC00A0A61E /* Main.storyboard in Resources */,
+				9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */,
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
+				9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,19 +464,23 @@
 			files = (
 				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
 				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
-				9C9F20951ADB2CFC00A0A61E /* ViewController.m in Sources */,
 				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
 				9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */,
 				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
+				9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */,
 				9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */,
 				9C9F20DF1ADB51DC00A0A61E /* ARFBook.m in Sources */,
+				9C8813741ADB613800AFFD15 /* ARFBookParser.m in Sources */,
+				9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */,
+				9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */,
 				9C9F20BE1ADB4C0500A0A61E /* Model.xcdatamodeld in Sources */,
 				9C9F20D11ADB518A00A0A61E /* _ARFPdf.m in Sources */,
 				9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */,
 				9C9F20E81ADB51E800A0A61E /* ARFLocation.m in Sources */,
 				9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */,
+				9C88137E1ADB738000AFFD15 /* ARFBooksViewController.m in Sources */,
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
 				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
@@ -429,14 +507,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9C9F20961ADB2CFC00A0A61E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C9F20971ADB2CFC00A0A61E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

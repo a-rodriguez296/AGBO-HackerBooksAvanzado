@@ -12,14 +12,15 @@
 
 @implementation ARFBook
 
-+(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList photo:(NSString *) photoURL{
++(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList aPhotoURL:(NSString *) photoURL aPDFURL:(NSString *) pdfURL{
     
     ARFBook *book = [ARFBook MR_createEntity];
     [book setTitle:title];
     [book setFavoriteValue:NO];
     [book setCreationDate:[NSDate date]];
     [book setModificationDate:[NSDate date]];
-    
+    [book setPhotoURL:photoURL];
+    [book setPdfURL:pdfURL];
     
     //Relación obligatoria a ARFPhoto
     book.photo =[ARFPhoto MR_createEntity];

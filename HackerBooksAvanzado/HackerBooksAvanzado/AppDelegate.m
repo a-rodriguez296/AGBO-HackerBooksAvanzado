@@ -8,6 +8,12 @@
 
 #import "AppDelegate.h"
 #import "CoreData+MagicalRecord.h"
+#import "ARFConstants.h"
+#import "ARFBook.h"
+#import "ARFBooksViewController.h"
+
+//Borrar
+#import "ARFBookApiClient.h"
 
 @interface AppDelegate ()
 
@@ -18,10 +24,41 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Setup Magical Record
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"HackerBooks"];
+    
+    
+    
+    //Verificación si hay data en core data
+    
+    if ([ARFBook  MR_countOfEntities]) {
+        
+        //Hay data
+        
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBook entityName]];
+        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFBookAttributes.title ascending:YES];
+        [req setSortDescriptors:@[sDescriptor]];
+        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:nil cacheName:nil];
+        ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:fRC];
+        
+        self.window.rootViewController = booksVC;
+        
+    }
+    else{
+        //No hay datos
+    }
+    
+//    [ARFBookApiClient requestBooksWithURL:kBooksUrl withSuccess:^(NSArray *books) {
+//        
+//    } withFailure:^(NSString *error) {
+//        
+//    }];
+    
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

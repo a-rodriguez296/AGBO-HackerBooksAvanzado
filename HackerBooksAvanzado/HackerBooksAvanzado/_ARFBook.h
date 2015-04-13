@@ -8,6 +8,8 @@ extern const struct ARFBookAttributes {
 	__unsafe_unretained NSString *creationDate;
 	__unsafe_unretained NSString *favorite;
 	__unsafe_unretained NSString *modificationDate;
+	__unsafe_unretained NSString *pdfURL;
+	__unsafe_unretained NSString *photoURL;
 	__unsafe_unretained NSString *title;
 } ARFBookAttributes;
 
@@ -47,6 +49,14 @@ extern const struct ARFBookRelationships {
 @property (nonatomic, strong) NSDate* modificationDate;
 
 //- (BOOL)validateModificationDate:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* pdfURL;
+
+//- (BOOL)validatePdfURL:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* photoURL;
+
+//- (BOOL)validatePhotoURL:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* title;
 
@@ -99,6 +109,12 @@ extern const struct ARFBookRelationships {
 
 - (NSDate*)primitiveModificationDate;
 - (void)setPrimitiveModificationDate:(NSDate*)value;
+
+- (NSString*)primitivePdfURL;
+- (void)setPrimitivePdfURL:(NSString*)value;
+
+- (NSString*)primitivePhotoURL;
+- (void)setPrimitivePhotoURL:(NSString*)value;
 
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;

@@ -7,6 +7,8 @@ const struct ARFBookAttributes ARFBookAttributes = {
 	.creationDate = @"creationDate",
 	.favorite = @"favorite",
 	.modificationDate = @"modificationDate",
+	.pdfURL = @"pdfURL",
+	.photoURL = @"photoURL",
 	.title = @"title",
 };
 
@@ -75,6 +77,10 @@ const struct ARFBookRelationships ARFBookRelationships = {
 }
 
 @dynamic modificationDate;
+
+@dynamic pdfURL;
+
+@dynamic photoURL;
 
 @dynamic title;
 
