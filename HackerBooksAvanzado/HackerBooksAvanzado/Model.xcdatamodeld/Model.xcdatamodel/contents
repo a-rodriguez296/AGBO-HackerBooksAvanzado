@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Annotation" representedClassName="ARFAnnotation" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="anotations" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="annotations" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Author" representedClassName="ARFAuthor" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="authors" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Book" representedClassName="ARFBook" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" syncable="YES"/>
+        <attribute name="favorite" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="modificationDate" attributeType="Date" syncable="YES"/>
+        <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="authors" toMany="YES" deletionRule="Cascade" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
+        <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pdf" inverseName="book" inverseEntity="Pdf" syncable="YES"/>
+        <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="book" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="tags" toMany="YES" deletionRule="Cascade" destinationEntity="Tag" inverseName="books" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="ARFLocation" syncable="YES">
+        <attribute name="latitude" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="location" inverseEntity="Annotation" syncable="YES"/>
+    </entity>
+    <entity name="Pdf" representedClassName="ARFPdf" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="pdf" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="ARFPhoto" syncable="YES">
+        <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="anotations" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="image" inverseEntity="Annotation" syncable="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="photo" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName="ARFTag" syncable="YES">
+        <attribute name="tagName" attributeType="String" syncable="YES"/>
+        <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Author" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Book" positionX="-54" positionY="-9" width="128" height="165"/>
+        <element name="Photo" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Tag" positionX="-18" positionY="27" width="128" height="75"/>
+        <element name="Annotation" positionX="-9" positionY="81" width="128" height="90"/>
+        <element name="Location" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="Pdf" positionX="27" positionY="117" width="128" height="75"/>
+    </elements>
+</model>

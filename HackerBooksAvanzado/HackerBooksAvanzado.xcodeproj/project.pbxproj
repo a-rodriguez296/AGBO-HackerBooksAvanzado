@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F208E1ADB2CFB00A0A61E /* main.m */; };
+		9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */; };
+		9C9F20951ADB2CFC00A0A61E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20941ADB2CFC00A0A61E /* ViewController.m */; };
+		9C9F20981ADB2CFC00A0A61E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F20961ADB2CFC00A0A61E /* Main.storyboard */; };
+		9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F20991ADB2CFC00A0A61E /* Images.xcassets */; };
+		9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */; };
+		9C9F20A91ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20A81ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m */; };
+		9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20B51ADB4AB000A0A61E /* ARFKVOBaseClass.m */; };
+		9C9F20BE1ADB4C0500A0A61E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20BC1ADB4C0500A0A61E /* Model.xcdatamodeld */; };
+		9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20C01ADB518A00A0A61E /* _ARFAnnotation.m */; };
+		9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20C21ADB518A00A0A61E /* _ARFAuthor.m */; };
+		9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20C41ADB518A00A0A61E /* _ARFBook.m */; };
+		9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20C61ADB518A00A0A61E /* _ARFLocation.m */; };
+		9C9F20D11ADB518A00A0A61E /* _ARFPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20C81ADB518A00A0A61E /* _ARFPdf.m */; };
+		9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20CA1ADB518A00A0A61E /* _ARFPhoto.m */; };
+		9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20CC1ADB518A00A0A61E /* _ARFTag.m */; };
+		9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20D81ADB51DC00A0A61E /* ARFAnnotation.m */; };
+		9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */; };
+		9C9F20DF1ADB51DC00A0A61E /* ARFBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */; };
+		9C9F20E81ADB51E800A0A61E /* ARFLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E11ADB51E800A0A61E /* ARFLocation.m */; };
+		9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E31ADB51E800A0A61E /* ARFPdf.m */; };
+		9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */; };
+		9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E71ADB51E800A0A61E /* ARFTag.m */; };
+		B7EE166D58923AAC4A15711F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B19A4F238328E9A6F4951C /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C9F20A31ADB2CFC00A0A61E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C9F20811ADB2CFB00A0A61E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C9F20881ADB2CFB00A0A61E;
+			remoteInfo = HackerBooksAvanzado;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		89B19A4F238328E9A6F4951C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9F20891ADB2CFB00A0A61E /* HackerBooksAvanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooksAvanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9F208D1ADB2CFB00A0A61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C9F208E1ADB2CFB00A0A61E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C9F20901ADB2CFB00A0A61E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9C9F20931ADB2CFC00A0A61E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9C9F20941ADB2CFC00A0A61E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9C9F20971ADB2CFC00A0A61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C9F20991ADB2CFC00A0A61E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9C9F209C1ADB2CFC00A0A61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9C9F20A21ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerBooksAvanzadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9F20A71ADB2CFC00A0A61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C9F20A81ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackerBooksAvanzadoTests.m; sourceTree = "<group>"; };
+		9C9F20B41ADB4AB000A0A61E /* ARFKVOBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFKVOBaseClass.h; sourceTree = "<group>"; };
+		9C9F20B51ADB4AB000A0A61E /* ARFKVOBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFKVOBaseClass.m; sourceTree = "<group>"; };
+		9C9F20BD1ADB4C0500A0A61E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9C9F20BF1ADB518A00A0A61E /* _ARFAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFAnnotation.h; sourceTree = "<group>"; };
+		9C9F20C01ADB518A00A0A61E /* _ARFAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFAnnotation.m; sourceTree = "<group>"; };
+		9C9F20C11ADB518A00A0A61E /* _ARFAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFAuthor.h; sourceTree = "<group>"; };
+		9C9F20C21ADB518A00A0A61E /* _ARFAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFAuthor.m; sourceTree = "<group>"; };
+		9C9F20C31ADB518A00A0A61E /* _ARFBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFBook.h; sourceTree = "<group>"; };
+		9C9F20C41ADB518A00A0A61E /* _ARFBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFBook.m; sourceTree = "<group>"; };
+		9C9F20C51ADB518A00A0A61E /* _ARFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFLocation.h; sourceTree = "<group>"; };
+		9C9F20C61ADB518A00A0A61E /* _ARFLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFLocation.m; sourceTree = "<group>"; };
+		9C9F20C71ADB518A00A0A61E /* _ARFPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFPdf.h; sourceTree = "<group>"; };
+		9C9F20C81ADB518A00A0A61E /* _ARFPdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFPdf.m; sourceTree = "<group>"; };
+		9C9F20C91ADB518A00A0A61E /* _ARFPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFPhoto.h; sourceTree = "<group>"; };
+		9C9F20CA1ADB518A00A0A61E /* _ARFPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFPhoto.m; sourceTree = "<group>"; };
+		9C9F20CB1ADB518A00A0A61E /* _ARFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFTag.h; sourceTree = "<group>"; };
+		9C9F20CC1ADB518A00A0A61E /* _ARFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFTag.m; sourceTree = "<group>"; };
+		9C9F20D71ADB51DC00A0A61E /* ARFAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFAnnotation.h; sourceTree = "<group>"; };
+		9C9F20D81ADB51DC00A0A61E /* ARFAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFAnnotation.m; sourceTree = "<group>"; };
+		9C9F20D91ADB51DC00A0A61E /* ARFAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFAuthor.h; sourceTree = "<group>"; };
+		9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFAuthor.m; sourceTree = "<group>"; };
+		9C9F20DB1ADB51DC00A0A61E /* ARFBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBook.h; sourceTree = "<group>"; };
+		9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBook.m; sourceTree = "<group>"; };
+		9C9F20E01ADB51E800A0A61E /* ARFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFLocation.h; sourceTree = "<group>"; };
+		9C9F20E11ADB51E800A0A61E /* ARFLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFLocation.m; sourceTree = "<group>"; };
+		9C9F20E21ADB51E800A0A61E /* ARFPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFPdf.h; sourceTree = "<group>"; };
+		9C9F20E31ADB51E800A0A61E /* ARFPdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFPdf.m; sourceTree = "<group>"; };
+		9C9F20E41ADB51E800A0A61E /* ARFPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFPhoto.h; sourceTree = "<group>"; };
+		9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFPhoto.m; sourceTree = "<group>"; };
+		9C9F20E61ADB51E800A0A61E /* ARFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFTag.h; sourceTree = "<group>"; };
+		9C9F20E71ADB51E800A0A61E /* ARFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFTag.m; sourceTree = "<group>"; };
+		DC74FF5E83CAC8CAA35E1CBB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C9F20861ADB2CFB00A0A61E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7EE166D58923AAC4A15711F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C9F209F1ADB2CFC00A0A61E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A2679242E68F64912088624 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC74FF5E83CAC8CAA35E1CBB /* Pods.debug.xcconfig */,
+				4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		543CCE2062F6A8C79C834041 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89B19A4F238328E9A6F4951C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C9F20801ADB2CFB00A0A61E = {
+			isa = PBXGroup;
+			children = (
+				9C9F208B1ADB2CFB00A0A61E /* HackerBooksAvanzado */,
+				9C9F20A51ADB2CFC00A0A61E /* HackerBooksAvanzadoTests */,
+				9C9F208A1ADB2CFB00A0A61E /* Products */,
+				1A2679242E68F64912088624 /* Pods */,
+				543CCE2062F6A8C79C834041 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C9F208A1ADB2CFB00A0A61E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20891ADB2CFB00A0A61E /* HackerBooksAvanzado.app */,
+				9C9F20A21ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C9F208B1ADB2CFB00A0A61E /* HackerBooksAvanzado */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20D51ADB51B900A0A61E /* Core Data */,
+				9C9F20901ADB2CFB00A0A61E /* AppDelegate.h */,
+				9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */,
+				9C9F20931ADB2CFC00A0A61E /* ViewController.h */,
+				9C9F20941ADB2CFC00A0A61E /* ViewController.m */,
+				9C9F20961ADB2CFC00A0A61E /* Main.storyboard */,
+				9C9F20991ADB2CFC00A0A61E /* Images.xcassets */,
+				9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */,
+				9C9F208C1ADB2CFB00A0A61E /* Supporting Files */,
+			);
+			path = HackerBooksAvanzado;
+			sourceTree = "<group>";
+		};
+		9C9F208C1ADB2CFB00A0A61E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F208D1ADB2CFB00A0A61E /* Info.plist */,
+				9C9F208E1ADB2CFB00A0A61E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C9F20A51ADB2CFC00A0A61E /* HackerBooksAvanzadoTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20A81ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m */,
+				9C9F20A61ADB2CFC00A0A61E /* Supporting Files */,
+			);
+			path = HackerBooksAvanzadoTests;
+			sourceTree = "<group>";
+		};
+		9C9F20A61ADB2CFC00A0A61E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20A71ADB2CFC00A0A61E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C9F20D41ADB51A500A0A61E /* Machine Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20D61ADB51C700A0A61E /* Base Class */,
+				9C9F20BF1ADB518A00A0A61E /* _ARFAnnotation.h */,
+				9C9F20C01ADB518A00A0A61E /* _ARFAnnotation.m */,
+				9C9F20C11ADB518A00A0A61E /* _ARFAuthor.h */,
+				9C9F20C21ADB518A00A0A61E /* _ARFAuthor.m */,
+				9C9F20C31ADB518A00A0A61E /* _ARFBook.h */,
+				9C9F20C41ADB518A00A0A61E /* _ARFBook.m */,
+				9C9F20C51ADB518A00A0A61E /* _ARFLocation.h */,
+				9C9F20C61ADB518A00A0A61E /* _ARFLocation.m */,
+				9C9F20C71ADB518A00A0A61E /* _ARFPdf.h */,
+				9C9F20C81ADB518A00A0A61E /* _ARFPdf.m */,
+				9C9F20C91ADB518A00A0A61E /* _ARFPhoto.h */,
+				9C9F20CA1ADB518A00A0A61E /* _ARFPhoto.m */,
+				9C9F20CB1ADB518A00A0A61E /* _ARFTag.h */,
+				9C9F20CC1ADB518A00A0A61E /* _ARFTag.m */,
+			);
+			name = "Machine Files";
+			sourceTree = "<group>";
+		};
+		9C9F20D51ADB51B900A0A61E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20EC1ADB51F300A0A61E /* Human Files */,
+				9C9F20D41ADB51A500A0A61E /* Machine Files */,
+				9C9F20BC1ADB4C0500A0A61E /* Model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		9C9F20D61ADB51C700A0A61E /* Base Class */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20B41ADB4AB000A0A61E /* ARFKVOBaseClass.h */,
+				9C9F20B51ADB4AB000A0A61E /* ARFKVOBaseClass.m */,
+			);
+			name = "Base Class";
+			sourceTree = "<group>";
+		};
+		9C9F20EC1ADB51F300A0A61E /* Human Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C9F20E01ADB51E800A0A61E /* ARFLocation.h */,
+				9C9F20E11ADB51E800A0A61E /* ARFLocation.m */,
+				9C9F20E21ADB51E800A0A61E /* ARFPdf.h */,
+				9C9F20E31ADB51E800A0A61E /* ARFPdf.m */,
+				9C9F20E41ADB51E800A0A61E /* ARFPhoto.h */,
+				9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */,
+				9C9F20E61ADB51E800A0A61E /* ARFTag.h */,
+				9C9F20E71ADB51E800A0A61E /* ARFTag.m */,
+				9C9F20D71ADB51DC00A0A61E /* ARFAnnotation.h */,
+				9C9F20D81ADB51DC00A0A61E /* ARFAnnotation.m */,
+				9C9F20D91ADB51DC00A0A61E /* ARFAuthor.h */,
+				9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */,
+				9C9F20DB1ADB51DC00A0A61E /* ARFBook.h */,
+				9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */,
+			);
+			name = "Human Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C9F20881ADB2CFB00A0A61E /* HackerBooksAvanzado */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C9F20AC1ADB2CFC00A0A61E /* Build configuration list for PBXNativeTarget "HackerBooksAvanzado" */;
+			buildPhases = (
+				BF14A5038FDF36605A8D0A06 /* Check Pods Manifest.lock */,
+				9C9F20851ADB2CFB00A0A61E /* Sources */,
+				9C9F20861ADB2CFB00A0A61E /* Frameworks */,
+				9C9F20871ADB2CFB00A0A61E /* Resources */,
+				F6AB9AED85080DCBD9796ABB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackerBooksAvanzado;
+			productName = HackerBooksAvanzado;
+			productReference = 9C9F20891ADB2CFB00A0A61E /* HackerBooksAvanzado.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C9F20A11ADB2CFC00A0A61E /* HackerBooksAvanzadoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C9F20AF1ADB2CFC00A0A61E /* Build configuration list for PBXNativeTarget "HackerBooksAvanzadoTests" */;
+			buildPhases = (
+				9C9F209E1ADB2CFC00A0A61E /* Sources */,
+				9C9F209F1ADB2CFC00A0A61E /* Frameworks */,
+				9C9F20A01ADB2CFC00A0A61E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C9F20A41ADB2CFC00A0A61E /* PBXTargetDependency */,
+			);
+			name = HackerBooksAvanzadoTests;
+			productName = HackerBooksAvanzadoTests;
+			productReference = 9C9F20A21ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C9F20811ADB2CFB00A0A61E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Alejandro Rodriguez";
+				TargetAttributes = {
+					9C9F20881ADB2CFB00A0A61E = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					9C9F20A11ADB2CFC00A0A61E = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 9C9F20881ADB2CFB00A0A61E;
+					};
+				};
+			};
+			buildConfigurationList = 9C9F20841ADB2CFB00A0A61E /* Build configuration list for PBXProject "HackerBooksAvanzado" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C9F20801ADB2CFB00A0A61E;
+			productRefGroup = 9C9F208A1ADB2CFB00A0A61E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C9F20881ADB2CFB00A0A61E /* HackerBooksAvanzado */,
+				9C9F20A11ADB2CFC00A0A61E /* HackerBooksAvanzadoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C9F20871ADB2CFB00A0A61E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9F20981ADB2CFC00A0A61E /* Main.storyboard in Resources */,
+				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
+				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C9F20A01ADB2CFC00A0A61E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF14A5038FDF36605A8D0A06 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6AB9AED85080DCBD9796ABB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C9F20851ADB2CFB00A0A61E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
+				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
+				9C9F20951ADB2CFC00A0A61E /* ViewController.m in Sources */,
+				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
+				9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */,
+				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
+				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
+				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
+				9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */,
+				9C9F20DF1ADB51DC00A0A61E /* ARFBook.m in Sources */,
+				9C9F20BE1ADB4C0500A0A61E /* Model.xcdatamodeld in Sources */,
+				9C9F20D11ADB518A00A0A61E /* _ARFPdf.m in Sources */,
+				9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */,
+				9C9F20E81ADB51E800A0A61E /* ARFLocation.m in Sources */,
+				9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */,
+				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
+				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
+				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
+				9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C9F209E1ADB2CFC00A0A61E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9F20A91ADB2CFC00A0A61E /* HackerBooksAvanzadoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C9F20A41ADB2CFC00A0A61E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C9F20881ADB2CFB00A0A61E /* HackerBooksAvanzado */;
+			targetProxy = 9C9F20A31ADB2CFC00A0A61E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C9F20961ADB2CFC00A0A61E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C9F20971ADB2CFC00A0A61E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9C9F209B1ADB2CFC00A0A61E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C9F209C1ADB2CFC00A0A61E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C9F20AA1ADB2CFC00A0A61E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C9F20AB1ADB2CFC00A0A61E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C9F20AD1ADB2CFC00A0A61E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC74FF5E83CAC8CAA35E1CBB /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HackerBooksAvanzado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C9F20AE1ADB2CFC00A0A61E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HackerBooksAvanzado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9C9F20B01ADB2CFC00A0A61E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackerBooksAvanzadoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerBooksAvanzado.app/HackerBooksAvanzado";
+			};
+			name = Debug;
+		};
+		9C9F20B11ADB2CFC00A0A61E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HackerBooksAvanzadoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerBooksAvanzado.app/HackerBooksAvanzado";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C9F20841ADB2CFB00A0A61E /* Build configuration list for PBXProject "HackerBooksAvanzado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C9F20AA1ADB2CFC00A0A61E /* Debug */,
+				9C9F20AB1ADB2CFC00A0A61E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C9F20AC1ADB2CFC00A0A61E /* Build configuration list for PBXNativeTarget "HackerBooksAvanzado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C9F20AD1ADB2CFC00A0A61E /* Debug */,
+				9C9F20AE1ADB2CFC00A0A61E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C9F20AF1ADB2CFC00A0A61E /* Build configuration list for PBXNativeTarget "HackerBooksAvanzadoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C9F20B01ADB2CFC00A0A61E /* Debug */,
+				9C9F20B11ADB2CFC00A0A61E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9C9F20BC1ADB4C0500A0A61E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9C9F20BD1ADB4C0500A0A61E /* Model.xcdatamodel */,
+			);
+			currentVersion = 9C9F20BD1ADB4C0500A0A61E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9C9F20811ADB2CFB00A0A61E /* Project object */;
+}
