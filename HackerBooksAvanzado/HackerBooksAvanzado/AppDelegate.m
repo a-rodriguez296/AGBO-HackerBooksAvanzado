@@ -11,6 +11,7 @@
 #import "ARFConstants.h"
 #import "ARFBook.h"
 #import "ARFBooksViewController.h"
+#import "ARFTag.h"
 
 //Borrar
 #import "ARFBookApiClient.h"
@@ -37,13 +38,15 @@
         
         //Hay data
         
-        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBook entityName]];
-        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFBookAttributes.title ascending:YES];
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFTagAttributes.tagName ascending:YES];
         [req setSortDescriptors:@[sDescriptor]];
-        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:nil cacheName:nil];
+        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
         ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:fRC];
         
-        self.window.rootViewController = booksVC;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
+        
+        self.window.rootViewController = navVC;
         
     }
     else{
