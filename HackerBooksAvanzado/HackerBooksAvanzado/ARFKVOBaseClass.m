@@ -7,6 +7,7 @@
 //
 
 #import "ARFKVOBaseClass.h"
+#import "ARFBook.h"
 
 @implementation ARFKVOBaseClass
 

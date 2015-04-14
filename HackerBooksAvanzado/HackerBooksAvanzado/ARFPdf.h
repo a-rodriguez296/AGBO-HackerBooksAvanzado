@@ -1,5 +1,9 @@
 #import "_ARFPdf.h"
+@class ARFBook;
 
 @interface ARFPdf : _ARFPdf {}
-// Custom logic goes here.
+
++(instancetype) createPDFWithBook:(ARFBook *) book withData:(NSData *) data;
+
+
 @end

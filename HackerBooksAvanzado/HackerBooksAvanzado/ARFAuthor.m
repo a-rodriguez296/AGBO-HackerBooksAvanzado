@@ -22,4 +22,9 @@
     return [[ARFAuthor MR_findAllWithPredicate:predicate]firstObject];
 }
 
+
+-(NSString *)description{
+    return self.name;
+}
+
 @end

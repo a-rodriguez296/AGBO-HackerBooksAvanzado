@@ -13,7 +13,7 @@
 @implementation ARFPredicates
 
 +(NSPredicate *) booksPredicateWithTag:(ARFTag *) tag{
-    return  [NSPredicate predicateWithFormat:@"ANY %K == %@",ARFBookRelationships.tags,tag];
+    return  [NSPredicate predicateWithFormat:@"ANY %K == %@ && %K == NO",ARFBookRelationships.tags,tag,ARFBookAttributes.favorite];
 }
 
 +(NSPredicate *) favoriteBooksPredicate{

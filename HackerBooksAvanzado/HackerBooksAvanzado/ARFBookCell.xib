@@ -26,12 +26,6 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-hl-dsj">
-                        <rect key="frame" x="256" y="21" width="56" height="30"/>
-                        <state key="normal" title="Favorite">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="lF7-Lz-Abu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="5km-nG-czO"/>
@@ -39,8 +33,6 @@
                     <constraint firstItem="lF7-Lz-Abu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="ApN-Me-Dx4"/>
                     <constraint firstItem="eSb-xQ-O4b" firstAttribute="leading" secondItem="lF7-Lz-Abu" secondAttribute="leading" id="FSC-DX-W1v"/>
                     <constraint firstItem="eSb-xQ-O4b" firstAttribute="top" secondItem="lF7-Lz-Abu" secondAttribute="bottom" constant="8" id="GuQ-Aw-Ciw"/>
-                    <constraint firstItem="bmM-hl-dsj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="lzj-Y9-De9"/>
-                    <constraint firstAttribute="trailing" secondItem="bmM-hl-dsj" secondAttribute="trailing" constant="8" id="so1-rd-AbR"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

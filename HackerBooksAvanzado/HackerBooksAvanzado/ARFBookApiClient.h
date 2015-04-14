@@ -14,4 +14,9 @@
                 withSuccess:(void (^) (NSArray * books)) successBlock
                 withFailure:(void (^)(NSString * error)) failureBlock;
 
++(void) donwloadDataWithURL:(NSString *) url
+                withSuccess:(void(^)(NSData *data)) successBlock
+                withFailure:(void(^)(NSString *error)) failureBlock
+               withProgress:(void(^)(float progress)) progressBlock;
+
 @end

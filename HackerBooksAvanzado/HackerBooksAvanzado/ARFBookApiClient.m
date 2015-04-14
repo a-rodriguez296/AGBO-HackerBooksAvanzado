@@ -48,4 +48,23 @@
     }];
 }
 
++(void) donwloadDataWithURL:(NSString *) url
+                withSuccess:(void(^)(NSData *data)) successBlock
+                withFailure:(void(^)(NSString *error)) failureBlock
+               withProgress:(void(^)(float progress)) progressBlock{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    AFHTTPRequestOperation *operation = [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSData *data = (NSData *) responseObject;
+        successBlock(data);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failureBlock([NSString stringWithFormat:@"Error: %@",error]);
+    }];
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        float progress =(float) totalBytesRead/totalBytesExpectedToRead;
+        progressBlock(progress);
+    }];
+}
+
+
 @end

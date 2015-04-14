@@ -13,9 +13,11 @@
 #import "CoreData+MagicalRecord.h"
 #import "ARFBooksViewController+Utils.h"
 #import "ARFPredicates.h"
+#import "ARFBookViewController.h"
+#import "ARFConstants.h"
+#import "ARFBooksViewController+Notifications.h"
 
-static NSString * const cellIdentifier = @"Cell";
-static const NSUInteger kFavoritesSection = 0;
+
 
 @interface ARFBooksViewController ()
 
@@ -29,78 +31,26 @@ static const NSUInteger kFavoritesSection = 0;
     
     [self setTitle:@"Hacker Books"];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    
+    //Selección de la última celda visitada
+    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+    ARFTag *lastTag = [ARFTag objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
+    if (lastTag) {
+        NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastTag];
+        [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    }
+    
+    //Suscripción a notificaciones
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBookModel:) name:kDidChangeBookNotification object:nil];
 }
 
 
-#pragma mark TableView
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
     
-    ARFBook *book;
+    ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:book];
+    [self.navigationController pushViewController:bookVC animated:YES];
     
-    if (indexPath.section == kFavoritesSection) {
-        book = [[ARFBook MR_findAllSortedBy:ARFBookAttributes.title ascending:YES withPredicate:[ARFPredicates favoriteBooksPredicate]] objectAtIndex:indexPath.row];
-    }
-    else{
-        
-        //Encontrar el tag actual
-        //Pregunta
-        //Esta es la mejor manera de acceder a los objetos?????????????
-        ARFTag * currentTag = [self getTagWithSection:indexPath.section fetchedResultsController:self.fetchedResultsController];
-        
-        
-        //Encontrar el libro actual
-        book = [[ARFBook MR_findAllSortedBy:ARFBookAttributes.title
-                                  ascending:YES
-                              withPredicate:[ARFPredicates booksPredicateWithTag:currentTag]]
-                objectAtIndex:indexPath.row];
-        
-    }
-    
-    //Crear la celda
-    ARFBookCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    
-    //Llenar la celda
-    [cell.lblTitle setText:book.title];
-    
-    //Devolver la celda
-    return cell;
 }
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 73;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    if (section == kFavoritesSection) {
-        return [ARFBook MR_countOfEntitiesWithPredicate:[ARFPredicates favoriteBooksPredicate]];
-    }
-    else{
-        //Pregunta
-        //Esta es la mejor manera de acceder a los objetos?????????????
-        ARFTag * currentTag = [self getTagWithSection:section fetchedResultsController:self.fetchedResultsController];
-        return [ARFBook MR_countOfEntitiesWithPredicate:[ARFPredicates booksPredicateWithTag:currentTag]];
-    }
-
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [super numberOfSectionsInTableView:tableView] +1;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    if (section == kFavoritesSection) {
-        return @"Favorites";
-    }
-    else{
-        ARFTag * currentTag = [self getTagWithSection:section fetchedResultsController:self.fetchedResultsController];
-        return currentTag.tagName;
-    }
-}
-
-
 
 
 @end

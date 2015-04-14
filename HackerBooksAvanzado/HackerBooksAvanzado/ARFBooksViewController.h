@@ -9,8 +9,26 @@
 @import UIKit;
 
 #import "ARFBaseFetchedResultsController.h"
+@class ARFBook;
+
+static NSString * const cellIdentifier = @"Cell";
+static const NSUInteger kFavoritesSection = 0;
+
+@class ARFBooksViewController;
+
+@protocol ARFBooksViewControllerDelegate <NSObject>
+
+@required
+-(void) booksViewController:(ARFBooksViewController *) libraryVC didSelectBook:(ARFBook *) book;
+
+@end
 
 
-@interface ARFBooksViewController : ARFBaseFetchedResultsController
+@interface ARFBooksViewController : ARFBaseFetchedResultsController <ARFBooksViewControllerDelegate>
+
+@property(nonatomic, weak) id<ARFBooksViewControllerDelegate> delegate;
+
+
+
 
 @end

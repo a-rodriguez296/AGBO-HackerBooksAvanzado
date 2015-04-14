@@ -1,4 +1,5 @@
 #import "ARFPdf.h"
+#import "ARFBook.h"
 #import "CoreData+MagicalRecord.h"
 
 @interface ARFPdf ()
@@ -9,6 +10,11 @@
 
 @implementation ARFPdf
 
-// Custom logic goes here.
++(instancetype) createPDFWithBook:(ARFBook *) book withData:(NSData *) data{
+    ARFPdf *pdf = [ARFPdf MR_createEntity];
+    [pdf setBook:book];
+    [pdf setData:data];
+    return pdf;
+}
 
 @end

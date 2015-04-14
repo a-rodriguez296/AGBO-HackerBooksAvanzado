@@ -13,8 +13,8 @@
 @implementation ARFBooksViewController (Utils)
 
 
--(ARFTag *) getTagWithSection:(NSUInteger)section fetchedResultsController:(NSFetchedResultsController *) results{
-    return [[results fetchedObjects] objectAtIndex:section-1];
+-(ARFTag *) getTagWithSection:(NSUInteger)section{
+    return [[self.fetchedResultsController fetchedObjects] objectAtIndex:section-1];
 }
 
 

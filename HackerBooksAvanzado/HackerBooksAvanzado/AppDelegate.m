@@ -30,10 +30,12 @@
     //Setup Magical Record
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"HackerBooks"];
     
-    
+    //Start Autosave
+    [self autoSave];
     
     //Verificación si hay data en core data
     
+
     if ([ARFBook  MR_countOfEntities]) {
         
         //Hay data
@@ -43,6 +45,7 @@
         [req setSortDescriptors:@[sDescriptor]];
         NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
         ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:fRC];
+        [booksVC setDelegate:booksVC];
         
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
         
@@ -51,13 +54,14 @@
     }
     else{
         //No hay datos
+        [ARFBookApiClient requestBooksWithURL:kBooksUrl withSuccess:^(NSArray *books) {
+            
+        } withFailure:^(NSString *error) {
+            
+        }];
     }
     
-//    [ARFBookApiClient requestBooksWithURL:kBooksUrl withSuccess:^(NSArray *books) {
-//        
-//    } withFailure:^(NSString *error) {
-//        
-//    }];
+
     
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -86,6 +90,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark Utils
+
+-(void) autoSave{
+    
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+        NSLog(@"Guardo los datos correctamente");
+    }];
+    
+    [self performSelector:@selector(autoSave) withObject:nil afterDelay:15];
 }
 
 @end

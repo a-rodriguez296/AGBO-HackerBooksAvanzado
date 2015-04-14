@@ -3,6 +3,7 @@
 #import "ARFPhoto.h"
 #import "ARFAuthor.h"
 #import "ARFTag.h"
+#import "ARFConstants.h"
 
 @interface ARFBook ()
 
@@ -12,6 +13,7 @@
 
 @implementation ARFBook
 
+#pragma mark Delegate Initializer
 +(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList aPhotoURL:(NSString *) photoURL aPDFURL:(NSString *) pdfURL{
     
     ARFBook *book = [ARFBook MR_createEntity];
@@ -38,7 +40,7 @@
     
 }
 
-
+#pragma mark Utils
 +(void) addAuthorsWithBook:(ARFBook *) book withAuthors:(NSArray *) authorsList{
     
     //Autores
@@ -85,5 +87,31 @@
     //Agregar los tags
     [book addTags:tagsSet];
 }
+
+
+
+#pragma mark Class Methods
++(NSArray *)observableKeys{
+    return @[ARFBookAttributes.favorite];
+}
+
++(NSString *) authorsWithBook:(ARFBook *) book{
+    return [book.authors.allObjects componentsJoinedByString:@","];
+}
+
++(NSString *) tagsWithBook:(ARFBook *) book{
+    return [book.tags.allObjects componentsJoinedByString:@","];
+}
+
+#pragma mark KVO Methods
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    [self setModificationDate:[NSDate date]];
+    
+    
+    //Enviar notificación avisando que ha cambiado el modelo.
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDidChangeBookNotification object:nil];
+    
+}
+
 
 @end

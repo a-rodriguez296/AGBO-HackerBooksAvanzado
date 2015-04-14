@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C0583BC1ADDE38B0048A66D /* not_available.jpg */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
 		9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C32EA201ADB74E40004F011 /* ARFBookCell.xib */; };
 		9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */; };
@@ -37,6 +38,10 @@
 		9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E31ADB51E800A0A61E /* ARFPdf.m */; };
 		9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */; };
 		9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E71ADB51E800A0A61E /* ARFTag.m */; };
+		9CCA04AA1ADD75B10076DFEA /* ARFBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA04A81ADD75B10076DFEA /* ARFBookViewController.m */; };
+		9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA04A91ADD75B10076DFEA /* ARFBookViewController.xib */; };
+		9CCA04AF1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA04AE1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m */; };
+		9CCA04B31ADD9DED0076DFEA /* ARFBooksViewController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA04B21ADD9DED0076DFEA /* ARFBooksViewController+TableView.m */; };
 		B7EE166D58923AAC4A15711F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B19A4F238328E9A6F4951C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,7 @@
 /* Begin PBXFileReference section */
 		4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		89B19A4F238328E9A6F4951C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C0583BC1ADDE38B0048A66D /* not_available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = not_available.jpg; sourceTree = "<group>"; };
 		9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookCell.h; sourceTree = "<group>"; };
 		9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookCell.m; sourceTree = "<group>"; };
 		9C32EA201ADB74E40004F011 /* ARFBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookCell.xib; sourceTree = "<group>"; };
@@ -111,6 +117,13 @@
 		9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFPhoto.m; sourceTree = "<group>"; };
 		9C9F20E61ADB51E800A0A61E /* ARFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFTag.h; sourceTree = "<group>"; };
 		9C9F20E71ADB51E800A0A61E /* ARFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFTag.m; sourceTree = "<group>"; };
+		9CCA04A71ADD75B10076DFEA /* ARFBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookViewController.h; sourceTree = "<group>"; };
+		9CCA04A81ADD75B10076DFEA /* ARFBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookViewController.m; sourceTree = "<group>"; };
+		9CCA04A91ADD75B10076DFEA /* ARFBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookViewController.xib; sourceTree = "<group>"; };
+		9CCA04AD1ADD8E200076DFEA /* ARFBooksViewController+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARFBooksViewController+Notifications.h"; sourceTree = "<group>"; };
+		9CCA04AE1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+Notifications.m"; sourceTree = "<group>"; };
+		9CCA04B11ADD9DED0076DFEA /* ARFBooksViewController+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARFBooksViewController+TableView.h"; sourceTree = "<group>"; };
+		9CCA04B21ADD9DED0076DFEA /* ARFBooksViewController+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+TableView.m"; sourceTree = "<group>"; };
 		DC74FF5E83CAC8CAA35E1CBB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +216,7 @@
 		9C8813811ADB739500AFFD15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA04AC1ADD75D50076DFEA /* BookVC */,
 				9C8813801ADB738900AFFD15 /* BooksVC */,
 			);
 			name = Controllers;
@@ -221,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				9C895DA61ADCC40600C0D0EC /* Utils */,
+				9CCA04B01ADD8E290076DFEA /* Notifications */,
+				9CCA04B41ADD9DF30076DFEA /* Table View */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -257,6 +273,7 @@
 		9C9F208B1ADB2CFB00A0A61E /* HackerBooksAvanzado */ = {
 			isa = PBXGroup;
 			children = (
+				9C0583BC1ADDE38B0048A66D /* not_available.jpg */,
 				9C8813791ADB731200AFFD15 /* Utils */,
 				9C8813711ADB5FA100AFFD15 /* Network */,
 				9C9F20D51ADB51B900A0A61E /* Core Data */,
@@ -360,6 +377,34 @@
 			name = "Human Files";
 			sourceTree = "<group>";
 		};
+		9CCA04AC1ADD75D50076DFEA /* BookVC */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA04A71ADD75B10076DFEA /* ARFBookViewController.h */,
+				9CCA04A81ADD75B10076DFEA /* ARFBookViewController.m */,
+				9CCA04A91ADD75B10076DFEA /* ARFBookViewController.xib */,
+			);
+			name = BookVC;
+			sourceTree = "<group>";
+		};
+		9CCA04B01ADD8E290076DFEA /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA04AD1ADD8E200076DFEA /* ARFBooksViewController+Notifications.h */,
+				9CCA04AE1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		9CCA04B41ADD9DF30076DFEA /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA04B11ADD9DED0076DFEA /* ARFBooksViewController+TableView.h */,
+				9CCA04B21ADD9DED0076DFEA /* ARFBooksViewController+TableView.m */,
+			);
+			name = "Table View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,6 +491,8 @@
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
 				9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */,
+				9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */,
+				9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,10 +543,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCA04AF1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m in Sources */,
 				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
 				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
 				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
 				9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */,
+				9CCA04B31ADD9DED0076DFEA /* ARFBooksViewController+TableView.m in Sources */,
 				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
@@ -521,6 +570,7 @@
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
 				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
 				9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */,
+				9CCA04AA1ADD75B10076DFEA /* ARFBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

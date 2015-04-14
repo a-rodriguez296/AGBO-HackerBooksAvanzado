@@ -11,6 +11,6 @@
 
 @interface ARFBooksViewController (Utils)
 
--(ARFTag *) getTagWithSection:(NSUInteger)section fetchedResultsController:(NSFetchedResultsController *) results;
+-(ARFTag *) getTagWithSection:(NSUInteger)section;
 
 @end
