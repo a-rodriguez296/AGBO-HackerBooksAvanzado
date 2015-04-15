@@ -3,6 +3,7 @@
 #import "ARFPhoto.h"
 #import "ARFAuthor.h"
 #import "ARFTag.h"
+#import "ARFBookTags.h"
 #import "ARFConstants.h"
 
 @interface ARFBook ()
@@ -24,6 +25,9 @@
     [book setPhotoURL:photoURL];
     [book setPdfURL:pdfURL];
     
+
+    
+    
     //Relación obligatoria a ARFPhoto
     book.photo =[ARFPhoto MR_createEntity];
     
@@ -39,6 +43,7 @@
     return book;
     
 }
+
 
 #pragma mark Utils
 +(void) addAuthorsWithBook:(ARFBook *) book withAuthors:(NSArray *) authorsList{
@@ -67,7 +72,7 @@
 
 +(void) addTagsWithBook:(ARFBook *) book withTagList:(NSArray *) tagList{
     
-    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
+//    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
     //Recorrer la lista de tags
     for (NSString *tagName in tagList) {
         
@@ -77,15 +82,16 @@
         //Verificar si ya existe un elemento con ese nombre
         //Si existe, agregarlo al set. De lo contrario crear una entidad y agregarla al set.
         if (!tagEntity) {
-            [tagsSet addObject:[ARFTag createTagWithName:tagName]];
+            tagEntity =[ARFTag createTagWithName:tagName];
         }
-        else{
-            [tagsSet addObject:tagEntity];
-        }
+        
+        ARFBookTags *bookTag = [ARFBookTags createBookTagsWithBook:book withTag:tagEntity];
+//        [book.bookTagsSet addObject:bookTag];
+//        [tagEntity.booksSet addObject:bookTag];
     }
     
     //Agregar los tags
-    [book addTags:tagsSet];
+//    [book addTags:tagsSet];
 }
 
 
@@ -100,7 +106,8 @@
 }
 
 +(NSString *) tagsWithBook:(ARFBook *) book{
-    return [book.tags.allObjects componentsJoinedByString:@","];
+//    return [book.tags.allObjects componentsJoinedByString:@","];
+    return @"hola";
 }
 
 #pragma mark KVO Methods

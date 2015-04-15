@@ -33,12 +33,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     //Selección de la última celda visitada
-    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-    ARFTag *lastTag = [ARFTag objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
-    if (lastTag) {
-        NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastTag];
-        [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    }
+//    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+//    ARFTag *lastTag = [ARFTag objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
+//    if (lastTag) {
+//        NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastTag];
+//        [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//    }
     
     //Suscripción a notificaciones
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBookModel:) name:kDidChangeBookNotification object:nil];

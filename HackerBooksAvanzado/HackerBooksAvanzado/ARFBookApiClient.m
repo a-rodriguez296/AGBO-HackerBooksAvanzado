@@ -20,32 +20,32 @@
     
     
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:stURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //    [manager GET:stURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //
+    //        NSMutableArray * responseArray = [NSMutableArray new];
+    NSError *errorJson;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"booksReadable" ofType:@"json"];
+    
+    NSArray* objectsArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:kNilOptions error:&errorJson];
+//    NSArray* objectsArray = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&errorJson];
+    
+    for (NSDictionary *bookDictionary in objectsArray) {
+        ARFBookParser *bookParser = [ARFBookParser new];
+        [bookParser parseBookWithData:bookDictionary];
+        [ARFBook createBookWithTitle:bookParser.title tags:bookParser.tagsList authors:bookParser.authorsList aPhotoURL:bookParser.urlImage aPDFURL:bookParser.urlPDF];
         
-        NSMutableArray * responseArray = [NSMutableArray new];
-        NSError *errorJson;
-        
-        
-        NSArray* objectsArray = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&errorJson];
-        
-        for (NSDictionary *bookDictionary in objectsArray) {
-            ARFBookParser *bookParser = [ARFBookParser new];
-            [bookParser parseBookWithData:bookDictionary];
-            [ARFBook createBookWithTitle:bookParser.title tags:bookParser.tagsList authors:bookParser.authorsList aPhotoURL:bookParser.urlImage aPDFURL:bookParser.urlPDF];
-            
-        }
-        //Grabar datos en core data
-        [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
-            
-        }];
-
-//        successBlock([NSArray arrayWithArray:responseArray]);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    }
+    //Grabar datos en core data
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
+        NSLog(@"Guardo datos incialies correctamente");
     }];
+    
+    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    //        NSLog(@"Error: %@", error);
+    //    }];
 }
 
 +(void) donwloadDataWithURL:(NSString *) url

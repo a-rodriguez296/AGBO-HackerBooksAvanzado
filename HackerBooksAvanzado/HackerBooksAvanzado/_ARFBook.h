@@ -15,15 +15,15 @@ extern const struct ARFBookAttributes {
 
 extern const struct ARFBookRelationships {
 	__unsafe_unretained NSString *authors;
+	__unsafe_unretained NSString *bookTags;
 	__unsafe_unretained NSString *pdf;
 	__unsafe_unretained NSString *photo;
-	__unsafe_unretained NSString *tags;
 } ARFBookRelationships;
 
 @class ARFAuthor;
+@class ARFBookTags;
 @class ARFPdf;
 @class ARFPhoto;
-@class ARFTag;
 
 @interface ARFBookID : NSManagedObjectID {}
 @end
@@ -66,6 +66,10 @@ extern const struct ARFBookRelationships {
 
 - (NSMutableSet*)authorsSet;
 
+@property (nonatomic, strong) NSSet *bookTags;
+
+- (NSMutableSet*)bookTagsSet;
+
 @property (nonatomic, strong) ARFPdf *pdf;
 
 //- (BOOL)validatePdf:(id*)value_ error:(NSError**)error_;
@@ -73,10 +77,6 @@ extern const struct ARFBookRelationships {
 @property (nonatomic, strong) ARFPhoto *photo;
 
 //- (BOOL)validatePhoto:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSSet *tags;
-
-- (NSMutableSet*)tagsSet;
 
 @end
 
@@ -88,11 +88,11 @@ extern const struct ARFBookRelationships {
 
 @end
 
-@interface _ARFBook (TagsCoreDataGeneratedAccessors)
-- (void)addTags:(NSSet*)value_;
-- (void)removeTags:(NSSet*)value_;
-- (void)addTagsObject:(ARFTag*)value_;
-- (void)removeTagsObject:(ARFTag*)value_;
+@interface _ARFBook (BookTagsCoreDataGeneratedAccessors)
+- (void)addBookTags:(NSSet*)value_;
+- (void)removeBookTags:(NSSet*)value_;
+- (void)addBookTagsObject:(ARFBookTags*)value_;
+- (void)removeBookTagsObject:(ARFBookTags*)value_;
 
 @end
 
@@ -122,13 +122,13 @@ extern const struct ARFBookRelationships {
 - (NSMutableSet*)primitiveAuthors;
 - (void)setPrimitiveAuthors:(NSMutableSet*)value;
 
+- (NSMutableSet*)primitiveBookTags;
+- (void)setPrimitiveBookTags:(NSMutableSet*)value;
+
 - (ARFPdf*)primitivePdf;
 - (void)setPrimitivePdf:(ARFPdf*)value;
 
 - (ARFPhoto*)primitivePhoto;
 - (void)setPrimitivePhoto:(ARFPhoto*)value;
-
-- (NSMutableSet*)primitiveTags;
-- (void)setPrimitiveTags:(NSMutableSet*)value;
 
 @end

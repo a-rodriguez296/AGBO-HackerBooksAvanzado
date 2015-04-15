@@ -9,10 +9,10 @@ extern const struct ARFTagAttributes {
 } ARFTagAttributes;
 
 extern const struct ARFTagRelationships {
-	__unsafe_unretained NSString *books;
+	__unsafe_unretained NSString *booksTags;
 } ARFTagRelationships;
 
-@class ARFBook;
+@class ARFBookTags;
 
 @interface ARFTagID : NSManagedObjectID {}
 @end
@@ -27,17 +27,17 @@ extern const struct ARFTagRelationships {
 
 //- (BOOL)validateTagName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *books;
+@property (nonatomic, strong) NSSet *booksTags;
 
-- (NSMutableSet*)booksSet;
+- (NSMutableSet*)booksTagsSet;
 
 @end
 
-@interface _ARFTag (BooksCoreDataGeneratedAccessors)
-- (void)addBooks:(NSSet*)value_;
-- (void)removeBooks:(NSSet*)value_;
-- (void)addBooksObject:(ARFBook*)value_;
-- (void)removeBooksObject:(ARFBook*)value_;
+@interface _ARFTag (BooksTagsCoreDataGeneratedAccessors)
+- (void)addBooksTags:(NSSet*)value_;
+- (void)removeBooksTags:(NSSet*)value_;
+- (void)addBooksTagsObject:(ARFBookTags*)value_;
+- (void)removeBooksTagsObject:(ARFBookTags*)value_;
 
 @end
 
@@ -46,7 +46,7 @@ extern const struct ARFTagRelationships {
 - (NSString*)primitiveTagName;
 - (void)setPrimitiveTagName:(NSString*)value;
 
-- (NSMutableSet*)primitiveBooks;
-- (void)setPrimitiveBooks:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveBooksTags;
+- (void)setPrimitiveBooksTags:(NSMutableSet*)value;
 
 @end

@@ -9,9 +9,10 @@
 #import "AppDelegate.h"
 #import "CoreData+MagicalRecord.h"
 #import "ARFConstants.h"
-#import "ARFBook.h"
+#import "ARFBookTags.h"
 #import "ARFBooksViewController.h"
 #import "ARFTag.h"
+#import "ARFBook.h"
 
 //Borrar
 #import "ARFBookApiClient.h"
@@ -36,14 +37,19 @@
     //Verificación si hay data en core data
     
 
-    if ([ARFBook  MR_countOfEntities]) {
+    if ([ARFBookTags  MR_countOfEntities]) {
         
         //Hay data
         
-        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
-        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFTagAttributes.tagName ascending:YES];
+//        for (ARFBook *book in [ARFBook MR_findAll]) {
+//            NSLog(@"%@ %i", book.sectionIdentifier,book.favoriteValue);
+//        }
+        
+        
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTags entityName]];
+        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES];
         [req setSortDescriptors:@[sDescriptor]];
-        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
+        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFBookTagsAttributes.sectionTitle cacheName:nil];
         ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:fRC];
         [booksVC setDelegate:booksVC];
         
@@ -98,7 +104,7 @@
 -(void) autoSave{
     
     [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
-        NSLog(@"Guardo los datos correctamente");
+        NSLog(@"Hizo auto save");
     }];
     
     [self performSelector:@selector(autoSave) withObject:nil afterDelay:15];

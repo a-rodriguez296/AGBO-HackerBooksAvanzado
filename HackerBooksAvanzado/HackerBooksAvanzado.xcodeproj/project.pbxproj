@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C0583BC1ADDE38B0048A66D /* not_available.jpg */; };
+		9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583BF1ADE21520048A66D /* _ARFBookTags.m */; };
+		9C0583C31ADE21670048A66D /* ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583C21ADE21670048A66D /* ARFBookTags.m */; };
+		9C0936781ADE278A0031587C /* booksReadable.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0936771ADE278A0031587C /* booksReadable.json */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
 		9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C32EA201ADB74E40004F011 /* ARFBookCell.xib */; };
 		9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */; };
@@ -59,6 +62,11 @@
 		4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		89B19A4F238328E9A6F4951C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0583BC1ADDE38B0048A66D /* not_available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = not_available.jpg; sourceTree = "<group>"; };
+		9C0583BE1ADE21520048A66D /* _ARFBookTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFBookTags.h; sourceTree = "<group>"; };
+		9C0583BF1ADE21520048A66D /* _ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFBookTags.m; sourceTree = "<group>"; };
+		9C0583C11ADE21670048A66D /* ARFBookTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookTags.h; sourceTree = "<group>"; };
+		9C0583C21ADE21670048A66D /* ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookTags.m; sourceTree = "<group>"; };
+		9C0936771ADE278A0031587C /* booksReadable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = booksReadable.json; sourceTree = "<group>"; };
 		9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookCell.h; sourceTree = "<group>"; };
 		9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookCell.m; sourceTree = "<group>"; };
 		9C32EA201ADB74E40004F011 /* ARFBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookCell.xib; sourceTree = "<group>"; };
@@ -274,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				9C0583BC1ADDE38B0048A66D /* not_available.jpg */,
+				9C0936771ADE278A0031587C /* booksReadable.json */,
 				9C8813791ADB731200AFFD15 /* Utils */,
 				9C8813711ADB5FA100AFFD15 /* Network */,
 				9C9F20D51ADB51B900A0A61E /* Core Data */,
@@ -331,6 +340,8 @@
 				9C9F20CA1ADB518A00A0A61E /* _ARFPhoto.m */,
 				9C9F20CB1ADB518A00A0A61E /* _ARFTag.h */,
 				9C9F20CC1ADB518A00A0A61E /* _ARFTag.m */,
+				9C0583BE1ADE21520048A66D /* _ARFBookTags.h */,
+				9C0583BF1ADE21520048A66D /* _ARFBookTags.m */,
 			);
 			name = "Machine Files";
 			sourceTree = "<group>";
@@ -373,6 +384,8 @@
 				9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */,
 				9C9F20DB1ADB51DC00A0A61E /* ARFBook.h */,
 				9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */,
+				9C0583C11ADE21670048A66D /* ARFBookTags.h */,
+				9C0583C21ADE21670048A66D /* ARFBookTags.m */,
 			);
 			name = "Human Files";
 			sourceTree = "<group>";
@@ -487,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0936781ADE278A0031587C /* booksReadable.json in Resources */,
 				9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */,
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
@@ -552,6 +566,7 @@
 				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
+				9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */,
 				9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */,
 				9C895DAA1ADCC98100C0D0EC /* ARFPredicates.m in Sources */,
 				9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */,
@@ -565,6 +580,7 @@
 				9C9F20E81ADB51E800A0A61E /* ARFLocation.m in Sources */,
 				9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */,
 				9C88137E1ADB738000AFFD15 /* ARFBooksViewController.m in Sources */,
+				9C0583C31ADE21670048A66D /* ARFBookTags.m in Sources */,
 				9C895DA51ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m in Sources */,
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
