@@ -17,13 +17,13 @@
 #import "ARFConstants.h"
 #import "ARFSearchResultsViewController.h"
 #import "ARFBooksViewController+Notifications.h"
+#import "ARFBooksViewController+SearchBar.h"
+#import "ARFBooksViewController+SearchResults.h"
+#import "ARFBookTags.h"
+
+@interface ARFBooksViewController () 
 
 
-
-@interface ARFBooksViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
-
-@property (nonatomic, strong) ARFSearchResultsViewController * resultsTableController;
-@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -38,18 +38,20 @@
     
     
     //Selección de la última celda visitada
-//    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-//    ARFTag *lastTag = [ARFTag objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
-//    if (lastTag) {
-//        NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastTag];
-//        [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-//    }
+    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+    ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
+    if (!lastItem) {
+        ARFBookTags *firstElement = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        lastItem = firstElement;
+    }
     
-    //Suscripción a notificaciones
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBookModel:) name:kDidChangeBookNotification object:nil];
+    NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastItem];
+    [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    
     
     //Creación del search results controller
     _resultsTableController = [[ARFSearchResultsViewController alloc] init];
+    [self.resultsTableController setDelegate:self];
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
@@ -70,54 +72,7 @@
 }
 
 
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
-    
-    // update the filtered array based on the search text
-    NSString *searchText = searchController.searchBar.text;
-    
-    //Crear un arreglo nuevo con los resultados
-    NSArray *searchResults = [NSArray new];
-    
-    
-    // hand over the filtered results to our search results table
-    ARFSearchResultsViewController *tableController = (ARFSearchResultsViewController *)self.searchController.searchResultsController;
-    tableController.filteredBooks = searchResults;
-    [tableController.tableView reloadData];
-    
-    
-    
-}
 
-
-
-#pragma mark - UISearchControllerDelegate
-
-// Called after the search controller's search bar has agreed to begin editing or when
-// 'active' is set to YES.
-// If you choose not to present the controller yourself or do not implement this method,
-// a default presentation is performed on your behalf.
-//
-// Implement this method if the default presentation is not adequate for your purposes.
-//
-- (void)presentSearchController:(UISearchController *)searchController {
-    
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    // do something before the search controller is presented
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    // do something after the search controller is presented
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    // do something before the search controller is dismissed
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    // do something after the search controller is dismissed
-}
 
 
 @end

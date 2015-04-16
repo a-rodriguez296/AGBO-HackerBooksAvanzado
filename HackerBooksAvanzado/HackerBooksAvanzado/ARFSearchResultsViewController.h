@@ -8,9 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ARFSearchResultsViewController;
+
+@protocol ARFSearchResultsDelegate <NSObject>
+
+@required
+-(void) searchController:(ARFSearchResultsViewController *)searchController didSelectItem:(id) item;
+
+@end
+
+
 @interface ARFSearchResultsViewController : UIViewController
 
+@property(nonatomic, weak) id<ARFSearchResultsDelegate> delegate;
 @property (nonatomic, strong) NSArray * filteredBooks;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

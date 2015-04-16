@@ -1,16 +1,14 @@
 //
-//  ARFBooksViewController+SearchController.m
+//  ARFBooksViewController+SearchResults.h
 //  HackerBooksAvanzado
 //
 //  Created by Alejandro Rodriguez on 4/15/15.
 //  Copyright (c) 2015 Alejandro Rodriguez. All rights reserved.
 //
 
-#import "ARFBooksViewController+SearchController.h"
+#import "ARFBooksViewController.h"
 #import "ARFSearchResultsViewController.h"
-@implementation ARFBooksViewController (SearchController)
 
-#pragma mark - UISearchResultsUpdating
-
+@interface ARFBooksViewController (SearchResults) <ARFSearchResultsDelegate>
 
 @end

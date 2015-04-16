@@ -31,6 +31,7 @@
                 <constraint firstItem="oiE-Se-igL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="srR-Dd-WVp"/>
                 <constraint firstAttribute="bottom" secondItem="oiE-Se-igL" secondAttribute="bottom" id="zbS-Lh-FuH"/>
             </constraints>
+            <point key="canvasLocation" x="471" y="469"/>
         </view>
     </objects>
 </document>

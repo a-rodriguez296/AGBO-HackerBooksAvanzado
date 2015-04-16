@@ -11,7 +11,7 @@
 @interface ARFBookApiClient : NSObject
 
 +(void) requestBooksWithURL:(NSString *) stURL
-                withSuccess:(void (^) (NSArray * books)) successBlock
+                withSuccess:(void (^) (void)) successBlock
                 withFailure:(void (^)(NSString * error)) failureBlock;
 
 +(void) donwloadDataWithURL:(NSString *) url

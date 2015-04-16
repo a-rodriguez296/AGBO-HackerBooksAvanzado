@@ -46,10 +46,23 @@ static NSString * const  cellIdentifier = @"Cell";
     
     //Llenar la celda
     [cell.lblTitle setText:book.title];
+    [cell.lblAuthor setText:[ARFBook authorsWithBook:book]];
     
     //Devolver la celda
     return cell;
 
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 73;
+}
+
+
+-(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ARFBook *book = self.filteredBooks[indexPath.row];
+    
+    [self.delegate searchController:self didSelectItem:book];
+}
 @end

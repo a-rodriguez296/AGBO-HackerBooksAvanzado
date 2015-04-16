@@ -8,8 +8,8 @@
 
 +(ARFTag *) checkIfTagExistsWithName:(NSString *) name;
 
-+(NSData *) createDataWithTag:(ARFTag *) tag;
-+(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context;
+//+(NSData *) createDataWithTag:(ARFTag *) tag;
+//+(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context;
 
 
 @end

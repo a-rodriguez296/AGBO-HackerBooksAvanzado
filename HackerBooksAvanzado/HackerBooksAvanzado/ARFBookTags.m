@@ -11,6 +11,8 @@
 
 @implementation ARFBookTags
 
+
+#pragma mark Initializers
 +(instancetype) createBookTagsWithBook:(ARFBook *) book withTag:(ARFTag *) tag{
     ARFBookTags *bookTag = [ARFBookTags MR_createEntity];
     
@@ -20,7 +22,58 @@
     return bookTag;
 }
 
++(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context{
+   
+    NSURL *uri = [NSKeyedUnarchiver unarchiveObjectWithData:archivedURI];
+    if (uri == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObjectID *objectId = [context.persistentStoreCoordinator managedObjectIDForURIRepresentation:uri];
+    if (objectId == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObject *ob = [context objectWithID:objectId];
+    if (ob.isFault) {
+        // Got it!
+        return (ARFBookTags *) ob;
+    }
+    else{
+        // Might not exist anymore. Let's fetch it!
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:ob.entity.name];
+        req.predicate = [NSPredicate predicateWithFormat:@"SELF = %@", ob];
+        
+        NSError *error;
+        NSArray *res = [context executeFetchRequest:req
+                                              error:&error];
+        if (res == nil) {
+            return nil;
+        }else{
+            return [res lastObject];
+        }
+    }
+    
+}
 
+#pragma mark Class Methods
++(NSData *) createDataWithBookTag:(ARFBookTags *) bookTags{
+    NSURL *uri = [bookTags objectID].URIRepresentation;
+    return [NSKeyedArchiver archivedDataWithRootObject:uri];
+}
+
++(NSFetchedResultsController *) createFRCForTable{
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTags entityName]];
+    NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES];
+    [req setSortDescriptors:@[sDescriptor]];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFBookTagsAttributes.sectionTitle cacheName:nil];
+}
+
+
+#pragma mark Utils
 -(NSString *)sectionTitle{
     NSString * temp = [self primitiveSectionTitle];
     if (!temp) {
@@ -33,5 +86,14 @@
     else
         return temp;
 }
+
+-(NSString *)description{
+    return self.tag.tagName;
+}
+
+
+
+
+
 
 @end

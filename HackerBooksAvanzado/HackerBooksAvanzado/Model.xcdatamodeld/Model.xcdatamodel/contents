@@ -17,14 +17,14 @@
         <attribute name="photoURL" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="authors" toMany="YES" deletionRule="Cascade" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
-        <relationship name="bookTags" toMany="YES" deletionRule="Nullify" destinationEntity="BookTags" inverseName="book" inverseEntity="BookTags" syncable="YES"/>
+        <relationship name="bookTags" toMany="YES" deletionRule="Cascade" destinationEntity="BookTags" inverseName="book" inverseEntity="BookTags" syncable="YES"/>
         <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pdf" inverseName="book" inverseEntity="Pdf" syncable="YES"/>
         <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="book" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="BookTags" representedClassName="ARFBookTags" syncable="YES">
         <attribute name="sectionTitle" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
-        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
-        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="booksTags" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="booksTags" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="ARFLocation" syncable="YES">
         <attribute name="latitude" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -32,7 +32,7 @@
         <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="location" inverseEntity="Annotation" syncable="YES"/>
     </entity>
     <entity name="Pdf" representedClassName="ARFPdf" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="data" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="pdf" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName="ARFPhoto" syncable="YES">
@@ -42,16 +42,16 @@
     </entity>
     <entity name="Tag" representedClassName="ARFTag" syncable="YES">
         <attribute name="tagName" attributeType="String" syncable="YES"/>
-        <relationship name="booksTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTags" inverseName="tag" inverseEntity="BookTags" syncable="YES"/>
+        <relationship name="booksTags" toMany="YES" deletionRule="Cascade" destinationEntity="BookTags" inverseName="tag" inverseEntity="BookTags" syncable="YES"/>
     </entity>
     <elements>
         <element name="Annotation" positionX="-9" positionY="81" width="128" height="90"/>
         <element name="Author" positionX="1060" positionY="-432" width="128" height="75"/>
-        <element name="Book" positionX="774" positionY="-253" width="128" height="193"/>
-        <element name="BookTags" positionX="457" positionY="-189" width="128" height="88"/>
+        <element name="Book" positionX="774" positionY="-253" width="128" height="195"/>
+        <element name="BookTags" positionX="457" positionY="-189" width="128" height="90"/>
         <element name="Location" positionX="-92" positionY="-117" width="128" height="90"/>
-        <element name="Pdf" positionX="1069" positionY="-27" width="128" height="73"/>
+        <element name="Pdf" positionX="1069" positionY="-27" width="128" height="75"/>
         <element name="Photo" positionX="702" positionY="-630" width="128" height="90"/>
-        <element name="Tag" positionX="153" positionY="-271" width="128" height="73"/>
+        <element name="Tag" positionX="153" positionY="-271" width="128" height="75"/>
     </elements>
 </model>

@@ -9,13 +9,17 @@
 #ifndef HackerBooksAvanzado_ARFConstants_h
 #define HackerBooksAvanzado_ARFConstants_h
 
+//Macros
+#define _ME_WEAK __weak typeof(self) me = self;
+
+
 //Constante URL Libros
 static NSString* const kBooksUrl                      = @"https://keepcodigtest.blob.core.windows.net/containerblobstest/books_readable.json";
 
-//Notificaciones
-static NSString *const kDidChangeBookNotification     = @"didChangeBookNotification";
-
 //Constante ObjectID para guardar en NSUserDefaults
 static NSString* const kObjectID                      = @"objectID";
+
+//Constante autoSave
+static const NSUInteger kAutoSave = 15;
 
 #endif

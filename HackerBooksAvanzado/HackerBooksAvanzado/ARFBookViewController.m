@@ -53,8 +53,6 @@
     
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectBookInTable:) name:kDidSelectBookInTableNotification object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -159,23 +157,12 @@
     [self.progressView setProgress:0.0f];
 }
 
-#pragma mark ARFLIbraryViewControllerDelegate
--(void)libraryViewController:(ARFLIbraryViewController *)libraryVC didSelectBook:(ARFBook *)book{
-   
-//    self.book = book;
-//    [self setupView];
-//    
-//    for (id vc in self.navigationController.viewControllers) {
-//        if ([vc isKindOfClass:[ReaderViewController class]]) {
-//            //Estoy en pdf
-//            
-//            //Hacer pop del readerVC actual
-//            [self dismissReaderViewController:vc];
-//            
-//            [self viewPDF:nil];
-//        }
-//    }
+#pragma mark ARFBooksViewControllerDelegate
+-(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
+    self.book = book;
+    [self setupView];
 }
+
 
 
 #pragma mark ARFLibraryViewControllerDelegate

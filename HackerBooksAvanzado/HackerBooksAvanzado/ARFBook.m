@@ -85,39 +85,23 @@
             tagEntity =[ARFTag createTagWithName:tagName];
         }
         
-        ARFBookTags *bookTag = [ARFBookTags createBookTagsWithBook:book withTag:tagEntity];
-//        [book.bookTagsSet addObject:bookTag];
-//        [tagEntity.booksSet addObject:bookTag];
+        [ARFBookTags createBookTagsWithBook:book withTag:tagEntity];
     }
-    
-    //Agregar los tags
-//    [book addTags:tagsSet];
 }
 
 
 
 #pragma mark Class Methods
-+(NSArray *)observableKeys{
-    return @[ARFBookAttributes.favorite];
-}
 
 +(NSString *) authorsWithBook:(ARFBook *) book{
     return [book.authors.allObjects componentsJoinedByString:@","];
 }
 
 +(NSString *) tagsWithBook:(ARFBook *) book{
-//    return [book.tags.allObjects componentsJoinedByString:@","];
-    return @"hola";
-}
-
-#pragma mark KVO Methods
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    [self setModificationDate:[NSDate date]];
     
-    
-    //Enviar notificación avisando que ha cambiado el modelo.
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDidChangeBookNotification object:nil];
-    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFBookTagsRelationships.book,book];
+    NSArray *tags = [ARFBookTags MR_findAllSortedBy:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES withPredicate:predicate];
+    return [tags componentsJoinedByString:@","];
 }
 
 

@@ -11,11 +11,8 @@
 #import "ARFConstants.h"
 #import "ARFBookTags.h"
 #import "ARFBooksViewController.h"
-#import "ARFTag.h"
-#import "ARFBook.h"
-
-//Borrar
-#import "ARFBookApiClient.h"
+#import "ARFSplashViewController.h"
+#import "ARFBookViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,44 +28,69 @@
     //Setup Magical Record
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"HackerBooks"];
     
+    
     //Start Autosave
     [self autoSave];
+
+    
     
     //Verificación si hay data en core data
     
 
-    if ([ARFBookTags  MR_countOfEntities]) {
+    if ([ARFBookTags  MR_countOfEntities]>0) {
         
         //Hay data
         
-//        for (ARFBook *book in [ARFBook MR_findAll]) {
-//            NSLog(@"%@ %i", book.sectionIdentifier,book.favoriteValue);
-//        }
         
+        ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:[ARFBookTags createFRCForTable]];
         
-        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTags entityName]];
-        NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES];
-        [req setSortDescriptors:@[sDescriptor]];
-        NSFetchedResultsController *fRC = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFBookTagsAttributes.sectionTitle cacheName:nil];
-        ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:fRC];
-        [booksVC setDelegate:booksVC];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            
+            //Selección de la última celda visitada
+            NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+            ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
+            
+            ARFBook *lastBook;
+            
+            //Determinar si hay un ultimo libro
+            
+            if (lastItem) {
+                lastBook = lastItem.book;
+            }
+            else{
+                
+                //Caso primera vez
+                ARFBookTags *firstElement = [booksVC.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                lastBook = firstElement.book;
+            }
+            
+            
+            //Crear BookVC
+            ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:lastBook];
+            [booksVC setDelegate:bookVC];
+            
+            //Empaquetar bookVC
+            UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
+            
+            //Crear SplitView
+            UISplitViewController *splitVC = [UISplitViewController new];
+            [splitVC setViewControllers:@[booksVC,navVC]];
+            
+            self.window.rootViewController = splitVC;
+            
+        }
+        else{
+            self.window.rootViewController = booksVC;
+        }
         
-        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
-        
-        self.window.rootViewController = navVC;
         
     }
     else{
         //No hay datos
-        [ARFBookApiClient requestBooksWithURL:kBooksUrl withSuccess:^(NSArray *books) {
-            
-        } withFailure:^(NSString *error) {
-            
-        }];
+        
+        ARFSplashViewController *splashVC = [[ARFSplashViewController alloc] initWithNibName:NSStringFromClass([ARFSplashViewController class]) bundle:nil];
+        self.window.rootViewController = splashVC;
     }
-    
-
-    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -107,7 +129,7 @@
         NSLog(@"Hizo auto save");
     }];
     
-    [self performSelector:@selector(autoSave) withObject:nil afterDelay:15];
+    [self performSelector:@selector(autoSave) withObject:nil afterDelay:kAutoSave];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ARFBooksViewController+SearchController.h
+//  ARFBooksViewController+SearchBar.h
 //  HackerBooksAvanzado
 //
 //  Created by Alejandro Rodriguez on 4/15/15.
@@ -8,6 +8,6 @@
 
 #import "ARFBooksViewController.h"
 
-@interface ARFBooksViewController (SearchController)
+@interface ARFBooksViewController (SearchBar)  <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @end

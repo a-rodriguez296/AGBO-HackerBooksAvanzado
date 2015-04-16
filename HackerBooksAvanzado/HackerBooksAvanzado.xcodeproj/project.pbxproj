@@ -13,9 +13,12 @@
 		9C0936781ADE278A0031587C /* booksReadable.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0936771ADE278A0031587C /* booksReadable.json */; };
 		9C2323201ADEEDB500C763F4 /* ARFSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */; };
 		9C2323211ADEEDB500C763F4 /* ARFSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */; };
-		9C2323251ADEF16600C763F4 /* ARFBooksViewController+SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2323241ADEF16600C763F4 /* ARFBooksViewController+SearchController.m */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
 		9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C32EA201ADB74E40004F011 /* ARFBookCell.xib */; };
+		9C3CF8B51ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8B41ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m */; };
+		9C3CF8BC1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8BB1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m */; };
+		9C3CF8C11ADF5C1500E69E72 /* ARFSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8BF1ADF5C1500E69E72 /* ARFSplashViewController.m */; };
+		9C3CF8C21ADF5C1500E69E72 /* ARFSplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3CF8C01ADF5C1500E69E72 /* ARFSplashViewController.xib */; };
 		9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */; };
 		9C8813741ADB613800AFFD15 /* ARFBookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813731ADB613800AFFD15 /* ARFBookParser.m */; };
 		9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */; };
@@ -73,11 +76,16 @@
 		9C23231D1ADEEDB500C763F4 /* ARFSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSearchResultsViewController.h; sourceTree = "<group>"; };
 		9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSearchResultsViewController.m; sourceTree = "<group>"; };
 		9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSearchResultsViewController.xib; sourceTree = "<group>"; };
-		9C2323231ADEF16600C763F4 /* ARFBooksViewController+SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARFBooksViewController+SearchController.h"; sourceTree = "<group>"; };
-		9C2323241ADEF16600C763F4 /* ARFBooksViewController+SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+SearchController.m"; sourceTree = "<group>"; };
 		9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookCell.h; sourceTree = "<group>"; };
 		9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookCell.m; sourceTree = "<group>"; };
 		9C32EA201ADB74E40004F011 /* ARFBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookCell.xib; sourceTree = "<group>"; };
+		9C3CF8B31ADF37E700E69E72 /* ARFBooksViewController+SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARFBooksViewController+SearchBar.h"; sourceTree = "<group>"; };
+		9C3CF8B41ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+SearchBar.m"; sourceTree = "<group>"; };
+		9C3CF8BA1ADF583100E69E72 /* ARFBooksViewController+SearchResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARFBooksViewController+SearchResults.h"; sourceTree = "<group>"; };
+		9C3CF8BB1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+SearchResults.m"; sourceTree = "<group>"; };
+		9C3CF8BE1ADF5C1500E69E72 /* ARFSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSplashViewController.h; sourceTree = "<group>"; };
+		9C3CF8BF1ADF5C1500E69E72 /* ARFSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSplashViewController.m; sourceTree = "<group>"; };
+		9C3CF8C01ADF5C1500E69E72 /* ARFSplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSplashViewController.xib; sourceTree = "<group>"; };
 		9C88136E1ADB5F9500AFFD15 /* ARFBookApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookApiClient.h; sourceTree = "<group>"; };
 		9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookApiClient.m; sourceTree = "<group>"; };
 		9C8813721ADB613800AFFD15 /* ARFBookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookParser.h; sourceTree = "<group>"; };
@@ -189,15 +197,6 @@
 			name = "Search ResultsVC";
 			sourceTree = "<group>";
 		};
-		9C2323261ADEF16D00C763F4 /* Search Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9C2323231ADEF16600C763F4 /* ARFBooksViewController+SearchController.h */,
-				9C2323241ADEF16600C763F4 /* ARFBooksViewController+SearchController.m */,
-			);
-			name = "Search Controller";
-			sourceTree = "<group>";
-		};
 		9C32EA231ADB74ED0004F011 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +205,34 @@
 				9C32EA201ADB74E40004F011 /* ARFBookCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		9C3CF8B61ADF37F200E69E72 /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				9C3CF8B31ADF37E700E69E72 /* ARFBooksViewController+SearchBar.h */,
+				9C3CF8B41ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m */,
+			);
+			name = "Search Bar";
+			sourceTree = "<group>";
+		};
+		9C3CF8BD1ADF5A5C00E69E72 /* Search Results Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C3CF8BA1ADF583100E69E72 /* ARFBooksViewController+SearchResults.h */,
+				9C3CF8BB1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m */,
+			);
+			name = "Search Results Controller";
+			sourceTree = "<group>";
+		};
+		9C3CF8C31ADF612E00E69E72 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9C3CF8BE1ADF5C1500E69E72 /* ARFSplashViewController.h */,
+				9C3CF8BF1ADF5C1500E69E72 /* ARFSplashViewController.m */,
+				9C3CF8C01ADF5C1500E69E72 /* ARFSplashViewController.xib */,
+			);
+			name = Splash;
 			sourceTree = "<group>";
 		};
 		9C8813711ADB5FA100AFFD15 /* Network */ = {
@@ -251,8 +278,9 @@
 		9C8813811ADB739500AFFD15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9CCA04AC1ADD75D50076DFEA /* BookVC */,
+				9C3CF8C31ADF612E00E69E72 /* Splash */,
 				9C8813801ADB738900AFFD15 /* BooksVC */,
+				9CCA04AC1ADD75D50076DFEA /* BookVC */,
 				9C2323221ADEEDC600C763F4 /* Search ResultsVC */,
 			);
 			name = Controllers;
@@ -270,10 +298,11 @@
 		9C895DA71ADCC40E00C0D0EC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				9C3CF8B61ADF37F200E69E72 /* Search Bar */,
 				9C895DA61ADCC40600C0D0EC /* Utils */,
 				9CCA04B01ADD8E290076DFEA /* Notifications */,
 				9CCA04B41ADD9DF30076DFEA /* Table View */,
-				9C2323261ADEF16D00C763F4 /* Search Controller */,
+				9C3CF8BD1ADF5A5C00E69E72 /* Search Results Controller */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -533,6 +562,7 @@
 				9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */,
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
+				9C3CF8C21ADF5C1500E69E72 /* ARFSplashViewController.xib in Resources */,
 				9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */,
 				9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */,
 				9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */,
@@ -587,8 +617,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C3CF8B51ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m in Sources */,
 				9CCA04AF1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m in Sources */,
 				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
+				9C3CF8BC1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m in Sources */,
 				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
 				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
 				9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */,
@@ -616,9 +648,9 @@
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
 				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
+				9C3CF8C11ADF5C1500E69E72 /* ARFSplashViewController.m in Sources */,
 				9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */,
 				9CCA04AA1ADD75B10076DFEA /* ARFBookViewController.m in Sources */,
-				9C2323251ADEF16600C763F4 /* ARFBooksViewController+SearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
