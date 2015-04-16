@@ -20,6 +20,6 @@ static NSString* const kBooksUrl                      = @"https://keepcodigtest.
 static NSString* const kObjectID                      = @"objectID";
 
 //Constante autoSave
-static const NSUInteger kAutoSave = 15;
+static const NSUInteger kAutoSave = 5;
 
 #endif

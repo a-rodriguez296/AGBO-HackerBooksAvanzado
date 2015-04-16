@@ -10,7 +10,6 @@
 		9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C0583BC1ADDE38B0048A66D /* not_available.jpg */; };
 		9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583BF1ADE21520048A66D /* _ARFBookTags.m */; };
 		9C0583C31ADE21670048A66D /* ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583C21ADE21670048A66D /* ARFBookTags.m */; };
-		9C0936781ADE278A0031587C /* booksReadable.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C0936771ADE278A0031587C /* booksReadable.json */; };
 		9C2323201ADEEDB500C763F4 /* ARFSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */; };
 		9C2323211ADEEDB500C763F4 /* ARFSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
@@ -26,6 +25,12 @@
 		9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C88137D1ADB738000AFFD15 /* ARFBooksViewController.xib */; };
 		9C895DA51ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C895DA41ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m */; };
 		9C895DAA1ADCC98100C0D0EC /* ARFPredicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C895DA91ADCC98100C0D0EC /* ARFPredicates.m */; };
+		9C8A5C801AE061090047ED54 /* ARFCreateAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A5C7E1AE061090047ED54 /* ARFCreateAnnotationViewController.m */; };
+		9C8A5C811AE061090047ED54 /* ARFCreateAnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A5C7F1AE061090047ED54 /* ARFCreateAnnotationViewController.xib */; };
+		9C8A5C851AE06E460047ED54 /* CLLocationManager+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A5C841AE06E460047ED54 /* CLLocationManager+Manager.m */; };
+		9C8A5C8C1AE0BFEB0047ED54 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A5C871AE0BFEB0047ED54 /* UIImage+Alpha.m */; };
+		9C8A5C8D1AE0BFEB0047ED54 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A5C891AE0BFEB0047ED54 /* UIImage+Resize.m */; };
+		9C8A5C8E1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A5C8B1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m */; };
 		9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F208E1ADB2CFB00A0A61E /* main.m */; };
 		9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20911ADB2CFB00A0A61E /* AppDelegate.m */; };
 		9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9F20991ADB2CFC00A0A61E /* Images.xcassets */; };
@@ -72,7 +77,6 @@
 		9C0583BF1ADE21520048A66D /* _ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFBookTags.m; sourceTree = "<group>"; };
 		9C0583C11ADE21670048A66D /* ARFBookTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookTags.h; sourceTree = "<group>"; };
 		9C0583C21ADE21670048A66D /* ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookTags.m; sourceTree = "<group>"; };
-		9C0936771ADE278A0031587C /* booksReadable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = booksReadable.json; sourceTree = "<group>"; };
 		9C23231D1ADEEDB500C763F4 /* ARFSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSearchResultsViewController.h; sourceTree = "<group>"; };
 		9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSearchResultsViewController.m; sourceTree = "<group>"; };
 		9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -100,6 +104,17 @@
 		9C895DA41ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARFBooksViewController+Utils.m"; sourceTree = "<group>"; };
 		9C895DA81ADCC98100C0D0EC /* ARFPredicates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFPredicates.h; sourceTree = "<group>"; };
 		9C895DA91ADCC98100C0D0EC /* ARFPredicates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFPredicates.m; sourceTree = "<group>"; };
+		9C8A5C7D1AE061090047ED54 /* ARFCreateAnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFCreateAnnotationViewController.h; sourceTree = "<group>"; };
+		9C8A5C7E1AE061090047ED54 /* ARFCreateAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFCreateAnnotationViewController.m; sourceTree = "<group>"; };
+		9C8A5C7F1AE061090047ED54 /* ARFCreateAnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFCreateAnnotationViewController.xib; sourceTree = "<group>"; };
+		9C8A5C831AE06E460047ED54 /* CLLocationManager+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Manager.h"; sourceTree = "<group>"; };
+		9C8A5C841AE06E460047ED54 /* CLLocationManager+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Manager.m"; sourceTree = "<group>"; };
+		9C8A5C861AE0BFEB0047ED54 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		9C8A5C871AE0BFEB0047ED54 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		9C8A5C881AE0BFEB0047ED54 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		9C8A5C891AE0BFEB0047ED54 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		9C8A5C8A1AE0BFEB0047ED54 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		9C8A5C8B1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		9C9F20891ADB2CFB00A0A61E /* HackerBooksAvanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooksAvanzado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9F208D1ADB2CFB00A0A61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9F208E1ADB2CFB00A0A61E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -247,9 +262,11 @@
 		9C8813791ADB731200AFFD15 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9C8A5C8F1AE0BFF40047ED54 /* UIImage */,
 				9C8813751ADB643E00AFFD15 /* ARFConstants.h */,
 				9C895DAB1ADCC98A00C0D0EC /* Common predicates */,
 				9C88137A1ADB731E00AFFD15 /* Base Fetched Results Controller */,
+				9CBCD6031AE05BDC00677078 /* Location Manager */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 				9C8813801ADB738900AFFD15 /* BooksVC */,
 				9CCA04AC1ADD75D50076DFEA /* BookVC */,
 				9C2323221ADEEDC600C763F4 /* Search ResultsVC */,
+				9C8A5C821AE06CC00047ED54 /* Create Annotation VC */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -316,6 +334,29 @@
 			name = "Common predicates";
 			sourceTree = "<group>";
 		};
+		9C8A5C821AE06CC00047ED54 /* Create Annotation VC */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A5C7D1AE061090047ED54 /* ARFCreateAnnotationViewController.h */,
+				9C8A5C7E1AE061090047ED54 /* ARFCreateAnnotationViewController.m */,
+				9C8A5C7F1AE061090047ED54 /* ARFCreateAnnotationViewController.xib */,
+			);
+			name = "Create Annotation VC";
+			sourceTree = "<group>";
+		};
+		9C8A5C8F1AE0BFF40047ED54 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A5C861AE0BFEB0047ED54 /* UIImage+Alpha.h */,
+				9C8A5C871AE0BFEB0047ED54 /* UIImage+Alpha.m */,
+				9C8A5C881AE0BFEB0047ED54 /* UIImage+Resize.h */,
+				9C8A5C891AE0BFEB0047ED54 /* UIImage+Resize.m */,
+				9C8A5C8A1AE0BFEB0047ED54 /* UIImage+RoundedCorner.h */,
+				9C8A5C8B1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
 		9C9F20801ADB2CFB00A0A61E = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				9C0583BC1ADDE38B0048A66D /* not_available.jpg */,
-				9C0936771ADE278A0031587C /* booksReadable.json */,
 				9C8813791ADB731200AFFD15 /* Utils */,
 				9C8813711ADB5FA100AFFD15 /* Network */,
 				9C9F20D51ADB51B900A0A61E /* Core Data */,
@@ -446,6 +486,15 @@
 				9C0583C21ADE21670048A66D /* ARFBookTags.m */,
 			);
 			name = "Human Files";
+			sourceTree = "<group>";
+		};
+		9CBCD6031AE05BDC00677078 /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A5C831AE06E460047ED54 /* CLLocationManager+Manager.h */,
+				9C8A5C841AE06E460047ED54 /* CLLocationManager+Manager.m */,
+			);
+			name = "Location Manager";
 			sourceTree = "<group>";
 		};
 		9CCA04AC1ADD75D50076DFEA /* BookVC */ = {
@@ -558,7 +607,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C0936781ADE278A0031587C /* booksReadable.json in Resources */,
 				9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */,
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
@@ -567,6 +615,7 @@
 				9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */,
 				9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */,
 				9C2323211ADEEDB500C763F4 /* ARFSearchResultsViewController.xib in Resources */,
+				9C8A5C811AE061090047ED54 /* ARFCreateAnnotationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,15 +668,19 @@
 			files = (
 				9C3CF8B51ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m in Sources */,
 				9CCA04AF1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m in Sources */,
+				9C8A5C851AE06E460047ED54 /* CLLocationManager+Manager.m in Sources */,
 				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
 				9C3CF8BC1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m in Sources */,
+				9C8A5C8D1AE0BFEB0047ED54 /* UIImage+Resize.m in Sources */,
 				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
 				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
 				9C9F20D21ADB518A00A0A61E /* _ARFPhoto.m in Sources */,
 				9CCA04B31ADD9DED0076DFEA /* ARFBooksViewController+TableView.m in Sources */,
 				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
+				9C8A5C8C1AE0BFEB0047ED54 /* UIImage+Alpha.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
+				9C8A5C801AE061090047ED54 /* ARFCreateAnnotationViewController.m in Sources */,
 				9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */,
 				9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */,
 				9C895DAA1ADCC98100C0D0EC /* ARFPredicates.m in Sources */,
@@ -647,6 +700,7 @@
 				9C895DA51ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m in Sources */,
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
+				9C8A5C8E1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m in Sources */,
 				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
 				9C3CF8C11ADF5C1500E69E72 /* ARFSplashViewController.m in Sources */,
 				9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */,

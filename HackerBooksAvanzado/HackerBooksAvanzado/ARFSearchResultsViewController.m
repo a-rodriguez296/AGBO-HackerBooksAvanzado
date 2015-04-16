@@ -62,7 +62,7 @@ static NSString * const  cellIdentifier = @"Cell";
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ARFBook *book = self.filteredBooks[indexPath.row];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.delegate searchController:self didSelectItem:book];
 }
 @end

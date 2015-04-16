@@ -32,37 +32,40 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h0j-T2-iGz" userLabel="Title ">
                     <rect key="frame" x="214" y="113" width="98" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-g1-QDN" userLabel="Authors">
-                    <rect key="frame" x="8" y="244" width="304" height="21"/>
+                    <rect key="frame" x="8" y="273" width="304" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-jW-lBx" userLabel="Authors">
+                    <rect key="frame" x="8" y="242" width="62" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v2L-G8-cTp" userLabel="Tag list">
-                    <rect key="frame" x="8" y="273" width="304" height="21"/>
+                    <rect key="frame" x="8" y="346" width="304" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IzY-A9-Wqg" userLabel="Tag list">
+                    <rect key="frame" x="8" y="316" width="37" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laz-wd-Irk">
-                    <rect key="frame" x="8" y="326" width="56" height="30"/>
+                    <rect key="frame" x="8" y="409" width="56" height="30"/>
                     <state key="normal" title="Favorite">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onTouchFavorite:" destination="-1" eventType="touchUpInside" id="mbb-E1-X2F"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-mY-Ohy">
-                    <rect key="frame" x="8" y="364" width="66" height="30"/>
-                    <state key="normal" title="View PDF">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="viewPDF:" destination="-1" eventType="touchUpInside" id="6mT-yt-zIc"/>
                     </connections>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-ky-jGE">
@@ -72,29 +75,53 @@
                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-Pm-1gH">
                     <rect key="frame" x="8" y="539" width="304" height="2"/>
                 </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-mY-Ohy">
+                    <rect key="frame" x="8" y="447" width="66" height="30"/>
+                    <state key="normal" title="View PDF">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewPDF:" destination="-1" eventType="touchUpInside" id="6mT-yt-zIc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-Ae-iAb">
+                    <rect key="frame" x="8" y="485" width="107" height="30"/>
+                    <state key="normal" title="Add Annotation">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addAnnotation:" destination="-1" eventType="touchUpInside" id="sgq-Bc-10d"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="m9h-g1-QDN" secondAttribute="trailing" constant="8" id="2BA-VO-ays"/>
-                <constraint firstItem="v2L-G8-cTp" firstAttribute="width" secondItem="m9h-g1-QDN" secondAttribute="width" id="2KB-S3-Lwj"/>
+                <constraint firstItem="Laz-wd-Irk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="5dM-0h-kF7"/>
                 <constraint firstAttribute="trailing" secondItem="h0j-T2-iGz" secondAttribute="trailing" constant="8" id="Bqe-aJ-7Ss"/>
                 <constraint firstAttribute="trailing" secondItem="IZ0-Pm-1gH" secondAttribute="trailing" constant="8" id="Brv-fV-T4A"/>
-                <constraint firstItem="YBd-mY-Ohy" firstAttribute="top" secondItem="Laz-wd-Irk" secondAttribute="bottom" constant="8" id="JQ2-xE-onB"/>
-                <constraint firstItem="m9h-g1-QDN" firstAttribute="top" secondItem="WEL-hq-FS6" secondAttribute="bottom" constant="31" id="Lhd-mm-WrV"/>
+                <constraint firstItem="IZ0-Pm-1gH" firstAttribute="top" secondItem="PFb-Ae-iAb" secondAttribute="bottom" constant="24" id="C0j-ar-Hpv"/>
+                <constraint firstItem="v2L-G8-cTp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KTY-ad-9yk"/>
+                <constraint firstItem="nN7-jW-lBx" firstAttribute="top" secondItem="WEL-hq-FS6" secondAttribute="bottom" constant="29" id="L1h-tt-Uwe"/>
+                <constraint firstItem="PFb-Ae-iAb" firstAttribute="top" secondItem="YBd-mY-Ohy" secondAttribute="bottom" constant="8" id="LS0-Hm-288"/>
+                <constraint firstItem="IzY-A9-Wqg" firstAttribute="top" secondItem="m9h-g1-QDN" secondAttribute="bottom" constant="22" id="Lmn-vz-C3k"/>
                 <constraint firstAttribute="centerX" secondItem="KZ3-ky-jGE" secondAttribute="centerX" id="MFA-4j-UVP"/>
-                <constraint firstItem="WEL-hq-FS6" firstAttribute="leading" secondItem="m9h-g1-QDN" secondAttribute="leading" id="MQe-5C-NyG"/>
+                <constraint firstItem="IzY-A9-Wqg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Np3-Ys-F5l"/>
+                <constraint firstItem="m9h-g1-QDN" firstAttribute="top" secondItem="nN7-jW-lBx" secondAttribute="bottom" constant="10" id="R3a-Wo-JGn"/>
+                <constraint firstItem="v2L-G8-cTp" firstAttribute="top" secondItem="IzY-A9-Wqg" secondAttribute="bottom" constant="9" id="RLo-1r-U87"/>
                 <constraint firstAttribute="bottom" secondItem="IZ0-Pm-1gH" secondAttribute="bottom" constant="27" id="TL7-DU-rgg"/>
-                <constraint firstItem="Laz-wd-Irk" firstAttribute="leading" secondItem="v2L-G8-cTp" secondAttribute="leading" id="TXc-zc-Flx"/>
+                <constraint firstAttribute="trailing" secondItem="m9h-g1-QDN" secondAttribute="trailing" constant="8" id="UWS-5S-Sr3"/>
                 <constraint firstItem="IZ0-Pm-1gH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Y5T-mA-U9Y"/>
-                <constraint firstItem="v2L-G8-cTp" firstAttribute="top" secondItem="m9h-g1-QDN" secondAttribute="bottom" constant="8" id="eKN-i4-Whi"/>
+                <constraint firstItem="YBd-mY-Ohy" firstAttribute="top" secondItem="Laz-wd-Irk" secondAttribute="bottom" constant="8" id="aJE-at-gjc"/>
+                <constraint firstItem="PFb-Ae-iAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="d8K-Gc-HuS"/>
+                <constraint firstItem="m9h-g1-QDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="e9R-1p-ieF"/>
                 <constraint firstItem="WEL-hq-FS6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fa0-8l-b2d"/>
                 <constraint firstItem="h0j-T2-iGz" firstAttribute="leading" secondItem="WEL-hq-FS6" secondAttribute="trailing" constant="69" id="h4c-nd-Dsk"/>
-                <constraint firstItem="m9h-g1-QDN" firstAttribute="leading" secondItem="v2L-G8-cTp" secondAttribute="leading" id="h5i-bU-YGu"/>
+                <constraint firstItem="YBd-mY-Ohy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qCJ-Zt-OY7"/>
                 <constraint firstItem="h0j-T2-iGz" firstAttribute="centerY" secondItem="WEL-hq-FS6" secondAttribute="centerY" id="qwW-p7-V5q"/>
-                <constraint firstItem="Laz-wd-Irk" firstAttribute="leading" secondItem="YBd-mY-Ohy" secondAttribute="leading" id="vDW-HP-bb5"/>
+                <constraint firstItem="nN7-jW-lBx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="vO4-WA-11t"/>
                 <constraint firstItem="WEL-hq-FS6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="w94-Ql-duH"/>
                 <constraint firstAttribute="centerY" secondItem="KZ3-ky-jGE" secondAttribute="centerY" id="xK1-Vn-6gH"/>
-                <constraint firstItem="Laz-wd-Irk" firstAttribute="top" secondItem="v2L-G8-cTp" secondAttribute="bottom" constant="32" id="zhq-Sz-NAu"/>
+                <constraint firstAttribute="trailing" secondItem="v2L-G8-cTp" secondAttribute="trailing" constant="8" id="xaj-hB-yTd"/>
             </constraints>
             <point key="canvasLocation" x="1095" y="158"/>
         </view>

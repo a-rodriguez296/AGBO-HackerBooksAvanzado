@@ -70,17 +70,19 @@
             [booksVC setDelegate:bookVC];
             
             //Empaquetar bookVC
+            UINavigationController *navVC1  = [[UINavigationController alloc] initWithRootViewController:booksVC];
             UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
             
             //Crear SplitView
             UISplitViewController *splitVC = [UISplitViewController new];
-            [splitVC setViewControllers:@[booksVC,navVC]];
+            [splitVC setViewControllers:@[navVC1,navVC]];
             
             self.window.rootViewController = splitVC;
             
         }
         else{
-            self.window.rootViewController = booksVC;
+            [booksVC setDelegate:booksVC];
+            self.window.rootViewController = [[UINavigationController alloc ] initWithRootViewController:booksVC];
         }
         
         

@@ -8,6 +8,7 @@
 
 @import UIKit;
 
+
 #import "ARFBaseFetchedResultsController.h"
 @class ARFSearchResultsViewController;
 @class ARFBook;

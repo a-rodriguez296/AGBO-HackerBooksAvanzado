@@ -101,7 +101,7 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFBookTagsRelationships.book,book];
     NSArray *tags = [ARFBookTags MR_findAllSortedBy:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES withPredicate:predicate];
-    return [tags componentsJoinedByString:@","];
+    return [tags componentsJoinedByString:@", "];
 }
 
 

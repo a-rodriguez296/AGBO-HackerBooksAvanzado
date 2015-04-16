@@ -1,5 +1,9 @@
 #import "_ARFLocation.h"
+@import CoreLocation;
+@class ARFAnnotation;
 
 @interface ARFLocation : _ARFLocation {}
-// Custom logic goes here.
+
++(instancetype) createLocationWithAnnotation:(ARFAnnotation *) annotation location:(CLLocation *) location;
+
 @end

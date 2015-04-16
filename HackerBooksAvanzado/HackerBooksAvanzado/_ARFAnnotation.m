@@ -4,10 +4,13 @@
 #import "_ARFAnnotation.h"
 
 const struct ARFAnnotationAttributes ARFAnnotationAttributes = {
+	.creationDate = @"creationDate",
+	.modificationDate = @"modificationDate",
 	.text = @"text",
 };
 
 const struct ARFAnnotationRelationships ARFAnnotationRelationships = {
+	.book = @"book",
 	.image = @"image",
 	.location = @"location",
 };
@@ -41,7 +44,13 @@ const struct ARFAnnotationRelationships ARFAnnotationRelationships = {
 	return keyPaths;
 }
 
+@dynamic creationDate;
+
+@dynamic modificationDate;
+
 @dynamic text;
+
+@dynamic book;
 
 @dynamic image;
 

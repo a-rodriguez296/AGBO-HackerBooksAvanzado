@@ -14,12 +14,14 @@ extern const struct ARFBookAttributes {
 } ARFBookAttributes;
 
 extern const struct ARFBookRelationships {
+	__unsafe_unretained NSString *annotations;
 	__unsafe_unretained NSString *authors;
 	__unsafe_unretained NSString *bookTags;
 	__unsafe_unretained NSString *pdf;
 	__unsafe_unretained NSString *photo;
 } ARFBookRelationships;
 
+@class ARFAnnotation;
 @class ARFAuthor;
 @class ARFBookTags;
 @class ARFPdf;
@@ -62,6 +64,10 @@ extern const struct ARFBookRelationships {
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSSet *annotations;
+
+- (NSMutableSet*)annotationsSet;
+
 @property (nonatomic, strong) NSSet *authors;
 
 - (NSMutableSet*)authorsSet;
@@ -77,6 +83,14 @@ extern const struct ARFBookRelationships {
 @property (nonatomic, strong) ARFPhoto *photo;
 
 //- (BOOL)validatePhoto:(id*)value_ error:(NSError**)error_;
+
+@end
+
+@interface _ARFBook (AnnotationsCoreDataGeneratedAccessors)
+- (void)addAnnotations:(NSSet*)value_;
+- (void)removeAnnotations:(NSSet*)value_;
+- (void)addAnnotationsObject:(ARFAnnotation*)value_;
+- (void)removeAnnotationsObject:(ARFAnnotation*)value_;
 
 @end
 
@@ -118,6 +132,9 @@ extern const struct ARFBookRelationships {
 
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
+
+- (NSMutableSet*)primitiveAnnotations;
+- (void)setPrimitiveAnnotations:(NSMutableSet*)value;
 
 - (NSMutableSet*)primitiveAuthors;
 - (void)setPrimitiveAuthors:(NSMutableSet*)value;

@@ -13,6 +13,7 @@ const struct ARFBookAttributes ARFBookAttributes = {
 };
 
 const struct ARFBookRelationships ARFBookRelationships = {
+	.annotations = @"annotations",
 	.authors = @"authors",
 	.bookTags = @"bookTags",
 	.pdf = @"pdf",
@@ -83,6 +84,17 @@ const struct ARFBookRelationships ARFBookRelationships = {
 @dynamic photoURL;
 
 @dynamic title;
+
+@dynamic annotations;
+
+- (NSMutableSet*)annotationsSet {
+	[self willAccessValueForKey:@"annotations"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"annotations"];
+
+	[self didAccessValueForKey:@"annotations"];
+	return result;
+}
 
 @dynamic authors;
 

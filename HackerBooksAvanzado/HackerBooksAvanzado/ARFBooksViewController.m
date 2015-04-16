@@ -21,17 +21,20 @@
 #import "ARFBooksViewController+SearchResults.h"
 #import "ARFBookTags.h"
 
+
 @interface ARFBooksViewController () 
 
 
 
 @end
 
-@implementation ARFBooksViewController 
+@implementation ARFBooksViewController  
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
     
     [self setTitle:@"Hacker Books"];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -61,7 +64,13 @@
     self.searchController.delegate = self;
     self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
     self.searchController.searchBar.delegate = self;
+    
+    
 }
+
+
+
+
 
 
 -(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{

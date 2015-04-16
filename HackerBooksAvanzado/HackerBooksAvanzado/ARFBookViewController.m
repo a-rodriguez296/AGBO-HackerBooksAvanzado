@@ -14,6 +14,7 @@
 #import "CoreData+MagicalRecord.h"
 #import "ARFPdf.h"
 #import "ARFBookApiClient.h"
+#import "ARFCreateAnnotationViewController.h"
 //#import "ReaderDocument.h"
 //#import "ReaderViewController.h"
 
@@ -93,9 +94,11 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark IBActions
+- (IBAction)addAnnotation:(id)sender {
+    
+    ARFCreateAnnotationViewController *createAnnotationVC = [[ARFCreateAnnotationViewController alloc] initWithBook:self.book];
+    [self.navigationController pushViewController:createAnnotationVC animated:YES];
 }
 
 - (IBAction)onTouchFavorite:(id)sender {
@@ -125,7 +128,6 @@
             [self.view setUserInteractionEnabled:YES];
             
             [self restartProgressBar];
-            ARFPdf *b = [ARFPdf createPDFWithBook:self.book withData:data];
             
             
             

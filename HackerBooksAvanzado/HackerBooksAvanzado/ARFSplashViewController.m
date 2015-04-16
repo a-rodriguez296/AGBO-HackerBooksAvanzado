@@ -80,18 +80,19 @@
         [booksVC setDelegate:bookVC];
         
         //Empaquetar bookVC
+        UINavigationController *navVC1  = [[UINavigationController alloc] initWithRootViewController:booksVC];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
         
         //Crear SplitView
         UISplitViewController *splitVC = [UISplitViewController new];
         [splitVC setDelegate:bookVC];
-        [splitVC setViewControllers:@[booksVC,navVC]];
+        [splitVC setViewControllers:@[navVC1,navVC]];
         
         [self presentViewController:splitVC animated:NO completion:nil];
         
     }
     else{
-
+        [booksVC setDelegate:booksVC];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:booksVC] animated:NO completion:nil];
     }
 }
