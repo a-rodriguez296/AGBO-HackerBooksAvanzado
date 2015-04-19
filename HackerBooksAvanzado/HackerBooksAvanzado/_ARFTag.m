@@ -8,7 +8,7 @@ const struct ARFTagAttributes ARFTagAttributes = {
 };
 
 const struct ARFTagRelationships ARFTagRelationships = {
-	.booksTags = @"booksTags",
+	.books = @"books",
 };
 
 @implementation ARFTagID
@@ -42,14 +42,14 @@ const struct ARFTagRelationships ARFTagRelationships = {
 
 @dynamic tagName;
 
-@dynamic booksTags;
+@dynamic books;
 
-- (NSMutableSet*)booksTagsSet {
-	[self willAccessValueForKey:@"booksTags"];
+- (NSMutableSet*)booksSet {
+	[self willAccessValueForKey:@"books"];
 
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"booksTags"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"books"];
 
-	[self didAccessValueForKey:@"booksTags"];
+	[self didAccessValueForKey:@"books"];
 	return result;
 }
 

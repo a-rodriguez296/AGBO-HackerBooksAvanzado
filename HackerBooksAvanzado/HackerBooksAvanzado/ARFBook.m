@@ -25,7 +25,6 @@
     [book setPhotoURL:photoURL];
     [book setPdfURL:pdfURL];
     
-
     
     
     //Relación obligatoria a ARFPhoto
@@ -37,7 +36,7 @@
     
     
     //Tags
-    [ARFBook addTagsWithBook:book withTagList:tagList];
+    [ARFBook addTagsWithTagList:tagList withBook:book];
     
     
     return book;
@@ -70,7 +69,7 @@
     [book addAuthors:authorsSet];
 }
 
-+(void) addTagsWithBook:(ARFBook *) book withTagList:(NSArray *) tagList{
++(void) addTagsWithTagList:(NSArray *) tagList withBook:(ARFBook *) book{
     
 //    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
     //Recorrer la lista de tags
@@ -85,7 +84,7 @@
             tagEntity =[ARFTag createTagWithName:tagName];
         }
         
-        [ARFBookTags createBookTagsWithBook:book withTag:tagEntity];
+        [book addTagsObject:tagEntity];
     }
 }
 

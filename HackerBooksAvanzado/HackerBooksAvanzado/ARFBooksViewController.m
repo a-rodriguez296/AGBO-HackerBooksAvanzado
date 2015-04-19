@@ -41,15 +41,15 @@
     
     
     //Selección de la última celda visitada
-    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-    ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
-    if (!lastItem) {
-        ARFBookTags *firstElement = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        lastItem = firstElement;
-    }
-    
-    NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastItem];
-    [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+//    ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
+//    if (!lastItem) {
+//        ARFBookTags *firstElement = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        lastItem = firstElement;
+//    }
+//    
+//    NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastItem];
+//    [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     
     
     //Creación del search results controller

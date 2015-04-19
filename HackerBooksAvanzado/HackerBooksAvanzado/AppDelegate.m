@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CoreData+MagicalRecord.h"
 #import "ARFConstants.h"
+#import "ARFBook.h"
 #import "ARFBookTags.h"
 #import "ARFBooksViewController.h"
 #import "ARFSplashViewController.h"
@@ -26,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Setup Magical Record
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"HackerBooks"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Model"];
     
     
     //Start Autosave
@@ -37,7 +38,7 @@
     //Verificación si hay data en core data
     
 
-    if ([ARFBookTags  MR_countOfEntities]>0) {
+    if ([ARFBook  MR_countOfEntities]>0) {
         
         //Hay data
         
@@ -54,7 +55,7 @@
             
             //Determinar si hay un ultimo libro
             
-            if (lastItem) {
+            if (NO){//lastItem) {
                 lastBook = lastItem.book;
             }
             else{

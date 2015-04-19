@@ -72,8 +72,8 @@
 
 -(void) setupView{
     [self.lblTitle setText:self.book.title];
-    [self.lblAuthors setText:[ARFBook authorsWithBook:self.book]];
-    [self.lblTaglist setText:[ARFBook tagsWithBook:self.book]];
+//    [self.lblAuthors setText:[ARFBook authorsWithBook:self.book]];
+//    [self.lblTaglist setText:[ARFBook tagsWithBook:self.book]];
     [self.btnFavorite setSelected:self.book.favoriteValue];
     
     

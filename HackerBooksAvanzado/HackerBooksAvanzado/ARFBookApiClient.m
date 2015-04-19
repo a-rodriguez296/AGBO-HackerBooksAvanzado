@@ -39,8 +39,6 @@
             
         }
         
-        NSLog(@"%@",[NSManagedObjectContext MR_defaultContext]);
-        
         //Grabar datos en core data
         [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
             NSLog(@"Guardo los datos correctamente");

@@ -64,7 +64,7 @@
         
         //Determinar si hay un ultimo libro
         
-        if (lastItem) {
+        if (NO){//lastItem) {
             lastBook = lastItem.book;
         }
         else{

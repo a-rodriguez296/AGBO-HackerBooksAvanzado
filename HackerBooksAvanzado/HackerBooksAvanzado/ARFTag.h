@@ -12,4 +12,5 @@
 //+(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context;
 
 
+-(NSComparisonResult) compare:(ARFTag *) tag;
 @end

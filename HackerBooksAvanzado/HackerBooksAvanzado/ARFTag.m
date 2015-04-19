@@ -25,6 +25,28 @@
 }
 
 
+-(BOOL) isFavorite{
+    return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
+}
+
+
+-(NSComparisonResult) compare:(ARFTag *) tag{
+    
+    if (self == tag) {
+        return NSOrderedSame;
+    }
+    else if ([self isFavorite]) {
+        return NSOrderedAscending;
+    }
+    else if ([tag isFavorite]){
+        return NSOrderedDescending;
+    }
+    else
+        return [self.tagName compare:tag.tagName];
+    
+}
+
+
 #pragma mark Inherited Methods 
 -(NSString *)description{
     return self.tagName;
