@@ -4,10 +4,6 @@
 @import CoreData;
 #import "ARFKVOBaseClass.h"
 
-extern const struct ARFBookTagsAttributes {
-	__unsafe_unretained NSString *sectionTitle;
-} ARFBookTagsAttributes;
-
 extern const struct ARFBookTagsRelationships {
 	__unsafe_unretained NSString *book;
 	__unsafe_unretained NSString *tag;
@@ -25,10 +21,6 @@ extern const struct ARFBookTagsRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ARFBookTagsID* objectID;
 
-@property (nonatomic, strong) NSString* sectionTitle;
-
-//- (BOOL)validateSectionTitle:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) ARFBook *book;
 
 //- (BOOL)validateBook:(id*)value_ error:(NSError**)error_;
@@ -40,9 +32,6 @@ extern const struct ARFBookTagsRelationships {
 @end
 
 @interface _ARFBookTags (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveSectionTitle;
-- (void)setPrimitiveSectionTitle:(NSString*)value;
 
 - (ARFBook*)primitiveBook;
 - (void)setPrimitiveBook:(ARFBook*)value;

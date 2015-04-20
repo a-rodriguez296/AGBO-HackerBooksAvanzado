@@ -3,10 +3,6 @@
 
 #import "_ARFBookTags.h"
 
-const struct ARFBookTagsAttributes ARFBookTagsAttributes = {
-	.sectionTitle = @"sectionTitle",
-};
-
 const struct ARFBookTagsRelationships ARFBookTagsRelationships = {
 	.book = @"book",
 	.tag = @"tag",
@@ -40,8 +36,6 @@ const struct ARFBookTagsRelationships ARFBookTagsRelationships = {
 
 	return keyPaths;
 }
-
-@dynamic sectionTitle;
 
 @dynamic book;
 

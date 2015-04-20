@@ -104,5 +104,55 @@
     return [tags componentsJoinedByString:@", "];
 }
 
++(NSArray *)observableKeys{
+    return @[ARFBookAttributes.favorite];
+}
+
+
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && [self favoriteValue]) {
+    
+        //Verificar si existe un tag favorite
+        
+        ARFTag *tag = [[ARFTag MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K ==%@",ARFTagAttributes.tagName, @"Favorite"]] lastObject];
+        ARFBookTags *bookt;
+        _ME_WEAK
+        if (tag) {
+        
+            
+            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+            
+                //crear el booktag y agrego este libro y tag
+                [ARFBookTags createBookTagsWithBook:me withTag:tag];
+                
+            } completion:nil];
+        
+        }
+        else{
+        
+            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+            
+                //Creo un tag de nombre favorito
+//                ARFTag* tag1 = [ARFTag createTagWithName:@"Favorite"];
+                //crear el booktag y agrego este libro y tag
+                 [ARFBookTags createBookTagsWithBook:self withTag:[ARFTag createTagWithName:@"Favorite"]];
+                
+            } completion:^(BOOL success, NSError *error) {
+                if (success) {
+                   
+                }
+            }];
+        
+           
+            
+        }
+        
+        NSLog(@"%@ %@ %@", self.managedObjectContext, tag.managedObjectContext,bookt.managedObjectContext);
+        
+    }
+}
+
 
 @end

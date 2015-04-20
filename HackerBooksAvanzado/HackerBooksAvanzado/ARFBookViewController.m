@@ -15,6 +15,8 @@
 #import "ARFPdf.h"
 #import "ARFBookApiClient.h"
 #import "ARFCreateAnnotationViewController.h"
+#import "ARFAnnotation.h"
+#import "ARFAnnotationsViewController.h"
 //#import "ReaderDocument.h"
 //#import "ReaderViewController.h"
 
@@ -95,6 +97,24 @@
 }
 
 #pragma mark IBActions
+
+- (IBAction)viewAnnotations:(id)sender {
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFAnnotation entityName]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFAnnotationRelationships.book,self.book];
+    [req setPredicate:predicate];
+    [req setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:ARFAnnotationAttributes.creationDate ascending:YES]]];
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:nil cacheName:nil];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    [layout setItemSize:CGSizeMake(120, 150)];
+    ARFAnnotationsViewController *collectionVC = [[ARFAnnotationsViewController alloc]initWithFetchedResultsController:frc layout:layout];
+    
+//    NSLog(@"%zd",[ARFAnnotation MR_findAllWithPredicate:predicate].count) ;
+    [self.navigationController pushViewController:collectionVC animated:YES];
+    
+}
+
+
 - (IBAction)addAnnotation:(id)sender {
     
     ARFCreateAnnotationViewController *createAnnotationVC = [[ARFCreateAnnotationViewController alloc] initWithBook:self.book];

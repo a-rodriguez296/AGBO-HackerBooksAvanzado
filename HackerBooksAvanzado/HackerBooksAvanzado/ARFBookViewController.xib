@@ -93,10 +93,20 @@
                         <action selector="addAnnotation:" destination="-1" eventType="touchUpInside" id="sgq-Bc-10d"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CES-oM-7ec">
+                    <rect key="frame" x="193" y="485" width="119" height="30"/>
+                    <state key="normal" title="View Annotations">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewAnnotations:" destination="-1" eventType="touchUpInside" id="3ep-G6-FWV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Laz-wd-Irk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="5dM-0h-kF7"/>
+                <constraint firstItem="CES-oM-7ec" firstAttribute="centerY" secondItem="PFb-Ae-iAb" secondAttribute="centerY" id="6Wc-Hu-7Ip"/>
                 <constraint firstAttribute="trailing" secondItem="h0j-T2-iGz" secondAttribute="trailing" constant="8" id="Bqe-aJ-7Ss"/>
                 <constraint firstAttribute="trailing" secondItem="IZ0-Pm-1gH" secondAttribute="trailing" constant="8" id="Brv-fV-T4A"/>
                 <constraint firstItem="IZ0-Pm-1gH" firstAttribute="top" secondItem="PFb-Ae-iAb" secondAttribute="bottom" constant="24" id="C0j-ar-Hpv"/>
@@ -112,6 +122,7 @@
                 <constraint firstAttribute="trailing" secondItem="m9h-g1-QDN" secondAttribute="trailing" constant="8" id="UWS-5S-Sr3"/>
                 <constraint firstItem="IZ0-Pm-1gH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Y5T-mA-U9Y"/>
                 <constraint firstItem="YBd-mY-Ohy" firstAttribute="top" secondItem="Laz-wd-Irk" secondAttribute="bottom" constant="8" id="aJE-at-gjc"/>
+                <constraint firstAttribute="trailing" secondItem="CES-oM-7ec" secondAttribute="trailing" constant="8" id="adj-kd-nGH"/>
                 <constraint firstItem="PFb-Ae-iAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="d8K-Gc-HuS"/>
                 <constraint firstItem="m9h-g1-QDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="e9R-1p-ieF"/>
                 <constraint firstItem="WEL-hq-FS6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fa0-8l-b2d"/>
@@ -123,7 +134,7 @@
                 <constraint firstAttribute="centerY" secondItem="KZ3-ky-jGE" secondAttribute="centerY" id="xK1-Vn-6gH"/>
                 <constraint firstAttribute="trailing" secondItem="v2L-G8-cTp" secondAttribute="trailing" constant="8" id="xaj-hB-yTd"/>
             </constraints>
-            <point key="canvasLocation" x="1095" y="158"/>
+            <point key="canvasLocation" x="495" y="112"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

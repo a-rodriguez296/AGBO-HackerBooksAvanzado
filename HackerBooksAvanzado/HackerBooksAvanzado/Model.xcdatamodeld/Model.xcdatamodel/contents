@@ -26,7 +26,6 @@
         <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="book" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="BookTags" representedClassName="ARFBookTags" syncable="YES">
-        <attribute name="sectionTitle" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
         <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="booksTags" inverseEntity="Tag" syncable="YES"/>
     </entity>
@@ -46,13 +45,13 @@
     </entity>
     <entity name="Tag" representedClassName="ARFTag" syncable="YES">
         <attribute name="tagName" attributeType="String" syncable="YES"/>
-        <relationship name="booksTags" toMany="YES" deletionRule="Cascade" destinationEntity="BookTags" inverseName="tag" inverseEntity="BookTags" syncable="YES"/>
+        <relationship name="booksTags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BookTags" inverseName="tag" inverseEntity="BookTags" syncable="YES"/>
     </entity>
     <elements>
         <element name="Annotation" positionX="-9" positionY="81" width="128" height="133"/>
         <element name="Author" positionX="1060" positionY="-432" width="128" height="75"/>
         <element name="Book" positionX="772" positionY="-181" width="128" height="208"/>
-        <element name="BookTags" positionX="457" positionY="-189" width="128" height="90"/>
+        <element name="BookTags" positionX="457" positionY="-189" width="128" height="75"/>
         <element name="Location" positionX="-137" positionY="-117" width="128" height="88"/>
         <element name="Pdf" positionX="1069" positionY="-27" width="128" height="75"/>
         <element name="Photo" positionX="594" positionY="-630" width="128" height="88"/>

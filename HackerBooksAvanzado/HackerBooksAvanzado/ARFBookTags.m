@@ -69,23 +69,12 @@
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTags entityName]];
     NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES];
     [req setSortDescriptors:@[sDescriptor]];
-    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:ARFBookTagsAttributes.sectionTitle cacheName:nil];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] cacheName:nil];
 }
 
 
 #pragma mark Utils
--(NSString *)sectionTitle{
-    NSString * temp = [self primitiveSectionTitle];
-    if (!temp) {
-        if (self.book.favoriteValue)
-            return @"Favoritos";
-        else{
-            return self.tag.tagName;
-        }
-    }
-    else
-        return temp;
-}
+
 
 -(NSString *)description{
     return self.tag.tagName;
