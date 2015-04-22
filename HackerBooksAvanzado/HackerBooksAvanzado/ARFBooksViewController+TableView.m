@@ -48,6 +48,7 @@
 
 
     ARFTag *currentTag = [self.fetchedResultsController fetchedObjects][section];
+    NSLog(@"%@",currentTag.tagName);
     return currentTag.books.count;
 }
 

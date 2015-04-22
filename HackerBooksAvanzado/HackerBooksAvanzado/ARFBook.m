@@ -103,5 +103,43 @@
     return [tags componentsJoinedByString:@", "];
 }
 
++(NSArray *)observableKeys{
+    return @[ARFBookAttributes.favorite];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    
+
+    //con el != nil nos asguramos que no se entra a este metodo cuando se estan creando los books
+    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]] && [change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey]) {
+        
+        
+        ARFTag *favoriteTag =  [[ARFTag MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]] firstObject];
+        if ([self favoriteValue]) {
+            
+            if (!favoriteTag) {
+                favoriteTag = [ARFTag createTagWithName:@"Favorite"];
+            }
+            [self addTagsObject:favoriteTag];
+        }
+        else{
+            [self removeTagsObject:favoriteTag];
+        }
+        
+        
+        
+        
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        [formatter setDateStyle:NSDateFormatterLongStyle];
+//        [formatter setTimeStyle:NSDateFormatterLongStyle];
+//        NSString *name = [NSString stringWithFormat:@"%@",@"A"];// @"A", [formatter stringFromDate:[NSDate date]]];
+//        ARFTag *a = [ARFTag createTagWithName:name];
+//        [a addBooksObject:self];
+        
+    }
+
+}
+
 
 @end
