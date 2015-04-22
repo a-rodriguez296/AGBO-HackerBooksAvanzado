@@ -25,7 +25,7 @@
     [book setPhotoURL:photoURL];
     [book setPdfURL:pdfURL];
     
-
+    
     
     
     //Relación obligatoria a ARFPhoto
@@ -72,7 +72,7 @@
 
 +(void) addTagsWithBook:(ARFBook *) book withTagList:(NSArray *) tagList{
     
-//    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
+    //    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
     //Recorrer la lista de tags
     for (NSString *tagName in tagList) {
         
@@ -112,45 +112,35 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
-    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && [self favoriteValue]) {
-    
-        //Verificar si existe un tag favorite
+    if ([keyPath isEqualToString:ARFBookAttributes.favorite]) {
         
-        ARFTag *tag = [[ARFTag MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K ==%@",ARFTagAttributes.tagName, @"Favorite"]] lastObject];
-        ARFBookTags *bookt;
-        _ME_WEAK
-        if (tag) {
-        
+        if ([self favoriteValue]) {
             
-            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+            //Se acacabo de convertir el libro a favorito
             
-                //crear el booktag y agrego este libro y tag
-                [ARFBookTags createBookTagsWithBook:me withTag:tag];
+            //Verificar si existe un tag favorite
+            
+            ARFTag *tag = [[ARFTag MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K ==%@",ARFTagAttributes.tagName, @"Favorite"]] lastObject];
+            ARFBookTags *bookt;
+            if (tag) {
                 
-            } completion:nil];
-        
+                //crear el booktag y agrego este libro y tag
+                [ARFBookTags createBookTagsWithBook:self withTag:tag];
+                
+            }
+            else{
+                //Creo un tag de nombre favorito
+                //crear el booktag y agrego este libro y tag
+                [ARFBookTags createBookTagsWithBook:self withTag:[ARFTag createTagWithName:@"Favorite"]];
+            }
+            
         }
         else{
-        
-            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
             
-                //Creo un tag de nombre favorito
-//                ARFTag* tag1 = [ARFTag createTagWithName:@"Favorite"];
-                //crear el booktag y agrego este libro y tag
-                 [ARFBookTags createBookTagsWithBook:self withTag:[ARFTag createTagWithName:@"Favorite"]];
-                
-            } completion:^(BOOL success, NSError *error) {
-                if (success) {
-                   
-                }
-            }];
-        
-           
+            //Se saca ese libro de favoritos
             
         }
-        
-        NSLog(@"%@ %@ %@", self.managedObjectContext, tag.managedObjectContext,bookt.managedObjectContext);
-        
+
     }
 }
 

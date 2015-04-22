@@ -40,4 +40,15 @@
     return annotation;
 }
 
++(NSArray *)observableKeys{
+    return @[ARFAnnotationAttributes.text];
+}
+
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:ARFAnnotationAttributes.text]) {
+        
+    }
+}
+
 @end

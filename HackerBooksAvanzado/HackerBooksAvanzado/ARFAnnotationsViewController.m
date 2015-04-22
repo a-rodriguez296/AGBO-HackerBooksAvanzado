@@ -35,6 +35,12 @@
     [cell.imgAnnotation setImage:annotation.image.image];
     
     return cell;
-};
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    ARFAnnotation *annotation = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [annotation setText:@"Hola"];
+}
 
 @end
