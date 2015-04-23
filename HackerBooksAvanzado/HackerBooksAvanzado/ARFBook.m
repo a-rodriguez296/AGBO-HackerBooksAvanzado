@@ -109,23 +109,22 @@
         
         NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
         [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
-        [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];
         
         ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
+//        NSMutableSet *tagSet = self.tagsSet;
         if ([self favoriteValue]) {
             
             if (!favoriteTag) {
                 favoriteTag = [ARFTag createTagWithName:@"Favorite"];
-                
-                [self addTagsObject:favoriteTag];
             }
-            else{
-                [favoriteTag addBooksObject:self];
-            }
+            [favoriteTag addBooksObject:self];
         }
         else{
             [self removeTagsObject:favoriteTag];
         }
+        
+        
+        
     }
 }
 
