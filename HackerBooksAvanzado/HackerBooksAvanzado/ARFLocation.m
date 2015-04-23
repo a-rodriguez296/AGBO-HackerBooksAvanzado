@@ -1,6 +1,7 @@
 #import "ARFLocation.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
 #import "ARFAnnotation.h"
+#import "AGTCoreDataStack.h"
 
 @interface ARFLocation ()
 
@@ -19,7 +20,9 @@
     NSPredicate *longitude = [NSPredicate predicateWithFormat:@"abs(%K) - abs(%lf) < 0.001",ARFLocationAttributes.longitude, location.coordinate.longitude];
     NSPredicate *finalPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[latitude, longitude]];
     
-    NSArray *foundLocations = [ARFLocation MR_findAllWithPredicate:finalPredicate];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[ARFLocation entityName]];
+    [request setPredicate:finalPredicate];
+    NSArray *foundLocations = [[ARFCoreDataUtils model] executeFetchRequest:request errorBlock:nil];
     
     if (foundLocations.count) {
         
@@ -30,7 +33,7 @@
     }
     else{
        
-        ARFLocation *locationEntity = [ARFLocation MR_createEntity];
+        ARFLocation *locationEntity = [NSEntityDescription insertNewObjectForEntityForName:[ARFLocation entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
         [locationEntity setLatitudeValue:location.coordinate.latitude];
         [locationEntity setLongitudeValue:location.coordinate.longitude];
         [locationEntity addAnnotationsObject:annotation];

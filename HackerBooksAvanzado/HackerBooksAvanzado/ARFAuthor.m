@@ -1,5 +1,6 @@
 #import "ARFAuthor.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
+#import "AGTCoreDataStack.h"
 
 
 @interface ARFAuthor ()
@@ -12,14 +13,15 @@
 
 #pragma mark Inicializador
 +(instancetype) createAuthorWithName:(NSString *) name{
-    ARFAuthor *author = [ARFAuthor MR_createEntity];
+    ARFAuthor *author = [NSEntityDescription insertNewObjectForEntityForName:[ARFAuthor entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [author setName:name];
     return author;
 }
 
 +(ARFAuthor *) checkIfAuthorExistsWithName:(NSString *) name{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFAuthorAttributes.name,name];
-    return [[ARFAuthor MR_findAllWithPredicate:predicate]firstObject];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFAuthor entityName]];
+    [req setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFAuthorAttributes.name,name]];
+    return [[[ARFCoreDataUtils model] executeFetchRequest:req errorBlock:nil] firstObject];
 }
 
 

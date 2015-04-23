@@ -10,7 +10,6 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "ARFBookParser.h"
 #import "ARFBook.h"
-#import "CoreData+MagicalRecord.h"
 
 
 

@@ -8,12 +8,10 @@
 
 #import "ARFBooksViewController+TableView.h"
 #import "ARFBook.h"
-#import "CoreData+MagicalRecord.h"
 #import "ARFPredicates.h"
 #import "ARFBooksViewController+Utils.h"
 #import "ARFBookCell.h"
 #import "ARFConstants.h"
-#import "ARFBookTags.h"
 #import "ARFbook.h"
 #import "ARFTag.h"
 
@@ -21,7 +19,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ARFBookTags *bookTag = [self.fetchedResultsController fetchedObjects][indexPath.section];
     
     ARFTag *tag = [self.fetchedResultsController fetchedObjects][indexPath.section];
     ARFBook *book = [[tag books] allObjects][indexPath.row];
@@ -53,7 +50,6 @@
 
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-//    ARFBookTags * booksTags = [self.fetchedResultsController objectAtIndexPath:indexPath];
     ARFTag *tag = [self.fetchedResultsController fetchedObjects][indexPath.section];
     ARFBook *book = [tag.books allObjects][indexPath.row];
     

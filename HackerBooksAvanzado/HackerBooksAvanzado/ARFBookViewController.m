@@ -11,7 +11,6 @@
 #import "ARFBook.h"
 #import "ARFPhoto.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "CoreData+MagicalRecord.h"
 #import "ARFPdf.h"
 #import "ARFBookApiClient.h"
 #import "ARFCreateAnnotationViewController.h"

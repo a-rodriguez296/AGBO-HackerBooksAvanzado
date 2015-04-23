@@ -12,7 +12,6 @@
 #import "ARFAuthor.h"
 #import "ARFBookTags.h"
 #import "ARFTag.h"
-#import "CoreData+MagicalRecord.h"
 
 @implementation ARFBooksViewController (SearchBar) 
 

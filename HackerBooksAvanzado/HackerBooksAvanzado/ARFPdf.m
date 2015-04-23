@@ -1,6 +1,6 @@
 #import "ARFPdf.h"
 #import "ARFBook.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
 
 @interface ARFPdf ()
 
@@ -11,7 +11,7 @@
 @implementation ARFPdf
 
 +(instancetype) createPDFWithBook:(ARFBook *) book withData:(NSData *) data{
-    ARFPdf *pdf = [ARFPdf MR_createEntity];
+    ARFPdf *pdf = [NSEntityDescription insertNewObjectForEntityForName:[ARFPdf entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [pdf setBook:book];
     [pdf setData:data];
     return pdf;

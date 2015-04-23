@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "CoreData+MagicalRecord.h"
+#import "AGTCoreDataStack.h"
 #import "ARFConstants.h"
 #import "ARFBook.h"
-#import "ARFBookTags.h"
+#import "ARFTag.h"
 #import "ARFBooksViewController.h"
 #import "ARFSplashViewController.h"
 #import "ARFBookViewController.h"
@@ -26,8 +26,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //Setup Magical Record
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Model"];
+    //Setup Core Data Stack
+    self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     
     
     //Start Autosave
@@ -38,47 +38,50 @@
     //Verificación si hay data en core data
     
 
-    if ([ARFBook  MR_countOfEntities]>0) {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBook entityName]];
+    NSUInteger numBooks = [[self.model executeFetchRequest:req errorBlock:nil] count];
+    
+    if (numBooks>0) {
         
         //Hay data
         
         
-        ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:[ARFBookTags createFRCForTable]];
+        ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:[ARFTag createFRCForTable]];
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             
             //Selección de la última celda visitada
-            NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-            ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
-            
-            ARFBook *lastBook;
-            
-            //Determinar si hay un ultimo libro
-            
-            if (NO){//lastItem) {
-                lastBook = lastItem.book;
-            }
-            else{
-                
-                //Caso primera vez
-                ARFBookTags *firstElement = [booksVC.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                lastBook = firstElement.book;
-            }
-            
-            
-            //Crear BookVC
-            ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:lastBook];
-            [booksVC setDelegate:bookVC];
-            
-            //Empaquetar bookVC
-            UINavigationController *navVC1  = [[UINavigationController alloc] initWithRootViewController:booksVC];
-            UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
-            
-            //Crear SplitView
-            UISplitViewController *splitVC = [UISplitViewController new];
-            [splitVC setViewControllers:@[navVC1,navVC]];
-            
-            self.window.rootViewController = splitVC;
+//            NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+//            ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:self.model.context];
+//            
+//            ARFBook *lastBook;
+//            
+//            //Determinar si hay un ultimo libro
+//            
+//            if (NO){//lastItem) {
+//                lastBook = lastItem.book;
+//            }
+//            else{
+//                
+//                //Caso primera vez
+//                ARFBookTags *firstElement = [booksVC.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//                lastBook = firstElement.book;
+//            }
+//            
+//            
+//            //Crear BookVC
+//            ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:lastBook];
+//            [booksVC setDelegate:bookVC];
+//            
+//            //Empaquetar bookVC
+//            UINavigationController *navVC1  = [[UINavigationController alloc] initWithRootViewController:booksVC];
+//            UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
+//            
+//            //Crear SplitView
+//            UISplitViewController *splitVC = [UISplitViewController new];
+//            [splitVC setViewControllers:@[navVC1,navVC]];
+//            
+//            self.window.rootViewController = splitVC;
             
         }
         else{
@@ -128,12 +131,10 @@
 
 -(void) autoSave{
     
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+    [self.model saveWithErrorBlock:^(NSError *error) {
         
-        // nada que hacer por aquí (en este caso).
+        NSLog(@"Guardando Datos");
         
-    } completion:^(BOOL success, NSError *error) {
-        NSLog(@"La cagamos");
     }];
     
     [self performSelector:@selector(autoSave) withObject:nil afterDelay:kAutoSave];

@@ -10,7 +10,6 @@
 #import "ARFBookCell.h"
 #import "ARFBook.h"
 #import "ARFTag.h"
-#import "CoreData+MagicalRecord.h"
 #import "ARFBooksViewController+Utils.h"
 #import "ARFPredicates.h"
 #import "ARFBookViewController.h"
@@ -19,7 +18,6 @@
 #import "ARFBooksViewController+Notifications.h"
 #import "ARFBooksViewController+SearchBar.h"
 #import "ARFBooksViewController+SearchResults.h"
-#import "ARFBookTags.h"
 
 
 @interface ARFBooksViewController () 

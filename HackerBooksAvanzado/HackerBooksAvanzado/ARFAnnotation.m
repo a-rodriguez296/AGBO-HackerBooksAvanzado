@@ -1,8 +1,8 @@
 #import "ARFAnnotation.h"
-#import "CoreData+MagicalRecord.h"
 #import "ARFBook.h"
 #import "ARFPhoto.h"
 #import "ARFLocation.h"
+#import "ARFCoreDataUtils.h"
 
 @interface ARFAnnotation ()
 
@@ -13,7 +13,9 @@
 @implementation ARFAnnotation
 
 +(instancetype) createAnnotationWithBook:(ARFBook *) book text:(NSString *) text location:(CLLocation *) location image:(UIImage *) image{
-    ARFAnnotation *annotation = [ARFAnnotation MR_createEntity];
+    
+
+    ARFAnnotation *annotation = [NSEntityDescription insertNewObjectForEntityForName:[ARFAnnotation entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     
     //Datos necesarion
     [annotation setBook:book];

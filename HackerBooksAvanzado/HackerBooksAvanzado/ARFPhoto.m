@@ -1,5 +1,6 @@
 #import "ARFPhoto.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
+
 @interface ARFPhoto ()
 
 // Private interface goes here.
@@ -10,7 +11,7 @@
 
 +(instancetype) createPhoto{
     
-    ARFPhoto *photo = [ARFPhoto MR_createEntity];
+    ARFPhoto *photo = [NSEntityDescription insertNewObjectForEntityForName:[ARFPhoto entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     return photo;
 }
 

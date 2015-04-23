@@ -12,7 +12,6 @@
 #import "ARFConstants.h"
 #import "UIImage+Resize.h"
 #import "ARFAnnotation.h"
-#import "CoreData+MagicalRecord.h"
 
 @interface ARFCreateAnnotationViewController ()
 
@@ -77,10 +76,7 @@
 
 - (IBAction)saveAnnotation:(id)sender {
     
-    [ARFAnnotation createAnnotationWithBook:self.book text:self.txtView.text location:self.location image:self.imgView.image];
-    
-   NSLog(@"%lu",[ARFAnnotation MR_countOfEntities]) ;
-    
+    [ARFAnnotation createAnnotationWithBook:self.book text:self.txtView.text location:self.location image:self.imgView.image];    
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{

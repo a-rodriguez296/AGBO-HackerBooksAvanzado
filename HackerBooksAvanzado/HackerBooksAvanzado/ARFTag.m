@@ -1,5 +1,6 @@
 #import "ARFTag.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
+#import "AGTCoreDataStack.h"
 
 @interface ARFTag ()
 
@@ -12,7 +13,7 @@
 #pragma mark Delegate Initializer
 +(instancetype) createTagWithName:(NSString *) name{
     
-    ARFTag *tag = [ARFTag MR_createEntity];
+    ARFTag *tag = [NSEntityDescription insertNewObjectForEntityForName:[ARFTag entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [tag setTagName:name];
     return tag;
 }
@@ -21,7 +22,17 @@
 #pragma mark Class Methods
 +(ARFTag *) checkIfTagExistsWithName:(NSString *) name{
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,name];
-    return [[ARFTag MR_findAllWithPredicate:predicate]firstObject];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+    [req setPredicate:predicate];
+    return [[[ARFCoreDataUtils model] executeFetchRequest:req errorBlock:nil] firstObject];
+}
+
++(NSFetchedResultsController *) createFRCForTable{
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+    NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFTagAttributes.tagName ascending:YES selector:@selector(compare:)];
+    [req setSortDescriptors:@[sDescriptor]];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
 }
 
 

@@ -1,10 +1,10 @@
 #import "ARFBook.h"
-#import "CoreData+MagicalRecord.h"
+#import "ARFCoreDataUtils.h"
 #import "ARFPhoto.h"
 #import "ARFAuthor.h"
 #import "ARFTag.h"
-#import "ARFBookTags.h"
 #import "ARFConstants.h"
+#import "AGTCoreDataStack.h"
 
 @interface ARFBook ()
 
@@ -17,7 +17,7 @@
 #pragma mark Delegate Initializer
 +(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList aPhotoURL:(NSString *) photoURL aPDFURL:(NSString *) pdfURL{
     
-    ARFBook *book = [ARFBook MR_createEntity];
+    ARFBook *book = [NSEntityDescription insertNewObjectForEntityForName:[ARFBook entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [book setTitle:title];
     [book setFavoriteValue:NO];
     [book setCreationDate:[NSDate date]];
@@ -28,7 +28,7 @@
     
     
     //Relación obligatoria a ARFPhoto
-    book.photo =[ARFPhoto MR_createEntity];
+    book.photo =[NSEntityDescription insertNewObjectForEntityForName:[ARFPhoto entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     
     
     //Autores
@@ -96,13 +96,6 @@
     return [book.authors.allObjects componentsJoinedByString:@","];
 }
 
-+(NSString *) tagsWithBook:(ARFBook *) book{
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@",ARFBookTagsRelationships.book,book];
-    NSArray *tags = [ARFBookTags MR_findAllSortedBy:[NSString stringWithFormat:@"%@.%@",ARFBookTagsRelationships.tag,ARFTagAttributes.tagName] ascending:YES withPredicate:predicate];
-    return [tags componentsJoinedByString:@", "];
-}
-
 +(NSArray *)observableKeys{
     return @[ARFBookAttributes.favorite];
 }
@@ -114,46 +107,26 @@
     //con el != nil nos asguramos que no se entra a este metodo cuando se estan creando los books
     if ([keyPath isEqualToString:ARFBookAttributes.favorite] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]] && [change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey]) {
         
+        NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+        [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
+        [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];
         
-        ARFTag *favoriteTag =  [[ARFTag MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]] firstObject];
+        ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
         if ([self favoriteValue]) {
             
             if (!favoriteTag) {
                 favoriteTag = [ARFTag createTagWithName:@"Favorite"];
                 
-                ARFBook *androidBook = [[ARFBook MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFBookAttributes.title,@"Android Programming Tutorials"]] firstObject];
-                [androidBook addTagsObject:favoriteTag];
                 [self addTagsObject:favoriteTag];
             }
             else{
                 [favoriteTag addBooksObject:self];
             }
-            
-            for (ARFTag *tag in [[ARFTag MR_findAll] sortedArrayUsingSelector:@selector(compare:)]) {
-                NSLog(@"%@",tag);
-                for (ARFBook *book in tag.books.allObjects) {
-                    NSLog(@"%@",book.title);
-                }
-                NSLog(@"///////////////////////////////////////////////");
-            }
-            
         }
         else{
             [self removeTagsObject:favoriteTag];
         }
-        
-        
-        
-        
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateStyle:NSDateFormatterLongStyle];
-//        [formatter setTimeStyle:NSDateFormatterLongStyle];
-//        NSString *name = [NSString stringWithFormat:@"%@",@"A"];// @"A", [formatter stringFromDate:[NSDate date]]];
-//        ARFTag *a = [ARFTag createTagWithName:name];
-//        [a addBooksObject:self];
-        
     }
-
 }
 
 

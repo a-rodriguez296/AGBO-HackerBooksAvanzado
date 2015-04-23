@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C0583BC1ADDE38B0048A66D /* not_available.jpg */; };
-		9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583BF1ADE21520048A66D /* _ARFBookTags.m */; };
-		9C0583C31ADE21670048A66D /* ARFBookTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583C21ADE21670048A66D /* ARFBookTags.m */; };
 		9C2323201ADEEDB500C763F4 /* ARFSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */; };
 		9C2323211ADEEDB500C763F4 /* ARFSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
@@ -18,6 +16,8 @@
 		9C3CF8BC1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8BB1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m */; };
 		9C3CF8C11ADF5C1500E69E72 /* ARFSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8BF1ADF5C1500E69E72 /* ARFSplashViewController.m */; };
 		9C3CF8C21ADF5C1500E69E72 /* ARFSplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3CF8C01ADF5C1500E69E72 /* ARFSplashViewController.xib */; };
+		9C4B5A9A1AE9346F000001B7 /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B5A991AE9346F000001B7 /* AGTCoreDataStack.m */; };
+		9C4B5AA01AE9391D000001B7 /* ARFCoreDataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B5A9F1AE9391D000001B7 /* ARFCoreDataUtils.m */; };
 		9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */; };
 		9C8813741ADB613800AFFD15 /* ARFBookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813731ADB613800AFFD15 /* ARFBookParser.m */; };
 		9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */; };
@@ -73,10 +73,6 @@
 		4893B99ACFB6A687BF409614 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		89B19A4F238328E9A6F4951C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0583BC1ADDE38B0048A66D /* not_available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = not_available.jpg; sourceTree = "<group>"; };
-		9C0583BE1ADE21520048A66D /* _ARFBookTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFBookTags.h; sourceTree = "<group>"; };
-		9C0583BF1ADE21520048A66D /* _ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFBookTags.m; sourceTree = "<group>"; };
-		9C0583C11ADE21670048A66D /* ARFBookTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookTags.h; sourceTree = "<group>"; };
-		9C0583C21ADE21670048A66D /* ARFBookTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookTags.m; sourceTree = "<group>"; };
 		9C23231D1ADEEDB500C763F4 /* ARFSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSearchResultsViewController.h; sourceTree = "<group>"; };
 		9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSearchResultsViewController.m; sourceTree = "<group>"; };
 		9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -90,6 +86,10 @@
 		9C3CF8BE1ADF5C1500E69E72 /* ARFSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSplashViewController.h; sourceTree = "<group>"; };
 		9C3CF8BF1ADF5C1500E69E72 /* ARFSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSplashViewController.m; sourceTree = "<group>"; };
 		9C3CF8C01ADF5C1500E69E72 /* ARFSplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSplashViewController.xib; sourceTree = "<group>"; };
+		9C4B5A981AE9346F000001B7 /* AGTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
+		9C4B5A991AE9346F000001B7 /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
+		9C4B5A9E1AE9391D000001B7 /* ARFCoreDataUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFCoreDataUtils.h; sourceTree = "<group>"; };
+		9C4B5A9F1AE9391D000001B7 /* ARFCoreDataUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFCoreDataUtils.m; sourceTree = "<group>"; };
 		9C88136E1ADB5F9500AFFD15 /* ARFBookApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookApiClient.h; sourceTree = "<group>"; };
 		9C88136F1ADB5F9500AFFD15 /* ARFBookApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookApiClient.m; sourceTree = "<group>"; };
 		9C8813721ADB613800AFFD15 /* ARFBookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookParser.h; sourceTree = "<group>"; };
@@ -250,6 +250,15 @@
 			name = Splash;
 			sourceTree = "<group>";
 		};
+		9C4B5AA11AE9398B000001B7 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C4B5A9E1AE9391D000001B7 /* ARFCoreDataUtils.h */,
+				9C4B5A9F1AE9391D000001B7 /* ARFCoreDataUtils.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		9C8813711ADB5FA100AFFD15 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +276,7 @@
 				9C895DAB1ADCC98A00C0D0EC /* Common predicates */,
 				9C88137A1ADB731E00AFFD15 /* Base Fetched Results Controller */,
 				9CBCD6031AE05BDC00677078 /* Location Manager */,
+				9C4B5AA11AE9398B000001B7 /* Core Data */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -438,8 +448,6 @@
 				9C9F20CA1ADB518A00A0A61E /* _ARFPhoto.m */,
 				9C9F20CB1ADB518A00A0A61E /* _ARFTag.h */,
 				9C9F20CC1ADB518A00A0A61E /* _ARFTag.m */,
-				9C0583BE1ADE21520048A66D /* _ARFBookTags.h */,
-				9C0583BF1ADE21520048A66D /* _ARFBookTags.m */,
 			);
 			name = "Machine Files";
 			sourceTree = "<group>";
@@ -452,6 +460,8 @@
 				9C9F20BC1ADB4C0500A0A61E /* Model.xcdatamodeld */,
 				9C8813721ADB613800AFFD15 /* ARFBookParser.h */,
 				9C8813731ADB613800AFFD15 /* ARFBookParser.m */,
+				9C4B5A981AE9346F000001B7 /* AGTCoreDataStack.h */,
+				9C4B5A991AE9346F000001B7 /* AGTCoreDataStack.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -482,8 +492,6 @@
 				9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */,
 				9C9F20DB1ADB51DC00A0A61E /* ARFBook.h */,
 				9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */,
-				9C0583C11ADE21670048A66D /* ARFBookTags.h */,
-				9C0583C21ADE21670048A66D /* ARFBookTags.m */,
 			);
 			name = "Human Files";
 			sourceTree = "<group>";
@@ -678,10 +686,10 @@
 				9CCA04B31ADD9DED0076DFEA /* ARFBooksViewController+TableView.m in Sources */,
 				9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */,
 				9C8A5C8C1AE0BFEB0047ED54 /* UIImage+Alpha.m in Sources */,
+				9C4B5AA01AE9391D000001B7 /* ARFCoreDataUtils.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
 				9C8A5C801AE061090047ED54 /* ARFCreateAnnotationViewController.m in Sources */,
-				9C0583C01ADE21520048A66D /* _ARFBookTags.m in Sources */,
 				9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */,
 				9C895DAA1ADCC98100C0D0EC /* ARFPredicates.m in Sources */,
 				9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */,
@@ -692,11 +700,11 @@
 				9C9F20BE1ADB4C0500A0A61E /* Model.xcdatamodeld in Sources */,
 				9C2323201ADEEDB500C763F4 /* ARFSearchResultsViewController.m in Sources */,
 				9C9F20D11ADB518A00A0A61E /* _ARFPdf.m in Sources */,
+				9C4B5A9A1AE9346F000001B7 /* AGTCoreDataStack.m in Sources */,
 				9C9F208F1ADB2CFB00A0A61E /* main.m in Sources */,
 				9C9F20E81ADB51E800A0A61E /* ARFLocation.m in Sources */,
 				9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */,
 				9C88137E1ADB738000AFFD15 /* ARFBooksViewController.m in Sources */,
-				9C0583C31ADE21670048A66D /* ARFBookTags.m in Sources */,
 				9C895DA51ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m in Sources */,
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
