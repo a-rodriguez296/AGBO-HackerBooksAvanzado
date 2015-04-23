@@ -128,8 +128,12 @@
 
 -(void) autoSave{
     
-    [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
-        NSLog(@"Hizo auto save");
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        
+        // nada que hacer por aquí (en este caso).
+        
+    } completion:^(BOOL success, NSError *error) {
+        NSLog(@"La cagamos");
     }];
     
     [self performSelector:@selector(autoSave) withObject:nil afterDelay:kAutoSave];

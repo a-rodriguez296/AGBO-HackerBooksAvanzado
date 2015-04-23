@@ -120,8 +120,23 @@
             
             if (!favoriteTag) {
                 favoriteTag = [ARFTag createTagWithName:@"Favorite"];
+                
+                ARFBook *androidBook = [[ARFBook MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFBookAttributes.title,@"Android Programming Tutorials"]] firstObject];
+                [androidBook addTagsObject:favoriteTag];
+                [self addTagsObject:favoriteTag];
             }
-            [self addTagsObject:favoriteTag];
+            else{
+                [favoriteTag addBooksObject:self];
+            }
+            
+            for (ARFTag *tag in [[ARFTag MR_findAll] sortedArrayUsingSelector:@selector(compare:)]) {
+                NSLog(@"%@",tag);
+                for (ARFBook *book in tag.books.allObjects) {
+                    NSLog(@"%@",book.title);
+                }
+                NSLog(@"///////////////////////////////////////////////");
+            }
+            
         }
         else{
             [self removeTagsObject:favoriteTag];
