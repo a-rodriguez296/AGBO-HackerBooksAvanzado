@@ -15,8 +15,10 @@
 #import "ARFBookApiClient.h"
 #import "ARFCreateAnnotationViewController.h"
 #import "ARFConstants.h"
-//#import "ReaderDocument.h"
-//#import "ReaderViewController.h"
+#import "NSString+Category.h"
+#import "ARFCoreDataUtils.h"
+#import "ReaderDocument.h"
+
 
 @class ARFLibrary;
 @class ARFBook;
@@ -127,7 +129,20 @@
     if (pdf.data) {
         
         //Hay PDF guardado
+        NSString *filePath =[pdf filePathString];
+        NSString *newPath = [[filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf",filePath]];
+        if ([[NSFileManager defaultManager] moveItemAtPath:filePath toPath:newPath error:nil]) {
+           
+            ReaderDocument *readerDoc = [[ReaderDocument alloc]initWithFilePath:filePath password:nil];
+            ReaderViewController *readerVC = [[ReaderViewController alloc]initWithReaderDocument:readerDoc];
+            [readerVC setDelegate:self];
+            [self.navigationController.navigationBar setHidden:YES];
+            [self.navigationController pushViewController:readerVC animated:YES];
+            
+        };
         
+        
+
         
     }
     else{
@@ -135,28 +150,20 @@
         [self.progressView setHidden:NO];
         [self.view setUserInteractionEnabled:NO];
         
+        _ME_WEAK
         [ARFBookApiClient donwloadDataWithURL:self.book.pdfURL withSuccess:^(NSData *data) {
             
-            [self.view setUserInteractionEnabled:YES];
+            [me.view setUserInteractionEnabled:YES];
+            [me restartProgressBar];
             
-            [self restartProgressBar];
+             ARFPdf *createdPDF = [ARFPdf createPDFWithBook:me.book withData:data];
             
-            
-            
-            //Averiguar si existe el archivo
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSString *fullCachePath = ((NSURL*)[[fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject] ).path;
-            NSString *bookLocalRelativeURL = [[self.book.pdfURL componentsSeparatedByString:@"/"] lastObject];
-            NSString *fullPath = [fullCachePath stringByAppendingPathComponent:bookLocalRelativeURL];
-            
-            if ([data writeToFile:fullPath atomically:YES]) {
-                
-            }
             
         } withFailure:^(NSString *error) {
             [self.view setUserInteractionEnabled:YES];
             
             [self restartProgressBar];
+            NSLog(@"Error Descargando el libro");
             
         }withProgress:^(float progress) {
             [self.progressView setProgress:progress];

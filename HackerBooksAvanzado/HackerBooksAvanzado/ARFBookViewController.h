@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 @class  ARFBook;
 #import "ARFBooksViewController.h"
+#import "ReaderViewController.h"
 
-@interface ARFBookViewController : UIViewController <UISplitViewControllerDelegate, ARFBooksViewControllerDelegate>
+@interface ARFBookViewController : UIViewController <UISplitViewControllerDelegate, ARFBooksViewControllerDelegate,ReaderViewControllerDelegate>
 
 
 
