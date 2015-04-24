@@ -36,9 +36,6 @@
 }
 
 
--(BOOL) isFavorite{
-    return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
-}
 
 #pragma mark Inherited Methods 
 -(NSString *)description{
@@ -60,5 +57,13 @@
         return [self.tagName compare:tag.tagName];
     
 }
+
+
+#pragma mark Utils
+
+-(BOOL) isFavorite{
+    return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
+}
+
 
 @end

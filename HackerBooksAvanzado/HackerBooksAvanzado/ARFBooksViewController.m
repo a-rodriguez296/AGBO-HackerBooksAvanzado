@@ -18,7 +18,7 @@
 #import "ARFBooksViewController+Notifications.h"
 #import "ARFBooksViewController+SearchBar.h"
 #import "ARFBooksViewController+SearchResults.h"
-
+#import "ARFCoreDataUtils.h"
 
 @interface ARFBooksViewController () 
 
@@ -37,18 +37,45 @@
     [self setTitle:@"Hacker Books"];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
+    //Select last Book
+    [self selectLastBook];
+    
+    //Create SearchBar
+    [self createSearchBarController];
+    
+    
+}
+
+
+
+
+
+#pragma mark ARFBooksViewControllerDelegate
+-(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
+    
+    ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:book];
+    [self.navigationController pushViewController:bookVC animated:YES];
+    
+}
+
+
+#pragma mark Utils
+-(void) selectLastBook{
     
     //Selección de la última celda visitada
-//    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-//    ARFBookTags *lastItem = [ARFBookTags objectWithArchivedURIRepresentation:lastObjectData context:[NSManagedObjectContext MR_defaultContext]];
-//    if (!lastItem) {
-//        ARFBookTags *firstElement = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//        lastItem = firstElement;
-//    }
-//    
-//    NSIndexPath *lastSelectedIndexPath =[self.fetchedResultsController indexPathForObject:lastItem];
-//    [self.tableView selectRowAtIndexPath:lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+    NSInteger lastObjectRow = [[[NSUserDefaults standardUserDefaults] objectForKey:kObjectRow] integerValue];
+    ARFTag *lastTag = (ARFTag *)[ARFCoreDataUtils objectWithArchivedURIRepresentation:lastObjectData context:[ARFCoreDataUtils defaultContext]];
+    if (!lastTag) {
+        lastTag = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:kFirstRow inSection:kFirstSection]];
+    }
     
+    NSIndexPath *lastSelectedSection =[self.fetchedResultsController indexPathForObject:lastTag];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastObjectRow inSection:lastSelectedSection.section] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    
+}
+
+-(void) createSearchBarController{
     
     //Creación del search results controller
     _resultsTableController = [[ARFSearchResultsViewController alloc] init];
@@ -63,23 +90,6 @@
     self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
     self.searchController.searchBar.delegate = self;
     
-    
 }
-
-
-
-
-
-
--(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
-    
-    ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:book];
-    [self.navigationController pushViewController:bookVC animated:YES];
-    
-}
-
-
-
-
 
 @end

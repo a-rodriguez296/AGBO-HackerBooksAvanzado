@@ -12,8 +12,10 @@
 #import "ARFBooksViewController+Utils.h"
 #import "ARFBookCell.h"
 #import "ARFConstants.h"
-#import "ARFbook.h"
+#import "ARFBook.h"
 #import "ARFTag.h"
+#import "ARFCoreDataUtils.h"
+
 
 @implementation ARFBooksViewController (TableView)
 
@@ -54,8 +56,9 @@
     ARFBook *book = [tag.books allObjects][indexPath.row];
     
     //Guardar item selecionado
-//    [[NSUserDefaults standardUserDefaults] setValue:[ARFBookTags createDataWithBookTag:booksTags] forKey:kObjectID];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setValue:[ARFCoreDataUtils createDataWithEntity:tag] forKey:kObjectID];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithUnsignedInteger:indexPath.row] forKey:kObjectRow];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.delegate booksViewController:self didSelectBook:book];
 }

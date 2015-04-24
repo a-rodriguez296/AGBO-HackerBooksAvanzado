@@ -18,8 +18,13 @@ static NSString* const kBooksUrl                      = @"https://keepcodigtest.
 
 //Constante ObjectID para guardar en NSUserDefaults
 static NSString* const kObjectID                      = @"objectID";
+static NSString* const kObjectRow                     = @"objectRow";
 
 //Constante autoSave
 static const NSUInteger kAutoSave = 5;
+
+
+static const NSUInteger kFirstSection = 0;
+static const NSUInteger kFirstRow = 0;
 
 #endif

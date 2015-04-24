@@ -15,4 +15,7 @@
 +(NSManagedObjectContext *) defaultContext;
 +(AGTCoreDataStack *) model;
 
++(NSData *) createDataWithEntity:(NSManagedObject *) object;
++(NSManagedObject *) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context;
+
 @end
