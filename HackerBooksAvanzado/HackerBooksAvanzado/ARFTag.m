@@ -1,6 +1,7 @@
 #import "ARFTag.h"
 #import "ARFCoreDataUtils.h"
 #import "AGTCoreDataStack.h"
+#import "ARFConstants.h"
 
 @interface ARFTag ()
 
@@ -35,6 +36,10 @@
     return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
 }
 
++(ARFTag *) retrieveLastSelectedTag{
+    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+    return (ARFTag *)[ARFCoreDataUtils objectWithArchivedURIRepresentation:lastObjectData context:[ARFCoreDataUtils defaultContext]];
+}
 
 
 #pragma mark Inherited Methods 
@@ -64,6 +69,8 @@
 -(BOOL) isFavorite{
     return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
 }
+
+
 
 
 @end

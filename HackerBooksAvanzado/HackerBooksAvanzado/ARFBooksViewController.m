@@ -63,9 +63,8 @@
 -(void) selectLastBook{
     
     //Selección de la última celda visitada
-    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
     NSInteger lastObjectRow = [[[NSUserDefaults standardUserDefaults] objectForKey:kObjectRow] integerValue];
-    ARFTag *lastTag = (ARFTag *)[ARFCoreDataUtils objectWithArchivedURIRepresentation:lastObjectData context:[ARFCoreDataUtils defaultContext]];
+    ARFTag *lastTag = [ARFTag retrieveLastSelectedTag];
     if (!lastTag) {
         lastTag = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:kFirstRow inSection:kFirstSection]];
     }

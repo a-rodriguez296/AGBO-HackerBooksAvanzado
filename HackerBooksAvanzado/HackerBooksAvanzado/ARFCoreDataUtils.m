@@ -34,6 +34,7 @@
 }
 
 
+//Metodo para crear un NSManagedObject dado un NSData
 +(NSManagedObject *) objectWithArchivedURIRepresentation:(NSData*)archivedURI context:(NSManagedObjectContext *) context{
     
     NSURL *uri = [NSKeyedUnarchiver unarchiveObjectWithData:archivedURI];
@@ -69,5 +70,7 @@
     }
     
 }
+
+
 
 @end

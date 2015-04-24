@@ -37,15 +37,7 @@
             [ARFBook createBookWithTitle:bookParser.title tags:bookParser.tagsList authors:bookParser.authorsList aPhotoURL:bookParser.urlImage aPDFURL:bookParser.urlPDF];
             
         }
-        
-        //Grabar datos en core data
-//        [MagicalRecord saveUsingCurrentThreadContextWithBlock:nil completion:^(BOOL success, NSError *error) {
-//            NSLog(@"Guardo los datos correctamente");
             successBlock();
-//        }];
-        
-        
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
