@@ -12,6 +12,7 @@
 @implementation ARFBooksViewController (SearchResults)
 
 -(void)searchController:(ARFSearchResultsViewController *)searchController didSelectItem:(id)item{
+    
     [self.delegate booksViewController:self didSelectBook:item];
 }
 
