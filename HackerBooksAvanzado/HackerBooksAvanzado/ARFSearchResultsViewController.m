@@ -46,7 +46,7 @@ static NSString * const  cellIdentifier = @"Cell";
     
     //Llenar la celda
     [cell.lblTitle setText:book.title];
-    [cell.lblAuthor setText:[ARFBook authorsWithBook:book]];
+    [cell.lblAuthor setText:[book normalizedAuthors]];
     
     //Devolver la celda
     return cell;

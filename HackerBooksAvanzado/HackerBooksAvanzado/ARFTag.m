@@ -40,6 +40,10 @@
     return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
 }
 
+#pragma mark Inherited Methods 
+-(NSString *)description{
+    return self.tagName;
+}
 
 -(NSComparisonResult) compare:(ARFTag *) tag{
     
@@ -55,12 +59,6 @@
     else
         return [self.tagName compare:tag.tagName];
     
-}
-
-
-#pragma mark Inherited Methods 
--(NSString *)description{
-    return self.tagName;
 }
 
 @end

@@ -10,7 +10,6 @@
 #import "ARFSearchResultsViewController.h"
 #import "ARFBook.h"
 #import "ARFAuthor.h"
-#import "ARFBookTags.h"
 #import "ARFTag.h"
 
 @implementation ARFBooksViewController (SearchBar) 

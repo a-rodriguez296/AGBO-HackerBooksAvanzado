@@ -6,7 +6,8 @@
 +(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList aPhotoURL:(NSString *) photoURL aPDFURL:(NSString *) pdfURL;
 
 
-+(NSString *) authorsWithBook:(ARFBook *) book;
-+(NSString *) tagsWithBook:(ARFBook *) book;
+
+-(NSString *) normalizedTags;
+-(NSString *) normalizedAuthors;
 
 @end

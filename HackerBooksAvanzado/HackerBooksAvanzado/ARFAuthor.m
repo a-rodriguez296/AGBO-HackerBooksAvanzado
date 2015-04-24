@@ -29,4 +29,8 @@
     return self.name;
 }
 
+-(NSComparisonResult ) compare: (ARFAuthor *) author{
+    return [self.name compare:author.name];
+}
+
 @end

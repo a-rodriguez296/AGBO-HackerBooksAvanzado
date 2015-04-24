@@ -43,6 +43,41 @@
     
 }
 
+#pragma mark Class Methods
+
++(NSArray *)observableKeys{
+    return @[ARFBookAttributes.favorite];
+}
+
+
+
+#pragma mark KVO
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    
+
+    //con el != nil nos asguramos que no se entra a este metodo cuando se estan creando los books
+    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]] && [change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey]) {
+        
+        //Busqueda si existe un tag con el nombre de favorito
+        NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+        [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
+        ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
+        if ([self favoriteValue]) {
+            
+            //Si no existe hay que crearlo
+            if (!favoriteTag) {
+                favoriteTag = [ARFTag createTagWithName:@"Favorite"];
+            }
+            
+            //Se añade el libro al conjunto de libros que tiene el tag
+            [favoriteTag addBooksObject:self];
+        }
+        else{
+            [self removeTagsObject:favoriteTag];
+        }
+    }
+}
 
 #pragma mark Utils
 +(void) addAuthorsWithBook:(ARFBook *) book withAuthors:(NSArray *) authorsList{
@@ -71,7 +106,6 @@
 
 +(void) addTagsWithTagList:(NSArray *) tagList withBook:(ARFBook *) book{
     
-//    NSMutableSet *tagsSet = [NSMutableSet setWithCapacity:tagList.count];
     //Recorrer la lista de tags
     for (NSString *tagName in tagList) {
         
@@ -88,45 +122,12 @@
     }
 }
 
-
-
-#pragma mark Class Methods
-
-+(NSString *) authorsWithBook:(ARFBook *) book{
-    return [book.authors.allObjects componentsJoinedByString:@","];
-}
-
-+(NSArray *)observableKeys{
-    return @[ARFBookAttributes.favorite];
-}
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+-(NSString *) normalizedTags{
     
-    
-
-    //con el != nil nos asguramos que no se entra a este metodo cuando se estan creando los books
-    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]] && [change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey]) {
-        
-        NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
-        [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
-        
-        ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
-//        NSMutableSet *tagSet = self.tagsSet;
-        if ([self favoriteValue]) {
-            
-            if (!favoriteTag) {
-                favoriteTag = [ARFTag createTagWithName:@"Favorite"];
-            }
-            [favoriteTag addBooksObject:self];
-        }
-        else{
-            [self removeTagsObject:favoriteTag];
-        }
-        
-        
-        
-    }
+    return [[[self.tags allObjects] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@", "];
 }
 
-
+-(NSString *) normalizedAuthors{
+    return [[[self.authors allObjects] sortedArrayUsingSelector:@selector(compare:)] componentsJoinedByString:@", "];
+}
 @end
