@@ -54,28 +54,32 @@
 #pragma mark KVO
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
-    
-
     //con el != nil nos asguramos que no se entra a este metodo cuando se estan creando los books
-    if ([keyPath isEqualToString:ARFBookAttributes.favorite] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]] && [change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey]) {
+    if ([keyPath isEqualToString:ARFBookAttributes.favorite]) {
         
-        //Busqueda si existe un tag con el nombre de favorito
-        NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
-        [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
-        ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
-        if ([self favoriteValue]) {
+        if ([change objectForKey:NSKeyValueChangeOldKey] != [change objectForKey:NSKeyValueChangeNewKey] && ![[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[NSNull class]]) {
             
-            //Si no existe hay que crearlo
-            if (!favoriteTag) {
-                favoriteTag = [ARFTag createTagWithName:@"Favorite"];
+            //Busqueda si existe un tag con el nombre de favorito
+            NSFetchRequest *tagRequest = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
+            [tagRequest setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFTagAttributes.tagName,@"Favorite"]];
+            ARFTag *favoriteTag = [[[ARFCoreDataUtils model] executeFetchRequest:tagRequest errorBlock:nil] firstObject];;
+            if ([self favoriteValue]) {
+                
+                //Si no existe hay que crearlo
+                if (!favoriteTag) {
+                    favoriteTag = [ARFTag createTagWithName:@"Favorite"];
+                }
+                
+                //Se añade el libro al conjunto de libros que tiene el tag
+                [favoriteTag addBooksObject:self];
             }
-            
-            //Se añade el libro al conjunto de libros que tiene el tag
-            [favoriteTag addBooksObject:self];
+            else{
+                [self removeTagsObject:favoriteTag];
+            }
         }
-        else{
-            [self removeTagsObject:favoriteTag];
-        }
+        
+        //Envio de notificación
+        [[NSNotificationCenter defaultCenter] postNotificationName:kBookDidChangeNotification object:self userInfo:@{kChangedAttribute:ARFBookAttributes.favorite}];
     }
 }
 

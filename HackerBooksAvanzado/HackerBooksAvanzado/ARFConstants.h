@@ -23,8 +23,12 @@ static NSString* const kObjectRow                     = @"objectRow";
 //Constante autoSave
 static const NSUInteger kAutoSave = 5;
 
-
+//Constantes BooksVC
 static const NSUInteger kFirstSection = 0;
 static const NSUInteger kFirstRow = 0;
+
+//Notificaciones
+static NSString* const kBookDidChangeNotification   = @"bookDidChangeNotification";
+static NSString* const kChangedAttribute            = @"changedAttribute";
 
 #endif

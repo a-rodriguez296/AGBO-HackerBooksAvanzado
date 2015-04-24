@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Alejandro Rodriguez. All rights reserved.
 //
 
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "ARFBookViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "ARFBook.h"
 #import "ARFPhoto.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "ARFPdf.h"
 #import "ARFBookApiClient.h"
 #import "ARFCreateAnnotationViewController.h"
+#import "ARFConstants.h"
 //#import "ReaderDocument.h"
 //#import "ReaderViewController.h"
 
@@ -50,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBookState:) name:kBookDidChangeNotification object:nil];
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
 }
@@ -93,6 +94,10 @@
     }
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark IBActions
 - (IBAction)addAnnotation:(id)sender {
     
@@ -103,8 +108,16 @@
 - (IBAction)onTouchFavorite:(id)sender {
     
     [self.book setFavoriteValue:!self.book.favoriteValue];
-    [sender setSelected:self.book.favoriteValue];
+}
 
+//kBookDidChangeNotification
+-(void) didChangeBookState:(NSNotification *) notification{
+    
+    ARFBook *book = notification.object;
+    NSString * changedAttribute = [notification.userInfo objectForKey:kChangedAttribute];
+    if ([changedAttribute isEqualToString:ARFBookAttributes.favorite]) {
+        [self.btnFavorite setSelected:book.favoriteValue];
+    }
 }
 
 - (IBAction)viewPDF:(id)sender {
