@@ -46,13 +46,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBookState:) name:kBookDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBook:) name:kDidSelectBookNotification object:nil];
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setTitle:self.book.title];
+
     [self setupView];
     
     
@@ -69,6 +70,7 @@
     [self.lblAuthors setText:[self.book normalizedAuthors]];
     [self.lblTaglist setText:[self.book normalizedTags]];
     [self.btnFavorite setSelected:self.book.favoriteValue];
+    [self setTitle:self.book.title];
     
     
     //Imagen
@@ -141,6 +143,15 @@
 -(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
     self.book = book;
     [self setupView];
+}
+
+#pragma mark kBookDidChangeNotification
+-(void) didChangeBook:(NSNotification *) notification{
+    
+    ARFBook *book =(ARFBook *) notification.object;
+    self.book = book;
+    [self setupView];
+
 }
 
 @end
