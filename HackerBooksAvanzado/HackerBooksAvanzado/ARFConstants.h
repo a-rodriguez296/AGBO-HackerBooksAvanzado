@@ -30,5 +30,6 @@ static const NSUInteger kFirstRow = 0;
 //Notificaciones
 static NSString* const kBookDidChangeNotification   = @"bookDidChangeNotification";
 static NSString* const kChangedAttribute            = @"changedAttribute";
+static NSString* const kDidSelectBookNotification   =@"didSelectBook";
 
 #endif

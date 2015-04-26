@@ -11,29 +11,20 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "ARFBook.h"
 #import "ARFPhoto.h"
-#import "ARFPdf.h"
 #import "ARFBookApiClient.h"
 #import "ARFCreateAnnotationViewController.h"
 #import "ARFConstants.h"
-#import "NSString+Category.h"
 #import "ARFCoreDataUtils.h"
-#import "ReaderDocument.h"
+#import "ARFPdfViewController.h"
 
 
-@class ARFLibrary;
-@class ARFBook;
-@class ARFLIbraryViewController;
-
-@interface ARFBookViewController () //<ReaderViewControllerDelegate>
+@interface ARFBookViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgBook;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblAuthors;
 @property (weak, nonatomic) IBOutlet UILabel *lblTaglist;
 @property (weak, nonatomic) IBOutlet UIButton *btnFavorite;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-
 
 @property (nonatomic, strong) ARFBook *book;
 
@@ -124,72 +115,15 @@
 
 - (IBAction)viewPDF:(id)sender {
     
-    //PDF
-    ARFPdf * pdf = self.book.pdf;
-    if (pdf.data) {
-        
-        //Hay PDF guardado
-        NSString *filePath =[pdf filePathString];
-        NSString *newPath = [[filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf",filePath]];
-        if ([[NSFileManager defaultManager] moveItemAtPath:filePath toPath:newPath error:nil]) {
-           
-            ReaderDocument *readerDoc = [[ReaderDocument alloc]initWithFilePath:filePath password:nil];
-            ReaderViewController *readerVC = [[ReaderViewController alloc]initWithReaderDocument:readerDoc];
-            [readerVC setDelegate:self];
-            [self.navigationController.navigationBar setHidden:YES];
-            [self.navigationController pushViewController:readerVC animated:YES];
-            
-        };
-        
-        
-
-        
-    }
-    else{
-        //Hay que descargarlo
-        [self.progressView setHidden:NO];
-        [self.view setUserInteractionEnabled:NO];
-        
-        _ME_WEAK
-        [ARFBookApiClient donwloadDataWithURL:self.book.pdfURL withSuccess:^(NSData *data) {
-            
-            [me.view setUserInteractionEnabled:YES];
-            [me restartProgressBar];
-            
-             ARFPdf *createdPDF = [ARFPdf createPDFWithBook:me.book withData:data];
-            
-            
-        } withFailure:^(NSString *error) {
-            [self.view setUserInteractionEnabled:YES];
-            
-            [self restartProgressBar];
-            NSLog(@"Error Descargando el libro");
-            
-        }withProgress:^(float progress) {
-            [self.progressView setProgress:progress];
-        }];
-    }
-    
+    ARFPdfViewController *pdfVC= [[ARFPdfViewController alloc] initWithBook:self.book];
+    [self.navigationController pushViewController:pdfVC animated:YES];
 }
 
-
--(void) restartProgressBar{
-    [self.progressView setHidden:YES];
-    [self.progressView setProgress:0.0f];
-}
 
 #pragma mark ARFBooksViewControllerDelegate
 -(void)booksViewController:(ARFBooksViewController *)libraryVC didSelectBook:(ARFBook *)book{
     self.book = book;
     [self setupView];
 }
-
-
-
-#pragma mark ARFLibraryViewControllerDelegate
-//-(void)dismissReaderViewController:(ReaderViewController *)viewController{
-//    [self.navigationController.navigationBar setHidden:NO];
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
 
 @end

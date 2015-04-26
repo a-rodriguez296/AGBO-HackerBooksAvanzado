@@ -61,6 +61,9 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.delegate booksViewController:self didSelectBook:book];
+    
+    //Se envía la notificación indicando que se cambio de libro
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDidSelectBookNotification object:book];
 }
 
 

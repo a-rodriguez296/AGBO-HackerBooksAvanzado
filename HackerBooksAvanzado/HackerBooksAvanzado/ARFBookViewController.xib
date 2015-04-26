@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -7,13 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARFBookViewController">
             <connections>
-                <outlet property="activityIndicator" destination="KZ3-ky-jGE" id="GvP-Fg-fEb"/>
                 <outlet property="btnFavorite" destination="Laz-wd-Irk" id="N4T-7q-IVu"/>
                 <outlet property="imgBook" destination="WEL-hq-FS6" id="ssF-1q-jZd"/>
                 <outlet property="lblAuthors" destination="m9h-g1-QDN" id="uj4-X5-zC8"/>
                 <outlet property="lblTaglist" destination="v2L-G8-cTp" id="XuW-XD-Xty"/>
                 <outlet property="lblTitle" destination="h0j-T2-iGz" id="1Le-2b-EQ1"/>
-                <outlet property="progressView" destination="IZ0-Pm-1gH" id="R7Y-YN-qcc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -68,13 +66,6 @@
                         <action selector="onTouchFavorite:" destination="-1" eventType="touchUpInside" id="mbb-E1-X2F"/>
                     </connections>
                 </button>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-ky-jGE">
-                    <rect key="frame" x="150" y="274" width="20" height="20"/>
-                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                </activityIndicatorView>
-                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-Pm-1gH">
-                    <rect key="frame" x="8" y="539" width="304" height="2"/>
-                </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBd-mY-Ohy">
                     <rect key="frame" x="8" y="447" width="66" height="30"/>
                     <state key="normal" title="View PDF">
@@ -98,19 +89,15 @@
             <constraints>
                 <constraint firstItem="Laz-wd-Irk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="5dM-0h-kF7"/>
                 <constraint firstAttribute="trailing" secondItem="h0j-T2-iGz" secondAttribute="trailing" constant="8" id="Bqe-aJ-7Ss"/>
-                <constraint firstAttribute="trailing" secondItem="IZ0-Pm-1gH" secondAttribute="trailing" constant="8" id="Brv-fV-T4A"/>
-                <constraint firstItem="IZ0-Pm-1gH" firstAttribute="top" secondItem="PFb-Ae-iAb" secondAttribute="bottom" constant="24" id="C0j-ar-Hpv"/>
                 <constraint firstItem="v2L-G8-cTp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KTY-ad-9yk"/>
                 <constraint firstItem="nN7-jW-lBx" firstAttribute="top" secondItem="WEL-hq-FS6" secondAttribute="bottom" constant="29" id="L1h-tt-Uwe"/>
                 <constraint firstItem="PFb-Ae-iAb" firstAttribute="top" secondItem="YBd-mY-Ohy" secondAttribute="bottom" constant="8" id="LS0-Hm-288"/>
                 <constraint firstItem="IzY-A9-Wqg" firstAttribute="top" secondItem="m9h-g1-QDN" secondAttribute="bottom" constant="22" id="Lmn-vz-C3k"/>
-                <constraint firstAttribute="centerX" secondItem="KZ3-ky-jGE" secondAttribute="centerX" id="MFA-4j-UVP"/>
                 <constraint firstItem="IzY-A9-Wqg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Np3-Ys-F5l"/>
                 <constraint firstItem="m9h-g1-QDN" firstAttribute="top" secondItem="nN7-jW-lBx" secondAttribute="bottom" constant="10" id="R3a-Wo-JGn"/>
                 <constraint firstItem="v2L-G8-cTp" firstAttribute="top" secondItem="IzY-A9-Wqg" secondAttribute="bottom" constant="9" id="RLo-1r-U87"/>
-                <constraint firstAttribute="bottom" secondItem="IZ0-Pm-1gH" secondAttribute="bottom" constant="27" id="TL7-DU-rgg"/>
                 <constraint firstAttribute="trailing" secondItem="m9h-g1-QDN" secondAttribute="trailing" constant="8" id="UWS-5S-Sr3"/>
-                <constraint firstItem="IZ0-Pm-1gH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Y5T-mA-U9Y"/>
+                <constraint firstAttribute="bottom" secondItem="PFb-Ae-iAb" secondAttribute="bottom" constant="53" id="Vaq-di-mNV"/>
                 <constraint firstItem="YBd-mY-Ohy" firstAttribute="top" secondItem="Laz-wd-Irk" secondAttribute="bottom" constant="8" id="aJE-at-gjc"/>
                 <constraint firstItem="PFb-Ae-iAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="d8K-Gc-HuS"/>
                 <constraint firstItem="m9h-g1-QDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="e9R-1p-ieF"/>
@@ -120,10 +107,9 @@
                 <constraint firstItem="h0j-T2-iGz" firstAttribute="centerY" secondItem="WEL-hq-FS6" secondAttribute="centerY" id="qwW-p7-V5q"/>
                 <constraint firstItem="nN7-jW-lBx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="vO4-WA-11t"/>
                 <constraint firstItem="WEL-hq-FS6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="w94-Ql-duH"/>
-                <constraint firstAttribute="centerY" secondItem="KZ3-ky-jGE" secondAttribute="centerY" id="xK1-Vn-6gH"/>
                 <constraint firstAttribute="trailing" secondItem="v2L-G8-cTp" secondAttribute="trailing" constant="8" id="xaj-hB-yTd"/>
             </constraints>
-            <point key="canvasLocation" x="1095" y="158"/>
+            <point key="canvasLocation" x="555" y="129"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
