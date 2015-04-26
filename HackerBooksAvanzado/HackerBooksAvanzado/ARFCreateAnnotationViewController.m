@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *txtView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddImage;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIButton *btnSaveAnnotation;
 
 @property (nonatomic, strong) UIImage *image;
 
@@ -40,20 +41,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    
     //Inicializar Location Manager
     [[CLLocationManager sharedLocationManager] startUpdatingLocationWithDelegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeBook:) name:kDidSelectBookNotification object:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    [manager stopUpdating];
-    [self setLocation:[locations lastObject]];
-    NSLog(@"Location");
-}
+
 
 #pragma mark IBActions
 - (IBAction)addImage:(id)sender {
@@ -76,9 +73,17 @@
 
 - (IBAction)saveAnnotation:(id)sender {
     
-    [ARFAnnotation createAnnotationWithBook:self.book text:self.txtView.text location:self.location image:self.imgView.image];    
+    [ARFAnnotation createAnnotationWithBook:self.book text:self.txtView.text location:self.location image:self.imgView.image];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Your annotation was succesfully created!\n Tap on view annotations to see them." preferredStyle:UIAlertControllerStyleAlert];
+    _ME_WEAK
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [me.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark UIImagePickerControllerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     
@@ -91,22 +96,46 @@
         UIImage *resizedImage = [originalImage resizedImage:CGSizeMake(originalImage.size.width*0.75, originalImage.size.height*0.75) interpolationQuality:0.8];
         dispatch_async(dispatch_get_main_queue(), ^{
             [me.imgView setImage:resizedImage];
+            [me checkFields];
         });
         
     });
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
+#pragma mark UITextView Delegate
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    [self checkFields];
+}
+
+#pragma mark CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    [manager stopUpdating];
+    [self setLocation:[locations lastObject]];
+    NSLog(@"Location");
+}
+
+#pragma mark kBookDidChangeNotification
+-(void) didChangeBook:(NSNotification *) notification{
+    
+    ARFBook *book =(ARFBook *) notification.object;
+    self.book = book;
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"Attention" message:@"Your data is going to saved on the book you just clicked" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertC addAction:ok];
+    [self presentViewController:alertC animated:YES completion:nil];
+}
+
+#pragma mark Utils
+-(void) checkFields{
+    if (self.txtView.text.length>0 || self.imgView.image != nil) {
+        [self.btnSaveAnnotation setEnabled:YES];
+    }
+}
+
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

@@ -84,6 +84,15 @@
                         <action selector="addAnnotation:" destination="-1" eventType="touchUpInside" id="sgq-Bc-10d"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqn-cx-ukE">
+                    <rect key="frame" x="193" y="485" width="119" height="30"/>
+                    <state key="normal" title="View Annotations">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewAnnotations:" destination="-1" eventType="touchUpInside" id="UlS-4d-4fS"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -102,7 +111,9 @@
                 <constraint firstItem="PFb-Ae-iAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="d8K-Gc-HuS"/>
                 <constraint firstItem="m9h-g1-QDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="e9R-1p-ieF"/>
                 <constraint firstItem="WEL-hq-FS6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fa0-8l-b2d"/>
+                <constraint firstItem="iqn-cx-ukE" firstAttribute="centerY" secondItem="PFb-Ae-iAb" secondAttribute="centerY" id="h1e-fV-AqK"/>
                 <constraint firstItem="h0j-T2-iGz" firstAttribute="leading" secondItem="WEL-hq-FS6" secondAttribute="trailing" constant="69" id="h4c-nd-Dsk"/>
+                <constraint firstAttribute="trailing" secondItem="iqn-cx-ukE" secondAttribute="trailing" constant="8" id="hZ6-nx-Okn"/>
                 <constraint firstItem="YBd-mY-Ohy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qCJ-Zt-OY7"/>
                 <constraint firstItem="h0j-T2-iGz" firstAttribute="centerY" secondItem="WEL-hq-FS6" secondAttribute="centerY" id="qwW-p7-V5q"/>
                 <constraint firstItem="nN7-jW-lBx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="vO4-WA-11t"/>

@@ -16,7 +16,8 @@
 #import "ARFConstants.h"
 #import "ARFCoreDataUtils.h"
 #import "ARFPdfViewController.h"
-
+#import "ARFAnnotation.h"
+#import "ARFAnnotationsViewController.h"
 
 @interface ARFBookViewController ()
 
@@ -102,8 +103,24 @@
     
     [self.book setFavoriteValue:!self.book.favoriteValue];
 }
+- (IBAction)viewAnnotations:(id)sender {
+    
+    NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:[ARFAnnotation entityName]];
+    [req setPredicate:[NSPredicate predicateWithFormat:@"%K == %@",ARFAnnotationRelationships.book,self.book]];
+    [req setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:ARFAnnotationAttributes.modificationDate ascending:YES]]];
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:nil cacheName:nil];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    [layout setItemSize:CGSizeMake(148, 171)];
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [layout setMinimumInteritemSpacing:10];
+    [layout setMinimumLineSpacing:10];
+    [layout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 8)];
+    
+    ARFAnnotationsViewController *annotationsVC = [[ARFAnnotationsViewController alloc] initWithFetchedResultsController:frc layout:layout];
+    [self.navigationController pushViewController:annotationsVC animated:YES];
+}
 
-//kBookDidChangeNotification
+#pragma mark  kBookDidChangeNotification
 -(void) didChangeBookState:(NSNotification *) notification{
     
     ARFBook *book = notification.object;

@@ -23,16 +23,16 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - vfrReader (2.7.3)
+  - TPKeyboardAvoiding (1.2.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.2)
   - SDWebImage (~> 3.7.2)
-  - vfrReader (~> 2.7.3)
+  - TPKeyboardAvoiding (~> 1.2.6)
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  vfrReader: f44a7d5ad67d0c6255f562923bd7f44e5f1125b7
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
 
 COCOAPODS: 0.36.3

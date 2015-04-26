@@ -56,6 +56,10 @@
 		9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E31ADB51E800A0A61E /* ARFPdf.m */; };
 		9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */; };
 		9C9F20EB1ADB51E800A0A61E /* ARFTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F20E71ADB51E800A0A61E /* ARFTag.m */; };
+		9CB9D8411AED8A2000CCD0D3 /* ARFAnnotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9D83D1AED8A2000CCD0D3 /* ARFAnnotationsViewController.m */; };
+		9CB9D8421AED8A2000CCD0D3 /* ARFAnnotationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9D83F1AED8A2000CCD0D3 /* ARFAnnotationViewCell.m */; };
+		9CB9D8431AED8A2000CCD0D3 /* ARFAnnotationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CB9D8401AED8A2000CCD0D3 /* ARFAnnotationViewCell.xib */; };
+		9CB9D8471AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9D8461AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.m */; };
 		9CCA04AA1ADD75B10076DFEA /* ARFBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA04A81ADD75B10076DFEA /* ARFBookViewController.m */; };
 		9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA04A91ADD75B10076DFEA /* ARFBookViewController.xib */; };
 		9CCA04AF1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA04AE1ADD8E200076DFEA /* ARFBooksViewController+Notifications.m */; };
@@ -167,6 +171,13 @@
 		9C9F20E51ADB51E800A0A61E /* ARFPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFPhoto.m; sourceTree = "<group>"; };
 		9C9F20E61ADB51E800A0A61E /* ARFTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFTag.h; sourceTree = "<group>"; };
 		9C9F20E71ADB51E800A0A61E /* ARFTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFTag.m; sourceTree = "<group>"; };
+		9CB9D83C1AED8A2000CCD0D3 /* ARFAnnotationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFAnnotationsViewController.h; sourceTree = "<group>"; };
+		9CB9D83D1AED8A2000CCD0D3 /* ARFAnnotationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFAnnotationsViewController.m; sourceTree = "<group>"; };
+		9CB9D83E1AED8A2000CCD0D3 /* ARFAnnotationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFAnnotationViewCell.h; sourceTree = "<group>"; };
+		9CB9D83F1AED8A2000CCD0D3 /* ARFAnnotationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFAnnotationViewCell.m; sourceTree = "<group>"; };
+		9CB9D8401AED8A2000CCD0D3 /* ARFAnnotationViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFAnnotationViewCell.xib; sourceTree = "<group>"; };
+		9CB9D8451AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
+		9CB9D8461AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
 		9CCA04A71ADD75B10076DFEA /* ARFBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookViewController.h; sourceTree = "<group>"; };
 		9CCA04A81ADD75B10076DFEA /* ARFBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookViewController.m; sourceTree = "<group>"; };
 		9CCA04A91ADD75B10076DFEA /* ARFBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookViewController.xib; sourceTree = "<group>"; };
@@ -315,8 +326,8 @@
 		9C88137A1ADB731E00AFFD15 /* Base Fetched Results Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C8813761ADB725600AFFD15 /* ARFBaseFetchedResultsController.h */,
-				9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */,
+				9CB9D8491AED8AB000CCD0D3 /* Collection View */,
+				9CB9D8481AED8AA900CCD0D3 /* Table View */,
 			);
 			name = "Base Fetched Results Controller";
 			sourceTree = "<group>";
@@ -336,6 +347,7 @@
 		9C8813811ADB739500AFFD15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CB9D8441AED8A2700CCD0D3 /* Annotations VC */,
 				9C3CF8C31ADF612E00E69E72 /* Splash */,
 				9C8813801ADB738900AFFD15 /* BooksVC */,
 				9CCA04AC1ADD75D50076DFEA /* BookVC */,
@@ -538,6 +550,44 @@
 			name = "PDF VC";
 			sourceTree = "<group>";
 		};
+		9CB9D8441AED8A2700CCD0D3 /* Annotations VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CB9D83C1AED8A2000CCD0D3 /* ARFAnnotationsViewController.h */,
+				9CB9D83D1AED8A2000CCD0D3 /* ARFAnnotationsViewController.m */,
+				9CB9D84A1AED8AC100CCD0D3 /* Cell */,
+			);
+			name = "Annotations VC";
+			sourceTree = "<group>";
+		};
+		9CB9D8481AED8AA900CCD0D3 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				9C8813761ADB725600AFFD15 /* ARFBaseFetchedResultsController.h */,
+				9C8813771ADB725600AFFD15 /* ARFBaseFetchedResultsController.m */,
+			);
+			name = "Table View";
+			sourceTree = "<group>";
+		};
+		9CB9D8491AED8AB000CCD0D3 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				9CB9D8451AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.h */,
+				9CB9D8461AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.m */,
+			);
+			name = "Collection View";
+			sourceTree = "<group>";
+		};
+		9CB9D84A1AED8AC100CCD0D3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9CB9D83E1AED8A2000CCD0D3 /* ARFAnnotationViewCell.h */,
+				9CB9D83F1AED8A2000CCD0D3 /* ARFAnnotationViewCell.m */,
+				9CB9D8401AED8A2000CCD0D3 /* ARFAnnotationViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		9CBCD6031AE05BDC00677078 /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +710,7 @@
 				9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */,
 				9C9F209D1ADB2CFC00A0A61E /* LaunchScreen.xib in Resources */,
 				9C9F209A1ADB2CFC00A0A61E /* Images.xcassets in Resources */,
+				9CB9D8431AED8A2000CCD0D3 /* ARFAnnotationViewCell.xib in Resources */,
 				9C3CF8C21ADF5C1500E69E72 /* ARFSplashViewController.xib in Resources */,
 				9C88137F1ADB738000AFFD15 /* ARFBooksViewController.xib in Resources */,
 				9CCA04AB1ADD75B10076DFEA /* ARFBookViewController.xib in Resources */,
@@ -734,12 +785,15 @@
 				9C4B5AA01AE9391D000001B7 /* ARFCoreDataUtils.m in Sources */,
 				9C9F20921ADB2CFB00A0A61E /* AppDelegate.m in Sources */,
 				9C9F20EA1ADB51E800A0A61E /* ARFPhoto.m in Sources */,
+				9CB9D8421AED8A2000CCD0D3 /* ARFAnnotationViewCell.m in Sources */,
 				9C8A5C801AE061090047ED54 /* ARFCreateAnnotationViewController.m in Sources */,
 				9C8813781ADB725600AFFD15 /* ARFBaseFetchedResultsController.m in Sources */,
+				9CB9D8471AED8A9A00CCD0D3 /* AGTCoreDataCollectionViewController.m in Sources */,
 				9C895DAA1ADCC98100C0D0EC /* ARFPredicates.m in Sources */,
 				9C9F20D31ADB518A00A0A61E /* _ARFTag.m in Sources */,
 				9C9F20DF1ADB51DC00A0A61E /* ARFBook.m in Sources */,
 				9C8813741ADB613800AFFD15 /* ARFBookParser.m in Sources */,
+				9CB9D8411AED8A2000CCD0D3 /* ARFAnnotationsViewController.m in Sources */,
 				9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */,
 				9C8813701ADB5F9500AFFD15 /* ARFBookApiClient.m in Sources */,
 				9C9F20BE1ADB4C0500A0A61E /* Model.xcdatamodeld in Sources */,
