@@ -5,6 +5,7 @@
 #import "ARFTag.h"
 #import "ARFConstants.h"
 #import "AGTCoreDataStack.h"
+#import "ARFBookTag.h"
 
 @interface ARFBook ()
 
@@ -17,7 +18,7 @@
 #pragma mark Delegate Initializer
 +(instancetype) createBookWithTitle:(NSString *) title tags:(NSArray *) tagList authors:(NSArray *) authorsList aPhotoURL:(NSString *) photoURL aPDFURL:(NSString *) pdfURL{
     
-    ARFBook *book = [NSEntityDescription insertNewObjectForEntityForName:[ARFBook entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
+    ARFBook *book = [ARFBook uniqueObjectWithValue:title forKey:ARFBookAttributes.title inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [book setTitle:title];
     [book setFavoriteValue:NO];
     [book setCreationDate:[NSDate date]];
@@ -37,6 +38,11 @@
     
     //Tags
     [ARFBook addTagsWithTagList:tagList withBook:book];
+    
+    for (ARFTag *tag in book.tags) {
+        
+        [ARFBookTag createBookTagWithBook:book tag:tag];
+    }
     
     
     return book;

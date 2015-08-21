@@ -10,6 +10,9 @@
 		9C0583BD1ADDE38B0048A66D /* not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C0583BC1ADDE38B0048A66D /* not_available.jpg */; };
 		9C2323201ADEEDB500C763F4 /* ARFSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */; };
 		9C2323211ADEEDB500C763F4 /* ARFSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */; };
+		9C2F0A811B879B8400C5D66A /* ARFLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F0A801B879B8400C5D66A /* ARFLibrary.m */; };
+		9C2F0A841B87CD2100C5D66A /* _ARFBookTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F0A831B87CD2100C5D66A /* _ARFBookTag.m */; };
+		9C2F0A871B87CD2900C5D66A /* ARFBookTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F0A861B87CD2900C5D66A /* ARFBookTag.m */; };
 		9C32EA211ADB74E40004F011 /* ARFBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */; };
 		9C32EA221ADB74E40004F011 /* ARFBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C32EA201ADB74E40004F011 /* ARFBookCell.xib */; };
 		9C3CF8B51ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CF8B41ADF37E700E69E72 /* ARFBooksViewController+SearchBar.m */; };
@@ -84,6 +87,12 @@
 		9C23231D1ADEEDB500C763F4 /* ARFSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFSearchResultsViewController.h; sourceTree = "<group>"; };
 		9C23231E1ADEEDB500C763F4 /* ARFSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFSearchResultsViewController.m; sourceTree = "<group>"; };
 		9C23231F1ADEEDB500C763F4 /* ARFSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFSearchResultsViewController.xib; sourceTree = "<group>"; };
+		9C2F0A7F1B879B8400C5D66A /* ARFLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFLibrary.h; sourceTree = "<group>"; };
+		9C2F0A801B879B8400C5D66A /* ARFLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFLibrary.m; sourceTree = "<group>"; };
+		9C2F0A821B87CD2100C5D66A /* _ARFBookTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ARFBookTag.h; sourceTree = "<group>"; };
+		9C2F0A831B87CD2100C5D66A /* _ARFBookTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ARFBookTag.m; sourceTree = "<group>"; };
+		9C2F0A851B87CD2900C5D66A /* ARFBookTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookTag.h; sourceTree = "<group>"; };
+		9C2F0A861B87CD2900C5D66A /* ARFBookTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookTag.m; sourceTree = "<group>"; };
 		9C32EA1E1ADB74E40004F011 /* ARFBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBookCell.h; sourceTree = "<group>"; };
 		9C32EA1F1ADB74E40004F011 /* ARFBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBookCell.m; sourceTree = "<group>"; };
 		9C32EA201ADB74E40004F011 /* ARFBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBookCell.xib; sourceTree = "<group>"; };
@@ -477,6 +486,8 @@
 		9C9F20D41ADB51A500A0A61E /* Machine Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C2F0A821B87CD2100C5D66A /* _ARFBookTag.h */,
+				9C2F0A831B87CD2100C5D66A /* _ARFBookTag.m */,
 				9C9F20D61ADB51C700A0A61E /* Base Class */,
 				9C9F20BF1ADB518A00A0A61E /* _ARFAnnotation.h */,
 				9C9F20C01ADB518A00A0A61E /* _ARFAnnotation.m */,
@@ -522,6 +533,8 @@
 		9C9F20EC1ADB51F300A0A61E /* Human Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C2F0A851B87CD2900C5D66A /* ARFBookTag.h */,
+				9C2F0A861B87CD2900C5D66A /* ARFBookTag.m */,
 				9C9F20E01ADB51E800A0A61E /* ARFLocation.h */,
 				9C9F20E11ADB51E800A0A61E /* ARFLocation.m */,
 				9C9F20E21ADB51E800A0A61E /* ARFPdf.h */,
@@ -536,6 +549,8 @@
 				9C9F20DA1ADB51DC00A0A61E /* ARFAuthor.m */,
 				9C9F20DB1ADB51DC00A0A61E /* ARFBook.h */,
 				9C9F20DC1ADB51DC00A0A61E /* ARFBook.m */,
+				9C2F0A7F1B879B8400C5D66A /* ARFLibrary.h */,
+				9C2F0A801B879B8400C5D66A /* ARFLibrary.m */,
 			);
 			name = "Human Files";
 			sourceTree = "<group>";
@@ -774,6 +789,7 @@
 				9C550B601AED4636000BEDBF /* ARFPdfViewController.m in Sources */,
 				9C9F20DD1ADB51DC00A0A61E /* ARFAnnotation.m in Sources */,
 				9C3CF8BC1ADF583100E69E72 /* ARFBooksViewController+SearchResults.m in Sources */,
+				9C2F0A841B87CD2100C5D66A /* _ARFBookTag.m in Sources */,
 				9C8A5C8D1AE0BFEB0047ED54 /* UIImage+Resize.m in Sources */,
 				9C9F20CF1ADB518A00A0A61E /* _ARFBook.m in Sources */,
 				9C9F20E91ADB51E800A0A61E /* ARFPdf.m in Sources */,
@@ -806,11 +822,13 @@
 				9C9F20CE1ADB518A00A0A61E /* _ARFAuthor.m in Sources */,
 				9C88137E1ADB738000AFFD15 /* ARFBooksViewController.m in Sources */,
 				9C895DA51ADCC3FC00C0D0EC /* ARFBooksViewController+Utils.m in Sources */,
+				9C2F0A871B87CD2900C5D66A /* ARFBookTag.m in Sources */,
 				9C9F20CD1ADB518A00A0A61E /* _ARFAnnotation.m in Sources */,
 				9C9F20D01ADB518A00A0A61E /* _ARFLocation.m in Sources */,
 				9C8A5C8E1AE0BFEB0047ED54 /* UIImage+RoundedCorner.m in Sources */,
 				9C9F20DE1ADB51DC00A0A61E /* ARFAuthor.m in Sources */,
 				9C3CF8C11ADF5C1500E69E72 /* ARFSplashViewController.m in Sources */,
+				9C2F0A811B879B8400C5D66A /* ARFLibrary.m in Sources */,
 				9C9F20B61ADB4AB000A0A61E /* ARFKVOBaseClass.m in Sources */,
 				9CCA04AA1ADD75B10076DFEA /* ARFBookViewController.m in Sources */,
 			);

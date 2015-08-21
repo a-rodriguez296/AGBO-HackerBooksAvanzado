@@ -14,4 +14,10 @@
 #pragma mark Class Methods
 +(NSArray *) observableKeys;
 
++(id)uniqueObjectWithValue:(id)value
+                    forKey:(NSString *)key
+    inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (NSString*)entityName;
+
 @end
