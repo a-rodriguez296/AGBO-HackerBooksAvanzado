@@ -38,7 +38,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     //Select last Book
-    [self selectLastBook];
+    //[self selectLastBook];
     
     //Create SearchBar
     [self createSearchBarController];

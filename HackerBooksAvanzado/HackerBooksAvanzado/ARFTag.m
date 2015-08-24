@@ -2,6 +2,7 @@
 #import "ARFCoreDataUtils.h"
 #import "AGTCoreDataStack.h"
 #import "ARFConstants.h"
+#import "ARFBookTag.h"
 
 @interface ARFTag ()
 
@@ -14,7 +15,7 @@
 #pragma mark Delegate Initializer
 +(instancetype) createTagWithName:(NSString *) name{
     
-    ARFTag *tag = [NSEntityDescription insertNewObjectForEntityForName:[ARFTag entityName] inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
+    ARFTag *tag = [ARFTag uniqueObjectWithValue:name forKey:ARFTagAttributes.tagName inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
     [tag setTagName:name];
     return tag;
 }
@@ -30,10 +31,11 @@
 
 +(NSFetchedResultsController *) createFRCForTable{
     
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFTag entityName]];
-    NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:ARFTagAttributes.tagName ascending:YES selector:@selector(compare:)];
-    [req setSortDescriptors:@[sDescriptor]];
-    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:ARFTagAttributes.tagName cacheName:nil];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTag entityName]];
+    NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(compare:)];
+    NSSortDescriptor *sDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"book.title" ascending:YES selector:@selector(compare:)];
+    [req setSortDescriptors:@[sDescriptor,sDescriptor1]];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:@"tag.tagName" cacheName:nil];
 }
 
 +(ARFTag *) retrieveLastSelectedTag{

@@ -37,7 +37,7 @@
             [ARFBook createBookWithTitle:bookParser.title tags:bookParser.tagsList authors:bookParser.authorsList aPhotoURL:bookParser.urlImage aPDFURL:bookParser.urlPDF];
             
         }
-            successBlock();
+        successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

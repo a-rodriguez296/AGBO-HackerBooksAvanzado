@@ -13,6 +13,9 @@
 #import "ARFTag.h"
 #import "ARFBookViewController.h"
 #import "ARFInitialScreen.h"
+#import "ARFCoreDataUtils.h"
+#import "ARFBookTag.h"
+#import "AGTCoreDataStack.h"
 
 @interface ARFSplashViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

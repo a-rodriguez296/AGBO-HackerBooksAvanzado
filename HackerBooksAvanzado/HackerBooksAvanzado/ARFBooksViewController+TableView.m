@@ -14,6 +14,7 @@
 #import "ARFConstants.h"
 #import "ARFBook.h"
 #import "ARFTag.h"
+#import "ARFBookTag.h"
 #import "ARFCoreDataUtils.h"
 
 
@@ -21,17 +22,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    ARFTag *tag = [self.fetchedResultsController fetchedObjects][indexPath.section];
-    ARFBook *book = [[tag books] allObjects][indexPath.row];
+    ARFBookTag *bookTag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     //Crear la celda
     ARFBookCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     
     //Llenar la celda
-    [cell.lblTitle setText:book.title];
-    [cell.lblAuthor setText:[book normalizedAuthors]];
+    [cell.lblTitle setText:bookTag.book.title];
+    [cell.lblAuthor setText:bookTag.book.normalizedAuthors];
     
     //Devolver la celda
     return cell;
@@ -41,13 +40,12 @@
     return 73;
 }
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [[self.fetchedResultsController.sections objectAtIndex:section] numberOfObjects];
+}
 
-
-    ARFTag *currentTag = [self.fetchedResultsController fetchedObjects][section];
-    return currentTag.books.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
 }
 
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
