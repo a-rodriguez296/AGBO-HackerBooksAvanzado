@@ -12,6 +12,7 @@
 
 @implementation ARFTag
 
+
 #pragma mark Delegate Initializer
 +(instancetype) createTagWithName:(NSString *) name{
     
@@ -72,10 +73,10 @@
 
 #pragma mark Utils
 
--(BOOL) isFavorite{
-    return [self.tagName isEqualToString:@"Favorite"]?YES:NO;
-}
 
+-(BOOL)isFavorite{
+    return [self.tagName isEqualToString:kFavoriteTag];
+}
 
 
 

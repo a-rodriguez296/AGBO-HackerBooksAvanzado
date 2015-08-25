@@ -72,7 +72,7 @@
     [self.lblTitle setText:self.book.title];
     [self.lblAuthors setText:[self.book normalizedAuthors]];
     [self.lblTaglist setText:[self.book normalizedTags]];
-    [self.btnFavorite setSelected:self.book.favoriteValue];
+    [self.btnFavorite setSelected:self.book.isFavorite];
     [self setTitle:self.book.title];
     
     
@@ -106,7 +106,7 @@
 
 - (IBAction)onTouchFavorite:(id)sender {
     
-    [self.book setFavoriteValue:!self.book.favoriteValue];
+    self.book.isFavorite = !self.book.isFavorite;
 }
 - (IBAction)viewAnnotations:(id)sender {
     
@@ -127,12 +127,8 @@
 
 #pragma mark  kBookDidChangeNotification
 -(void) didChangeBookState:(NSNotification *) notification{
-    
-    ARFBook *book = notification.object;
-    NSString * changedAttribute = [notification.userInfo objectForKey:kChangedAttribute];
-    if ([changedAttribute isEqualToString:ARFBookAttributes.favorite]) {
-        [self.btnFavorite setSelected:book.favoriteValue];
-    }
+
+    [self.btnFavorite setSelected:self.book.isFavorite];
 }
 
 - (IBAction)viewPDF:(id)sender {
