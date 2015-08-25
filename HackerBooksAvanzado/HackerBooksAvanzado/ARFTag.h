@@ -4,15 +4,12 @@
 
 
 +(instancetype) createTagWithName:(NSString *) name;
-
++(instancetype) favoriteTag;
 
 +(ARFTag *) checkIfTagExistsWithName:(NSString *) name;
 
-
-+(NSFetchedResultsController *) createFRCForTable;
-
 -(NSComparisonResult) compare:(ARFTag *) tag;
 
-+(ARFTag *) retrieveLastSelectedTag;
+
 
 @end

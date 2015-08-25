@@ -14,7 +14,6 @@
     </entity>
     <entity name="Book" representedClassName="ARFBook" syncable="YES">
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
-        <attribute name="favorite" attributeType="Boolean" indexed="YES" syncable="YES"/>
         <attribute name="modificationDate" attributeType="Date" syncable="YES"/>
         <attribute name="pdfURL" attributeType="String" syncable="YES"/>
         <attribute name="photoURL" attributeType="String" syncable="YES"/>
@@ -46,6 +45,7 @@
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="photo" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="ARFTag" syncable="YES">
+        <attribute name="proxyForSorting" attributeType="String" syncable="YES"/>
         <attribute name="tagName" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="books" toMany="YES" deletionRule="Cascade" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
         <relationship name="bookTag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
@@ -53,11 +53,11 @@
     <elements>
         <element name="Annotation" positionX="-9" positionY="81" width="128" height="133"/>
         <element name="Author" positionX="1060" positionY="-432" width="128" height="75"/>
-        <element name="Book" positionX="781" positionY="-261" width="128" height="223"/>
+        <element name="Book" positionX="781" positionY="-261" width="128" height="30"/>
+        <element name="BookTag" positionX="531" positionY="-315" width="128" height="90"/>
         <element name="Location" positionX="-137" positionY="-117" width="128" height="88"/>
         <element name="Pdf" positionX="1069" positionY="-27" width="128" height="75"/>
         <element name="Photo" positionX="594" positionY="-630" width="128" height="88"/>
-        <element name="Tag" positionX="153" positionY="-271" width="128" height="88"/>
-        <element name="BookTag" positionX="531" positionY="-315" width="128" height="90"/>
+        <element name="Tag" positionX="153" positionY="-271" width="128" height="105"/>
     </elements>
 </model>

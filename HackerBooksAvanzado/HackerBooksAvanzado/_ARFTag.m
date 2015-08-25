@@ -4,10 +4,12 @@
 #import "_ARFTag.h"
 
 const struct ARFTagAttributes ARFTagAttributes = {
+	.proxyForSorting = @"proxyForSorting",
 	.tagName = @"tagName",
 };
 
 const struct ARFTagRelationships ARFTagRelationships = {
+	.bookTag = @"bookTag",
 	.books = @"books",
 };
 
@@ -40,7 +42,20 @@ const struct ARFTagRelationships ARFTagRelationships = {
 	return keyPaths;
 }
 
+@dynamic proxyForSorting;
+
 @dynamic tagName;
+
+@dynamic bookTag;
+
+- (NSMutableSet*)bookTagSet {
+	[self willAccessValueForKey:@"bookTag"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"bookTag"];
+
+	[self didAccessValueForKey:@"bookTag"];
+	return result;
+}
 
 @dynamic books;
 

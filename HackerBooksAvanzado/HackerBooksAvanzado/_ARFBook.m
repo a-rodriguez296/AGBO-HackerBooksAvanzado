@@ -5,7 +5,6 @@
 
 const struct ARFBookAttributes ARFBookAttributes = {
 	.creationDate = @"creationDate",
-	.favorite = @"favorite",
 	.modificationDate = @"modificationDate",
 	.pdfURL = @"pdfURL",
 	.photoURL = @"photoURL",
@@ -15,6 +14,7 @@ const struct ARFBookAttributes ARFBookAttributes = {
 const struct ARFBookRelationships ARFBookRelationships = {
 	.annotations = @"annotations",
 	.authors = @"authors",
+	.bookTag = @"bookTag",
 	.pdf = @"pdf",
 	.photo = @"photo",
 	.tags = @"tags",
@@ -46,36 +46,10 @@ const struct ARFBookRelationships ARFBookRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"favoriteValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"favorite"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-
 	return keyPaths;
 }
 
 @dynamic creationDate;
-
-@dynamic favorite;
-
-- (BOOL)favoriteValue {
-	NSNumber *result = [self favorite];
-	return [result boolValue];
-}
-
-- (void)setFavoriteValue:(BOOL)value_ {
-	[self setFavorite:@(value_)];
-}
-
-- (BOOL)primitiveFavoriteValue {
-	NSNumber *result = [self primitiveFavorite];
-	return [result boolValue];
-}
-
-- (void)setPrimitiveFavoriteValue:(BOOL)value_ {
-	[self setPrimitiveFavorite:@(value_)];
-}
 
 @dynamic modificationDate;
 
@@ -104,6 +78,17 @@ const struct ARFBookRelationships ARFBookRelationships = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"authors"];
 
 	[self didAccessValueForKey:@"authors"];
+	return result;
+}
+
+@dynamic bookTag;
+
+- (NSMutableSet*)bookTagSet {
+	[self willAccessValueForKey:@"bookTag"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"bookTag"];
+
+	[self didAccessValueForKey:@"bookTag"];
 	return result;
 }
 

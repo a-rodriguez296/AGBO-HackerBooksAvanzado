@@ -19,6 +19,7 @@ static NSString* const kBooksUrl                      = @"https://keepcodigtest.
 //Constante ObjectID para guardar en NSUserDefaults
 static NSString* const kObjectID                      = @"objectID";
 static NSString* const kObjectRow                     = @"objectRow";
+static NSString* const kObjectSection                 = @"objectSection";
 
 //Constante autoSave
 static const NSUInteger kAutoSave = 5;
@@ -31,5 +32,9 @@ static const NSUInteger kFirstRow = 0;
 static NSString* const kBookDidChangeNotification   = @"bookDidChangeNotification";
 static NSString* const kChangedAttribute            = @"changedAttribute";
 static NSString* const kDidSelectBookNotification   =@"didSelectBook";
+
+
+//Favorite TAG
+static NSString* const kFavoriteTag                      = @"Favorite";
 
 #endif

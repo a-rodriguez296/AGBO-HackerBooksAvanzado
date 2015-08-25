@@ -60,7 +60,7 @@ const struct ARFLocationRelationships ARFLocationRelationships = {
 }
 
 - (void)setLatitudeValue:(float)value_ {
-	[self setLatitude:@(value_)];
+	[self setLatitude:[NSNumber numberWithFloat:value_]];
 }
 
 - (float)primitiveLatitudeValue {
@@ -69,7 +69,7 @@ const struct ARFLocationRelationships ARFLocationRelationships = {
 }
 
 - (void)setPrimitiveLatitudeValue:(float)value_ {
-	[self setPrimitiveLatitude:@(value_)];
+	[self setPrimitiveLatitude:[NSNumber numberWithFloat:value_]];
 }
 
 @dynamic longitude;
@@ -80,7 +80,7 @@ const struct ARFLocationRelationships ARFLocationRelationships = {
 }
 
 - (void)setLongitudeValue:(float)value_ {
-	[self setLongitude:@(value_)];
+	[self setLongitude:[NSNumber numberWithFloat:value_]];
 }
 
 - (float)primitiveLongitudeValue {
@@ -89,7 +89,7 @@ const struct ARFLocationRelationships ARFLocationRelationships = {
 }
 
 - (void)setPrimitiveLongitudeValue:(float)value_ {
-	[self setPrimitiveLongitude:@(value_)];
+	[self setPrimitiveLongitude:[NSNumber numberWithFloat:value_]];
 }
 
 @dynamic annotations;

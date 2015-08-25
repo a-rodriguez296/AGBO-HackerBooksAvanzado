@@ -1,5 +1,6 @@
 #import "ARFBookTag.h"
 #import "ARFCoreDataUtils.h"
+#import "ARFConstants.h"
 
 @interface ARFBookTag ()
 
@@ -17,6 +18,20 @@
     bookTag.tag = tag;
     
     return bookTag;
+}
+
++(NSFetchedResultsController *) createFRCForTable{
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTag entityName]];
+    [req setSortDescriptors:@[
+                              [NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(compare:)],
+                              [NSSortDescriptor sortDescriptorWithKey:@"book.title" ascending:YES selector:@selector(compare:)]]];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:@"tag.tagName" cacheName:nil];
+}
+
++(ARFBookTag *) retrieveLastSelectedBookTag{
+    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
+    return (ARFBookTag *)[ARFCoreDataUtils objectWithArchivedURIRepresentation:lastObjectData context:[ARFCoreDataUtils defaultContext]];
 }
 
 @end

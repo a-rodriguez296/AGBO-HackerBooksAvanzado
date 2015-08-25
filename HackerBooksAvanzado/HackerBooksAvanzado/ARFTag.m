@@ -16,9 +16,23 @@
 +(instancetype) createTagWithName:(NSString *) name{
     
     ARFTag *tag = [ARFTag uniqueObjectWithValue:name forKey:ARFTagAttributes.tagName inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
-    [tag setTagName:name];
+    
+    if ([tag.tagName isEqualToString:kFavoriteTag]) {
+        [tag setProxyForSorting:[NSString stringWithFormat:@"__%@", tag.tagName]];
+    }
+    else{
+        [tag setProxyForSorting:tag.tagName];
+    }
+    
     return tag;
 }
+
++(instancetype) favoriteTag{
+    
+    return [ARFTag uniqueObjectWithValue:kFavoriteTag forKey:ARFTagAttributes.tagName inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
+    
+}
+
 
 
 #pragma mark Class Methods
@@ -29,19 +43,9 @@
     return [[[ARFCoreDataUtils model] executeFetchRequest:req errorBlock:nil] firstObject];
 }
 
-+(NSFetchedResultsController *) createFRCForTable{
-    
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTag entityName]];
-    NSSortDescriptor *sDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(compare:)];
-    NSSortDescriptor *sDescriptor1 = [NSSortDescriptor sortDescriptorWithKey:@"book.title" ascending:YES selector:@selector(compare:)];
-    [req setSortDescriptors:@[sDescriptor,sDescriptor1]];
-    return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:@"tag.tagName" cacheName:nil];
-}
 
-+(ARFTag *) retrieveLastSelectedTag{
-    NSData *lastObjectData = [[NSUserDefaults standardUserDefaults] objectForKey:kObjectID];
-    return (ARFTag *)[ARFCoreDataUtils objectWithArchivedURIRepresentation:lastObjectData context:[ARFCoreDataUtils defaultContext]];
-}
+
+
 
 
 #pragma mark Inherited Methods 

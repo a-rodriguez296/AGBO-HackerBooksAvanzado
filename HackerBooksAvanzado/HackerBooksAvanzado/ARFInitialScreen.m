@@ -11,6 +11,7 @@
 #import "ARFBookViewController.h"
 #import "ARFTag.h"
 #import "ARFBook.h"
+#import "ARFBookTag.h"
 #import "ARFConstants.h"
 
 @implementation ARFInitialScreen
@@ -18,29 +19,27 @@
 
 +(UIViewController *) createInitialViewController{
     
-    ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:[ARFTag createFRCForTable]];
+    ARFBooksViewController *booksVC = [[ARFBooksViewController alloc] initWithFetchedResultsController:[ARFBookTag createFRCForTable]];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         
         //Selección de la última celda visitada
-        ARFTag *lastTag = [ARFTag retrieveLastSelectedTag];
+        ARFBookTag *lastBookTag = [ARFBookTag retrieveLastSelectedBookTag];
         
         ARFBook *lastBook;
         
         //Determinar si hay un ultimo libro
         
-        if (lastTag) {
+        if (!lastBookTag) {
+           
+            //Primera vez, entonces hay que sacar el primer libro
+            ARFBookTag *auxBookTag = (ARFBookTag *)[booksVC.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:kFirstRow inSection:kFavoritesSection]];
+            lastBook = auxBookTag.book;
             
-            NSInteger lastObjectRow = [[[NSUserDefaults standardUserDefaults] objectForKey:kObjectRow] integerValue];
-            lastBook = [[lastTag books] allObjects][lastObjectRow];
         }
         else{
-            
-            //Caso primera vez
-            ARFTag *firstElement = [booksVC.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:kFirstSection inSection:kFirstRow]];
-            lastBook = [firstElement.books allObjects][kFirstRow];
+            lastBook = lastBookTag.book;
         }
-        
         
         //Crear BookVC
         ARFBookViewController *bookVC = [[ARFBookViewController alloc] initWithBook:lastBook];

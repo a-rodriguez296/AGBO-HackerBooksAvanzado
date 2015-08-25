@@ -6,5 +6,8 @@
 
 +(instancetype) createBookTagWithBook:(ARFBook *) book tag:(ARFTag *) tag;
 
++(NSFetchedResultsController *) createFRCForTable;
+
++(ARFBookTag *) retrieveLastSelectedBookTag;
 
 @end

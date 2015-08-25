@@ -10,6 +10,7 @@
 #import "ARFBookCell.h"
 #import "ARFBook.h"
 #import "ARFTag.h"
+#import "ARFBookTag.h"
 #import "ARFBooksViewController+Utils.h"
 #import "ARFPredicates.h"
 #import "ARFBookViewController.h"
@@ -37,8 +38,10 @@
     [self setTitle:@"Hacker Books"];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFBookCell class])  bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
+    
+    
     //Select last Book
-    //[self selectLastBook];
+    [self selectLastBook];
     
     //Create SearchBar
     [self createSearchBarController];
@@ -62,16 +65,11 @@
 #pragma mark Utils
 -(void) selectLastBook{
     
-    //Selección de la última celda visitada
-    NSInteger lastObjectRow = [[[NSUserDefaults standardUserDefaults] objectForKey:kObjectRow] integerValue];
-    ARFTag *lastTag = [ARFTag retrieveLastSelectedTag];
-    if (!lastTag) {
-        lastTag = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:kFirstRow inSection:kFirstSection]];
+    ARFBookTag *bookTag = [ARFBookTag retrieveLastSelectedBookTag];
+    if (bookTag) {
+        NSIndexPath *lastSelectedSection =[self.fetchedResultsController indexPathForObject:bookTag];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastSelectedSection.row inSection:lastSelectedSection.section] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
-    
-    NSIndexPath *lastSelectedSection =[self.fetchedResultsController indexPathForObject:lastTag];
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastObjectRow inSection:lastSelectedSection.section] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    
 }
 
 -(void) createSearchBarController{

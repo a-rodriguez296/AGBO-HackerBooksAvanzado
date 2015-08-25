@@ -50,14 +50,13 @@
 
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    ARFTag *tag = [self.fetchedResultsController fetchedObjects][indexPath.section];
-    ARFBook *book = [tag.books allObjects][indexPath.row];
+    ARFBookTag *bookTag = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     //Guardar item selecionado
-    [[NSUserDefaults standardUserDefaults] setValue:[ARFCoreDataUtils createDataWithEntity:tag] forKey:kObjectID];
-    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithUnsignedInteger:indexPath.row] forKey:kObjectRow];
+    [[NSUserDefaults standardUserDefaults] setValue:[ARFCoreDataUtils createDataWithEntity:bookTag] forKey:kObjectID];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    ARFBook *book = bookTag.book;
     [self.delegate booksViewController:self didSelectBook:book];
     
     //Se envía la notificación indicando que se cambio de libro
