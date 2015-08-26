@@ -24,6 +24,7 @@
     
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[ARFBookTag entityName]];
     [req setSortDescriptors:@[
+                              [NSSortDescriptor sortDescriptorWithKey:@"tag.proxyForSorting" ascending:YES selector:@selector(compare:)],
                               [NSSortDescriptor sortDescriptorWithKey:@"tag.tagName" ascending:YES selector:@selector(compare:)],
                               [NSSortDescriptor sortDescriptorWithKey:@"book.title" ascending:YES selector:@selector(compare:)]]];
     return [[NSFetchedResultsController alloc] initWithFetchRequest:req managedObjectContext:[ARFCoreDataUtils defaultContext] sectionNameKeyPath:@"tag.tagName" cacheName:nil];

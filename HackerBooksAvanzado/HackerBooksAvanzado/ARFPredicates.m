@@ -17,7 +17,7 @@
 }
 
 +(NSPredicate *) favoriteBooksPredicate{
-    return [NSPredicate predicateWithFormat:@"%K == %i",ARFBookAttributes.favorite,YES];
+    return nil;// [NSPredicate predicateWithFormat:@"%K == %i",ARFBookAttributes.favorite,YES];
 }
 
 
