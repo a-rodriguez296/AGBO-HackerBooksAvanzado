@@ -30,12 +30,6 @@
     //Setup Core Data Stack
     self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     
-    
-    //Start Autosave
-    [self autoSave];
-    
-    
-    
     //Verificación si hay data en core data
     
     
@@ -56,6 +50,10 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    //Start Autosave
+    [self autoSave];
     
     return YES;
 }

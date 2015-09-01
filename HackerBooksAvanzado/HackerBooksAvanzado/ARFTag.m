@@ -30,7 +30,18 @@
 
 +(instancetype) favoriteTag{
     
-    return [ARFTag uniqueObjectWithValue:kFavoriteTag forKey:ARFTagAttributes.tagName inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
+    
+    
+    ARFTag *tag = [ARFTag uniqueObjectWithValue:kFavoriteTag forKey:ARFTagAttributes.tagName inManagedObjectContext:[ARFCoreDataUtils defaultContext]];
+    
+    if ([tag.tagName isEqualToString:kFavoriteTag]) {
+        [tag setProxyForSorting:[NSString stringWithFormat:@"__%@", tag.tagName]];
+    }
+    else{
+        [tag setProxyForSorting:tag.tagName];
+    }
+    
+    return tag;
     
 }
 

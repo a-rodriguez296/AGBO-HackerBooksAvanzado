@@ -65,11 +65,14 @@
 #pragma mark Utils
 -(void) selectLastBook{
     
-    ARFBookTag *bookTag = [ARFBookTag retrieveLastSelectedBookTag];
-    if (bookTag) {
-        NSIndexPath *lastSelectedSection =[self.fetchedResultsController indexPathForObject:bookTag];
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastSelectedSection.row inSection:lastSelectedSection.section] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:kObjectID]) {
+        ARFBookTag *bookTag = [ARFBookTag retrieveLastSelectedBookTag];
+        if (bookTag) {
+            NSIndexPath *lastSelectedSection =[self.fetchedResultsController indexPathForObject:bookTag];
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastSelectedSection.row inSection:lastSelectedSection.section] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        }
     }
+
 }
 
 -(void) createSearchBarController{

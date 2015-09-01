@@ -22,7 +22,7 @@ static NSString* const kObjectRow                     = @"objectRow";
 static NSString* const kObjectSection                 = @"objectSection";
 
 //Constante autoSave
-static const NSUInteger kAutoSave = 5;
+static const NSUInteger kAutoSave = 3;
 
 //Constantes BooksVC
 static const NSUInteger kFirstSection = 0;
